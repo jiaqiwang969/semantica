@@ -10,11 +10,11 @@
     "kind": "book",
     "stone": true,
     "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
-    "source_sha256": "b20dba1bb379c03d5d5875d1814517491442153b96359740b2590ee34d5938a3",
+    "source_sha256": "62bb2b2b16868027bb103b09013a38ae3c1dba56cfc7c192768de537be252319",
     "guide_anchor": "references/ontology-engineering-book/ch08-ontology-llm/README.md",
     "guide_sha256": "8388a078cf4b87d068cdf6950e12e747528dc1d2473fdc939125859758b01aa8",
     "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
-    "tex_sha256": "b20dba1bb379c03d5d5875d1814517491442153b96359740b2590ee34d5938a3"
+    "tex_sha256": "62bb2b2b16868027bb103b09013a38ae3c1dba56cfc7c192768de537be252319"
   },
   "status": "partial",
   "claims": [

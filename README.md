@@ -77,7 +77,7 @@ Semantica sits underneath your LLM, vector store, and agent framework as a deter
 
 ## What Semantica Gives You
 
-- **Book-grounded engineering ontology packages:** 29 chapter packages plus a normative domain package, with CQ/query/shape/case/rule assets, exact oracles, provenance receipts, governed evolution, maintained TeX-source hash gates, and one Python/CLI/MCP execution boundary ([integration guide](docs/guides/ontology-engineering-books.md))
+- **Book-grounded engineering ontology packages:** 29 chapter packages plus a normative domain package, with CQ/query/shape/case/rule assets, exact oracles, maintained TeX-source hash gates, and one Semantica execution boundary; the industry refinery binds every governed transition to an exact task/project context, executes candidates in the real runner, derives prior coverage from immutable base packages, closes deterministic provenance through promotion, and admits only verified reusable packages to the local registry ([integration guide](docs/guides/ontology-engineering-books.md))
 - **Context Graphs:** A structured, queryable graph of everything your agent knows, decides, and reasons about
 - **Decision Intelligence:** Every decision is a first-class object: traceable, searchable by precedent, and causally linked
 - **AI Governance & Ontology:** SHACL constraints, conflict detection, compliance rules, OWL generation, and SKOS vocabulary management with a visual editor
@@ -675,7 +675,12 @@ entry   = prov.get_provenance("acme_corp")
 <summary><b><code>semantica.ontology</code></b>: OWL Generation, SHACL Validation</summary>
 <a id="semanticaontology-owl-generation-shacl-validation"></a>
 
-Generate ontologies from data, validate shapes, and manage your vocabulary.
+Generate ontologies from data, validate shapes, and manage your vocabulary. For
+book-guided engineering refinement, `semantica.ontology.refinery/v1` is the
+executable control plane: the books specify the method, while Semantica owns the
+versioned package assets, transition contexts, execution, gates, provenance
+closures, and promoted industry registry. See the
+[integration guide](docs/guides/ontology-engineering-books.md).
 
 ```python
 from semantica.ontology import OntologyGenerator, OntologyValidator

@@ -130,7 +130,8 @@ Author: Semantica Contributors
 License: MIT
 """
 
-from typing import Any, Dict, List, Optional, Union
+from importlib import import_module
+from typing import Any
 
 from .associative_class import AssociativeClass, AssociativeClassBuilder
 from .class_inferrer import ClassInferrer
@@ -202,6 +203,7 @@ from .runtime import (
     ValidationReportDTO,
     ValidationViolationDTO,
 )
+
 # VersionManager and OntologyVersion moved to change_management module
 # Import them directly from there: from semantica.change_management import VersionManager, OntologyVersion
 from semantica.ingest import OntologyData, OntologyIngestor
@@ -289,6 +291,61 @@ __all__ = [
     "SemanticPackageAssetDTO",
     "ReleaseCheckDTO",
     "ReleaseVerdictDTO",
+    # Governed industry ontology refinement
+    "REFINERY_CONTRACT",
+    "REFINERY_SCHEMA_VERSION",
+    "REFINERY_STATES",
+    "TRANSITION_CONTEXT_ACTIONS",
+    "REGRESSION_REQUIRED_CHECK_IDS",
+    "RELEASE_REQUIRED_CHECK_IDS",
+    "INDUSTRY_REGISTRY_TARGET",
+    "SEMANTIC_PACKAGE_RUNNER_CONTRACT",
+    "PACKAGE_ASSET_CATEGORIES",
+    "PACKAGE_DELTA_CATEGORIES",
+    "BOOK_IMPACTS",
+    "CASE_KINDS",
+    "EMPTY_PACKAGE_SHA256",
+    "SemanticTaskEnvelope",
+    "TransitionContextDTO",
+    "ProjectOntologyBinding",
+    "SemanticEngagementReceipt",
+    "PackageDelta",
+    "PackageAssetDeltaDTO",
+    "SourceEvidenceDTO",
+    "RuntimeSourceIdentityDTO",
+    "EngagementPhaseDTO",
+    "ExecutionReceiptReferenceDTO",
+    "LearningResultDTO",
+    "RefineryAuthorizationDTO",
+    "AssetDecisionDTO",
+    "GateCheckDTO",
+    "RefineryGateEvidenceDTO",
+    "ProvenanceScenarioBindingDTO",
+    "ProvenanceClosureDTO",
+    "CandidateVerificationDTO",
+    "SubjectScenarioRunDTO",
+    "SubjectExecutionSuiteDTO",
+    "RefineryStateDTO",
+    "IndustryPackageDescriptorDTO",
+    "IndustryOntologyRegistry",
+    "OntologyRefineryError",
+    "RefineryInputError",
+    "RefineryGateError",
+    "RefineryStateError",
+    "RefineryWorkspaceError",
+    "RefineryWorkspaceExistsError",
+    "IndustryPackageNotFoundError",
+    "IndustryPackageVersionExistsError",
+    "refinery_capabilities",
+    "build_refinery_acceptance_delta",
+    "open_engagement",
+    "propose_candidate",
+    "commit_candidate",
+    "execute_candidate",
+    "derive_gate_evidence",
+    "verify_candidate",
+    "promote_candidate",
+    "history",
     # Configuration
     "OntologyConfig",
     "ontology_config",
@@ -296,3 +353,71 @@ __all__ = [
     "OntologyData",
     "OntologyIngestor",
 ]
+
+
+_REFINERY_EXPORTS = frozenset(
+    {
+        "REFINERY_CONTRACT",
+        "REFINERY_SCHEMA_VERSION",
+        "REFINERY_STATES",
+        "TRANSITION_CONTEXT_ACTIONS",
+        "REGRESSION_REQUIRED_CHECK_IDS",
+        "RELEASE_REQUIRED_CHECK_IDS",
+        "INDUSTRY_REGISTRY_TARGET",
+        "SEMANTIC_PACKAGE_RUNNER_CONTRACT",
+        "PACKAGE_ASSET_CATEGORIES",
+        "PACKAGE_DELTA_CATEGORIES",
+        "BOOK_IMPACTS",
+        "CASE_KINDS",
+        "EMPTY_PACKAGE_SHA256",
+        "SemanticTaskEnvelope",
+        "TransitionContextDTO",
+        "ProjectOntologyBinding",
+        "SemanticEngagementReceipt",
+        "PackageDelta",
+        "PackageAssetDeltaDTO",
+        "SourceEvidenceDTO",
+        "RuntimeSourceIdentityDTO",
+        "EngagementPhaseDTO",
+        "ExecutionReceiptReferenceDTO",
+        "LearningResultDTO",
+        "RefineryAuthorizationDTO",
+        "AssetDecisionDTO",
+        "GateCheckDTO",
+        "RefineryGateEvidenceDTO",
+        "ProvenanceScenarioBindingDTO",
+        "ProvenanceClosureDTO",
+        "CandidateVerificationDTO",
+        "SubjectScenarioRunDTO",
+        "SubjectExecutionSuiteDTO",
+        "RefineryStateDTO",
+        "IndustryPackageDescriptorDTO",
+        "IndustryOntologyRegistry",
+        "OntologyRefineryError",
+        "RefineryInputError",
+        "RefineryGateError",
+        "RefineryStateError",
+        "RefineryWorkspaceError",
+        "RefineryWorkspaceExistsError",
+        "IndustryPackageNotFoundError",
+        "IndustryPackageVersionExistsError",
+        "refinery_capabilities",
+        "build_refinery_acceptance_delta",
+        "open_engagement",
+        "propose_candidate",
+        "commit_candidate",
+        "execute_candidate",
+        "derive_gate_evidence",
+        "verify_candidate",
+        "promote_candidate",
+        "history",
+    }
+)
+
+
+def __getattr__(name: str) -> Any:
+    """Load the refinery lazily so its standalone ``python -m`` CLI is clean."""
+
+    if name in _REFINERY_EXPORTS:
+        return getattr(import_module(".refinery", __name__), name)
+    raise AttributeError("module {!r} has no attribute {!r}".format(__name__, name))

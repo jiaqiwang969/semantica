@@ -10,11 +10,11 @@
     "kind": "book",
     "stone": true,
     "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
-    "source_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7",
+    "source_sha256": "7da40dc5f838244f32cabed9760f5bd3317e51a1c25e57a514a7369dc5121474",
     "guide_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/README.md",
     "guide_sha256": "2869381e2e735d33933fee62d84505797e71c9219293c5519b00d181663cf11e",
     "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
-    "tex_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7"
+    "tex_sha256": "7da40dc5f838244f32cabed9760f5bd3317e51a1c25e57a514a7369dc5121474"
   },
   "status": "partial",
   "claims": [

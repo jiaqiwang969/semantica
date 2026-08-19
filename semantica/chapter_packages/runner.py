@@ -43,6 +43,7 @@ from . import (
     get_chapter_package,
     get_domain_package,
     list_chapter_packages,
+    list_domain_packages,
 )
 
 RUNNER_CONTRACT = "semantica.chapter_packages.SemanticPackageRunner/v1"
@@ -322,6 +323,71 @@ class SemanticPackageRunner:
             runtime_version=runtime_version,
             created_at=created_at,
         )
+
+    def run_registry(
+        self,
+        registry: Any,
+        package_id: str,
+        scenario_id: Optional[str] = None,
+        *,
+        version: Optional[str] = None,
+        runtime_commit: Optional[str] = None,
+        runtime_artifact_sha256: Optional[str] = None,
+        runtime_version: Optional[str] = None,
+        created_at: Optional[str] = None,
+    ) -> SemanticPackageRunResultDTO:
+        """Run one promoted industry package through registry-backed discovery.
+
+        The registry is re-resolved on every invocation.  It reconstructs its
+        immutable promotion ledger and rebuilds an in-memory manifest from the
+        committed manifest, strict execution projection, and verified CAS
+        objects; this method never scans or accepts a package path.
+        """
+
+        from semantica.ontology.refinery import IndustryOntologyRegistry
+
+        if not isinstance(registry, IndustryOntologyRegistry):
+            raise TypeError("registry must be an IndustryOntologyRegistry")
+        reserved = {
+            item.package_id
+            for item in (*list_chapter_packages(), *list_domain_packages())
+        }
+        if str(package_id) in reserved:
+            raise ValueError(
+                "industry registry package_id collides with a built-in package"
+            )
+        descriptor = registry.resolve_package(package_id, version=version)
+        manifest = registry.execution_manifest(
+            descriptor.package_id, version=descriptor.version
+        )
+        result = self.run_manifest(
+            manifest,
+            scenario_id,
+            runtime_commit=runtime_commit,
+            runtime_artifact_sha256=runtime_artifact_sha256,
+            runtime_version=runtime_version,
+            created_at=created_at,
+        )
+        if (
+            result.package_id != descriptor.package_id
+            or result.package_version != descriptor.version
+        ):
+            raise ValueError(
+                "registry subject identity differs from the executed projection"
+            )
+        expected_assets = {
+            str(item.get("asset_id")): str(item.get("sha256"))
+            for item in manifest.get("assets", [])
+            if isinstance(item, Mapping)
+        }
+        if (
+            result.receipt is None
+            or dict(result.receipt.asset_hashes) != expected_assets
+        ):
+            raise ValueError(
+                "registry subject assets differ from the executed projection"
+            )
+        return result
 
     def run_manifest(
         self,

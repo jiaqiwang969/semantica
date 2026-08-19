@@ -12,11 +12,11 @@
       "kind": "book",
       "stone": true,
       "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
-      "source_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7",
+      "source_sha256": "7da40dc5f838244f32cabed9760f5bd3317e51a1c25e57a514a7369dc5121474",
       "guide_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/README.md",
       "guide_sha256": "2869381e2e735d33933fee62d84505797e71c9219293c5519b00d181663cf11e",
       "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
-      "tex_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7"
+      "tex_sha256": "7da40dc5f838244f32cabed9760f5bd3317e51a1c25e57a514a7369dc5121474"
     }
   },
   "status": "partial",
@@ -94,7 +94,7 @@
       "path": "contract.yaml",
       "role": "chapter_contract",
       "format": "yaml",
-      "sha256": "f227173563eaea5acbcfb83a4c3e80202ced5a8e560861cd61b61f4015540ec9",
+      "sha256": "d7ee6ad8810ab1e63fbdf9fb45d60ca792033d3ce36be508fd2e317106b16564",
       "source_anchor": "contracts/vol1/ch09.yaml",
       "source_sha256": "5e89389eda73d8a07911f2d8304d9286dd3750ed59ef340fceed5e7d161919dc",
       "derivation": "migrated_authoritative_contract"

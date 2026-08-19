@@ -11,6 +11,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Semantica-native industry ontology refinery (`semantica.ontology.refinery/v1`)**
+  - Adds typed task, ordered project-binding, engagement-receipt, eight-family package-delta, per-mutation authorisation, subject-execution-suite, derived gate-evidence, candidate-verification, transition-context, and provenance-closure contracts.
+  - Runs committed candidates through real `SemanticPackageRunner` scenarios, retains full result/native-receipt/PROV objects in CAS, and derives fixed six-check regression and release gates from actual CQ IDs and case I/O.
+  - Requires an exact current task/project `TransitionContextDTO` for each governed write, retains it in CAS, binds it into lifecycle events and provenance, and rejects retry contexts that differ from the immutable proposal or release event; `actor_id` never substitutes for decision authority.
+  - Derives non-bootstrap prior CQ and case requirements from the immutable base descriptor/manifest/projection objects, so target-labelled replacement assets cannot forge prior-release coverage.
+  - Builds deterministic execution/regression/release/promotion provenance closures over source evidence, candidate/binding/engagement objects, package projections, ordered contexts, runtime identity, scenario I/O, runner results, native receipts, and PROV bundles.
+  - Enforces strict ordered verification: release evidence can be derived only after a recorded regression result, and restart-safe `verify_candidate` replays immutable CAS evidence rather than accepting caller-supplied success.
+  - Exposes `build_refinery_acceptance_delta` as a Semantica-owned complete eight-family fixture for adapter and installed-wheel acceptance tests.
+  - Governs ontology, CQ, SHACL shapes, queries, rules, four case classes, strict execution contract, provenance, and explicit book impact through a content-addressed immutable registry.
+  - Adds registry-backed `SemanticPackageRunner.run_registry` discovery for promoted industry packages, including restart-safe execution and built-in/industry package-ID collision rejection.
+  - Enforces the fail-closed `candidate → proposed → committed → regression_passed → release_complete → promoted` lifecycle; promotion is explicitly authorised and never implies external publication.
+
 - **First-class CrewAI integration** (#962)
   - New `pip install semantica[crewai]` extra (`crewai>=0.80.0`) — crewai core provides `BaseTool`/`BaseKnowledgeSource`, so `crewai-tools` is intentionally not included, and the extra is intentionally **not** part of the `all` bundle: crewai hard-requires `chromadb~=1.1.0`, which is affected by the unpatched pre-auth code-injection CVE-2026-45829 (see `integrations/crewai/README.md`)
   - `integrations/crewai/SemanticaKGTool` — a CrewAI `BaseTool` exposing 5 KG actions (`extract_entities`, `extract_relations`, `add_to_graph`, `query_graph`, `find_related`) backed by `NERExtractor` / `RelationExtractor` / `ContextGraph`; supports both sync `run()` and async `arun()`

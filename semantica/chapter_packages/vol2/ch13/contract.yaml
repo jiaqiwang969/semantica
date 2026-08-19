@@ -12,24 +12,24 @@
   "mirror_chapter": "oe.vol2.ch03",
   "book_source": {
     "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/chapter.md",
-    "sha256": "d0e0610bd4f8b9710fe936affcb854836d31ce299ab9e10243bb35ad33f07ca4",
+    "sha256": "a2a696112d4bf9181c9c9325736cadd32c45d1762b9df7f094bd4790ae05faff",
     "title": "工程治理本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/README.md",
     "guide_sha256": "175d08c65c140d4330891260a4f3cdd820d6e96c2b070b38a20a5e2831df55b1",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch13.tex",
-    "tex_sha256": "10d4170e0c6d5d6362784fbab83acbd7cd7f597363eb9a19af4e3b93b50a214f"
+    "tex_sha256": "c99cdbf32ed1d7dc2cda344b21eaae7a484de091d501211797498621ca113f7a"
   },
   "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/chapter.md",
   "external_specification": {
     "kind": "book",
     "stone": true,
     "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/chapter.md",
-    "source_sha256": "d0e0610bd4f8b9710fe936affcb854836d31ce299ab9e10243bb35ad33f07ca4",
+    "source_sha256": "a2a696112d4bf9181c9c9325736cadd32c45d1762b9df7f094bd4790ae05faff",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/README.md",
     "guide_sha256": "175d08c65c140d4330891260a4f3cdd820d6e96c2b070b38a20a5e2831df55b1",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch13.tex",
-    "tex_sha256": "10d4170e0c6d5d6362784fbab83acbd7cd7f597363eb9a19af4e3b93b50a214f"
+    "tex_sha256": "c99cdbf32ed1d7dc2cda344b21eaae7a484de091d501211797498621ca113f7a"
   },
   "status": "partial",
   "claims": [

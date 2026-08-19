@@ -1,3 +1,17 @@
+# Semantica 0.6.5+oe.2 Release Notes
+
+- Introduces `semantica.ontology.refinery/v1`, the typed native control plane for reusable industry-ontology refinement.
+- Adds complete eight-family `PackageDelta` handling, strict execution projections, real candidate execution suites, and an immutable CAS-backed industry package registry.
+- Requires exact single-action task/project transition contexts, stores them in CAS, and rejects retries that do not match the immutable proposal or completed-release contexts.
+- Derives fixed regression/release gates from full Semantica runner results and native receipts in strict order; callers cannot admit a package with supplied green booleans.
+- Derives prior CQ/case coverage from immutable base package objects rather than trusting target labels.
+- Carries deterministic provenance closures from source evidence and candidate identity through scenario I/O, native receipts/PROV, gate derivation, release, and promotion.
+- Adds restart-safe `SemanticPackageRunner.run_registry` execution for promoted packages while keeping built-in and industry package identities disjoint.
+- Adds a public Semantica-owned complete acceptance delta for strict adapter and installed-wheel end-to-end verification.
+- Requires exact source hashes and explicit decision-authority approval before promotion; publication remains external.
+
+---
+
 # Semantica 0.5.0 Release Notes
 
 ## 🎉 Major Release: Distance Intelligence & Ontology Hub Complete

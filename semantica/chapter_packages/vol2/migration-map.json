@@ -105,7 +105,7 @@
       "old_sha256": "0fef11e053e7dbee2f8604f73df24c4d7767b8c3d89fa608b99076efb1e671f1",
       "new_package": "semantica.chapter_packages.vol2.ch13",
       "new_asset_id": "chapter-contract",
-      "new_sha256": "8f91c383903f20fcc0df9595b621733cc88ef2933ddb9bea879b8bcfa1c2cb87",
+      "new_sha256": "e1d8864ccf707079ee28872f648647130383ce3bd1cb9b123357d84381ade1a4",
       "relation": "authoritative_successor"
     },
     {
@@ -137,7 +137,7 @@
       "old_sha256": "3d03a34143fecbc96302b39001681f803917a54706a145559e74b02b8b361e43",
       "new_package": "semantica.chapter_packages.vol2.ch17",
       "new_asset_id": "chapter-contract",
-      "new_sha256": "9369e0e9463f5704fb8a91aa9f3b0cd34c2541bed8c61283ae916d5e4588e345",
+      "new_sha256": "007b321214ff1e4e7205e4a6f7e877806e9690213c6cefb8e4ba14fc3f2c8a9f",
       "relation": "authoritative_successor"
     },
     {
@@ -161,7 +161,7 @@
       "old_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca",
       "new_package": "semantica.chapter_packages.vol2.ch20",
       "new_asset_id": "chapter-contract",
-      "new_sha256": "b45f98d891f35a65af27022b7a477f462faae9b7f930645dfb2ef2a45b280da7",
+      "new_sha256": "f75b3ad0200f956da4ada4dd5e9285b23e0b1d1555185f6d4d584525aefd4867",
       "relation": "authoritative_successor"
     },
     {
