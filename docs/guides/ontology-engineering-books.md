@@ -1,16 +1,44 @@
+[English (canonical)](ontology-engineering-books.md) | [简体中文](ontology-engineering-books.zh-CN.md)
+
 # Book-grounded engineering ontology packages
 
-This fork integrates the executable semantics derived from the two-volume
-Chinese book set 《工程本体论》 and 《产品可信工程》 directly into Semantica.
-The books remain the external specification. Semantica owns the executable
-ontologies, competency questions, SPARQL, SHACL, cases, supported rules,
-version snapshots, provenance, receipts, and release verification.
+This is the canonical guide for the OntologyEngineering integration included in
+this fork at Semantica version `0.6.5+oe.3`. The fork integrates executable
+semantics derived from the two-volume Chinese book set 《工程本体论》 and
+《产品可信工程》 directly into Semantica.
+
+**Start with the books:** [Chinese reader guide and PDFs](https://github.com/jiaqiwang969/OntologyEngineering)
+· [English overview](https://github.com/jiaqiwang969/OntologyEngineering/blob/main/README.en.md)
+
+## Why this integration matters
+
+The books give engineers a readable way to learn ontology-engineering methods
+and follow an ISO-oriented derivation. Semantica lets teams apply the reusable
+parts as deterministic, inspectable packages in real engineering workflows.
+Keeping those roles separate makes the method approachable to people while
+keeping execution, evidence, and governance auditable by machines and reviewers.
+
+## Responsibility boundary
+
+- The books are the external, human-readable method and ISO-oriented derivation
+  layer. They are neither a project fact source nor an executable runtime.
+- Semantica is the sole executable semantics. It owns the executable ontologies,
+  competency questions, SPARQL, SHACL, cases, supported rules, version snapshots,
+  provenance, receipts, and release verification.
+- Project tools and controlled records supply project facts and native evidence.
+  Passing a semantic check does not accept those facts or expand tool authority.
+- Authorized people decide conflicts, removals, risk, compliance, promotion,
+  rights, and publication. No execution result or gate grants that authority.
 
 There is no secondary ontology runtime and no fallback to book-local assets.
 Unsupported SWRL built-ins, description-logic profiles, or incomplete chapter
 contracts return `blocked`; they are never reported as successful.
 
 ## Package inventory
+
+Semantica `0.6.5+oe.3` contains 29 chapter packages (9 for Vol.1 and 20 for
+Vol.2) plus one normative domain package. This inventory is not a claim that
+the packages are release-complete.
 
 ```python
 from semantica.chapter_packages import (
@@ -80,8 +108,8 @@ package is a compatibility view of that adapter, not a second implementation.
 guides, maintained TeX sources or generated TeX snapshots, the matching
 chapter contracts, and every package asset declared as derived from that chapter. A
 missing file or any hash drift blocks the command. The book repository's
-`scripts/rebind_semantica_books.py` is the explicit reviewed release step for
-refreshing those bindings after an intentional book edit; runtime execution
+`scripts/rebind_semantica_books.py` is the explicit, reviewed binding-refresh
+step after an intentional book edit; runtime execution
 never rewrites or falls back to book-local semantics.
 
 ## Migration provenance and book builds
@@ -94,7 +122,9 @@ paths preserve every candidate; unknown paths remain unresolved.
 The packaged assets do not include controlled ISO originals. The normative
 engraver accepts an explicit, lawfully controlled source root and an explicit
 book root, emits only coordinates/modalities/released glosses and hashes, and
-preflights the complete output before atomic publication.
+preflights the complete output before atomically replacing the generated
+artifact set. That build operation is not external publication or a rights
+decision.
 
 ## Industry refinery: fast engagement loop and slow truth loop
 

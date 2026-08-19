@@ -77,7 +77,7 @@ Semantica sits underneath your LLM, vector store, and agent framework as a deter
 
 ## What Semantica Gives You
 
-- **Book-grounded engineering ontology packages:** 29 chapter packages plus a normative domain package, with CQ/query/shape/case/rule assets, exact oracles, maintained TeX-source hash gates, and one Semantica execution boundary; the industry refinery binds every governed transition to an exact task/project context, executes candidates in the real runner, derives prior coverage from immutable base packages, closes deterministic provenance through promotion, and admits only verified reusable packages to the local registry ([integration guide](docs/guides/ontology-engineering-books.md))
+- **Engineering ontology, from readable method to auditable execution:** Learn with the [two-volume OntologyEngineering book set](https://github.com/jiaqiwang969/OntologyEngineering), then carry reusable semantic checks into real engineering workflows with Semantica ([English](docs/guides/ontology-engineering-books.md) · [简体中文](docs/guides/ontology-engineering-books.zh-CN.md))
 - **Context Graphs:** A structured, queryable graph of everything your agent knows, decides, and reasons about
 - **Decision Intelligence:** Every decision is a first-class object: traceable, searchable by precedent, and causally linked
 - **AI Governance & Ontology:** SHACL constraints, conflict detection, compliance rules, OWL generation, and SKOS vocabulary management with a visual editor
@@ -675,12 +675,7 @@ entry   = prov.get_provenance("acme_corp")
 <summary><b><code>semantica.ontology</code></b>: OWL Generation, SHACL Validation</summary>
 <a id="semanticaontology-owl-generation-shacl-validation"></a>
 
-Generate ontologies from data, validate shapes, and manage your vocabulary. For
-book-guided engineering refinement, `semantica.ontology.refinery/v1` is the
-executable control plane: the books specify the method, while Semantica owns the
-versioned package assets, transition contexts, execution, gates, provenance
-closures, and promoted industry registry. See the
-[integration guide](docs/guides/ontology-engineering-books.md).
+Generate ontologies from data, validate shapes, and manage your vocabulary.
 
 ```python
 from semantica.ontology import OntologyGenerator, OntologyValidator
@@ -1193,6 +1188,10 @@ Start with `semantica`, verify with `doctor`, build a graph, and explore the com
 ## Integrations
 
 Native plugin bundles for Claude Code, Cursor, Codex, Windsurf, Cline, Continue, VS Code, and OpenClaw; a full-featured MCP server for any MCP-compatible client; a comprehensive REST API; and first-class Agno and CrewAI support for agentic frameworks. Every major LLM provider is already supported via `semantica.llms` and LiteLLM: OpenAI, Anthropic, Gemini, Mistral, Llama, Groq, Cohere, Azure, Bedrock, Ollama, DeepSeek, HuggingFace, and more.
+
+Using Semantica with the two-volume OntologyEngineering book set? Start with the
+integration guide: [English](docs/guides/ontology-engineering-books.md) ·
+[简体中文](docs/guides/ontology-engineering-books.zh-CN.md).
 
 MCP setup takes 30 seconds — see [MCP Server](#mcp-server) below.
 
