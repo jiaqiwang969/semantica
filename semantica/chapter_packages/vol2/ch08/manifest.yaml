@@ -12,7 +12,7 @@
     "title": "ASIL 分解与依赖失效分析",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/README.md",
-    "guide_sha256": "dfdaf9fb44794db9c33ecedde8f4753f414b37e51ce10cfabab771d824049927",
+    "guide_sha256": "2512557f7fa3a00e5ecf71a5d41c082212d107212653f9012a89d9bc2590ae68",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch08.tex",
     "tex_sha256": "5023e233063f34a9406d7d932c009f0542106a3cb4f994680b45ff453b16dc4b"
   },
@@ -40,7 +40,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "87f52f898b1266c4d119a8971a4f43e8c2c647e85cb8d03cdca716b43a64d6d9",
+      "sha256": "bbd940d0c0bf0c485b55a5e7b65a6d6d151f6e65c66bebd4e0eb759b9933885b",
       "source_anchor": "ontology-engineering/contracts/vol2/ch08.yaml",
       "source_sha256": "902e24202c5d9a4de4eb336e0c432999e4c26872f650d4b9261360721f884b81"
     },

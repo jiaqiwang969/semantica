@@ -12,7 +12,7 @@
     "title": "产品数字线程本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch19-field-ontology/README.md",
-    "guide_sha256": "4dcf3f343264372f8e6f5bd0916dc2c2769b54fd1bc0afb10777727978e5e0d2",
+    "guide_sha256": "d08d92fa770520b91c1f21cfddc1371e5512fdcec9a1fea12d5ae34bb60d7fee",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch19.tex",
     "tex_sha256": "0cdbb89e409429c37f4fa80aaf11bf6c66c8d24949bb471b3bb6267e7e3761b0"
   },
@@ -75,7 +75,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "f83ac8ff61044224e5e2fac4419d449369eef0c85245bf0dc1fc375ee72d738e",
+      "sha256": "4e4ac223c9fd6d45ad5a5d2893a50197f1ed61b65c3030f53ae442d55cdd99a7",
       "source_anchor": "ontology-engineering/contracts/vol2/ch19.yaml",
       "source_sha256": "bf81fc516aba86b286bf276c8dc6275431f7bdef494a0c115b1de5a075734c73"
     },

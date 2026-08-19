@@ -10,11 +10,11 @@
     "kind": "book",
     "stone": true,
     "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
-    "source_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8",
+    "source_sha256": "dd0876c6c21c4c34379373b9447591d41b2d177fcc1e94b0c93080b8904f374d",
     "guide_anchor": "references/ontology-engineering-book/ch04-ontology-languages/README.md",
-    "guide_sha256": "c85661755759a46920d0eb8b59375a9bde18359d114605c785589cb07c25c949",
+    "guide_sha256": "7bbc01a1935fb760bae0f60379b914dfcec57bffa92ecc4cfeac2b1dba3433fd",
     "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
-    "tex_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8"
+    "tex_sha256": "dd0876c6c21c4c34379373b9447591d41b2d177fcc1e94b0c93080b8904f374d"
   },
   "status": "partial",
   "claims": [

@@ -12,7 +12,7 @@
     "title": "配置与变化本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch17-change-ontology/README.md",
-    "guide_sha256": "722bc22c3486cd1c1233e0000631b8e90f09985891ad569df93d7c047d0df30f",
+    "guide_sha256": "1abbe42181780b0d7ae06d5ba36b32088b5eeb4d11f42b9f6509e567a199372f",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch17.tex",
     "tex_sha256": "34f64ea5f80299bcee6fa95a14d86051dd72620a7ad1412f1e6527d22c674ad8"
   },
@@ -75,7 +75,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "007b321214ff1e4e7205e4a6f7e877806e9690213c6cefb8e4ba14fc3f2c8a9f",
+      "sha256": "849a63795a8e9cde633ff86a1b5fabf47a2027e1f83047fc389981e934318128",
       "source_anchor": "ontology-engineering/contracts/vol2/ch17.yaml",
       "source_sha256": "3d03a34143fecbc96302b39001681f803917a54706a145559e74b02b8b361e43"
     },

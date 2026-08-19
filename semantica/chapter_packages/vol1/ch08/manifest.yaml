@@ -12,11 +12,11 @@
       "kind": "book",
       "stone": true,
       "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
-      "source_sha256": "62bb2b2b16868027bb103b09013a38ae3c1dba56cfc7c192768de537be252319",
+      "source_sha256": "3737e3ed08689d2343ce0fc388a23e50f33120fa26e0cc86d978d6d35a1b67a3",
       "guide_anchor": "references/ontology-engineering-book/ch08-ontology-llm/README.md",
-      "guide_sha256": "8388a078cf4b87d068cdf6950e12e747528dc1d2473fdc939125859758b01aa8",
+      "guide_sha256": "20dec2d7e4028ccd14d268af19f58dab6d7f6c375300fb5aa95bf672f4432886",
       "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
-      "tex_sha256": "62bb2b2b16868027bb103b09013a38ae3c1dba56cfc7c192768de537be252319"
+      "tex_sha256": "3737e3ed08689d2343ce0fc388a23e50f33120fa26e0cc86d978d6d35a1b67a3"
     }
   },
   "status": "partial",
@@ -94,7 +94,7 @@
       "path": "contract.yaml",
       "role": "chapter_contract",
       "format": "yaml",
-      "sha256": "14e1c937d2d1aa8fcdfe1155276b8fa705672465ba4e4762a517558f6fc605ab",
+      "sha256": "8c80f730ec1d816cfdcdb78d702eab569af46760af05b4c88d5516d89a41fbb4",
       "source_anchor": "contracts/vol1/ch08.yaml",
       "source_sha256": "4d72d688aef3060674bdbcfee49f871e57bcaddba37b816cb9bae5681157e782",
       "derivation": "migrated_authoritative_contract"

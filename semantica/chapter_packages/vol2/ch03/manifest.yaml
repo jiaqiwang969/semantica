@@ -12,7 +12,7 @@
     "title": "安全管理：谁有权说可以相信",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/README.md",
-    "guide_sha256": "e25b027bd8e62b125d84f15fb605f32e364bcfc3d3f8d57859fbbe7b6b006195",
+    "guide_sha256": "9cc80d667be503ed3c6053e5728d62c32ed0d0eeef974a386cda60978384f36d",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch03.tex",
     "tex_sha256": "6d30bcc178ae2521ae26eae46f30854e9bf6c1dc03fb4e118f2b7768bd75a4bd"
   },
@@ -73,7 +73,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "0c30a998c635125c1fe01c43e6372cd7da1292910cacf339d4a490f388a7f104",
+      "sha256": "6b6f4f257aefa04b8c963f52a3b99d66fc2662db06bd97260683bdb4230ad3f1",
       "source_anchor": "ontology-engineering/contracts/vol2/ch03.yaml",
       "source_sha256": "d627e3b60afdaa81bf1c47c2c501f00cbae4194cbd171c0c1285ab91e0ab84a3"
     },

@@ -12,7 +12,7 @@
     "title": "硬件级产品开发",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch06-hardware-development/README.md",
-    "guide_sha256": "c9b91bf3bf9459277578614061a695cb5cf54124a339d20f3e780545f80fb375",
+    "guide_sha256": "eb722325a6342f1ff751a68a44de58d8ff6139fc9fe1b3572539654488cbf51c",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch06.tex",
     "tex_sha256": "5443f19029ba211921d02c38a64b8a9850138842b35832659462f6f3d3a844e8"
   },
@@ -46,7 +46,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "692e653dc8513d7b164adf86065055c0193f74cfb332d8d0b015285a44ee5101",
+      "sha256": "3c51f676ec9f21c636bece68627247201da5f780d6c8424d951ac65198c4ffc1",
       "source_anchor": "ontology-engineering/contracts/vol2/ch06.yaml",
       "source_sha256": "0b6381f65d1142eb94b181db117b5fa40f35d7a3b7d47433c042406003ee122d"
     },

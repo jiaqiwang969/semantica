@@ -12,7 +12,7 @@
     "title": "工程治理本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch13-governance-ontology/README.md",
-    "guide_sha256": "175d08c65c140d4330891260a4f3cdd820d6e96c2b070b38a20a5e2831df55b1",
+    "guide_sha256": "5ec5557a31362d3172a28c2d1973e3b53c90036004d6df86958556bc65e2991e",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch13.tex",
     "tex_sha256": "c99cdbf32ed1d7dc2cda344b21eaae7a484de091d501211797498621ca113f7a"
   },
@@ -63,7 +63,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "e1d8864ccf707079ee28872f648647130383ce3bd1cb9b123357d84381ade1a4",
+      "sha256": "7980e27a2acf3628b782b9624a77c27f36b701074af19da7a6491461c128e3fe",
       "source_anchor": "ontology-engineering/contracts/vol2/ch13.yaml",
       "source_sha256": "0fef11e053e7dbee2f8604f73df24c4d7767b8c3d89fa608b99076efb1e671f1"
     },

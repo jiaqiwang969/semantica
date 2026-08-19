@@ -12,7 +12,7 @@
     "title": "为什么全绿不等于产品可信",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch01-introduction/README.md",
-    "guide_sha256": "8f3732d947b3286afc23dc81ed1097218fd517351f3f624234d12181c1128f5a",
+    "guide_sha256": "456bae832b8b99cdc6cfe753487e50dbb287f5d574d451ea9fa5cb8fa8f571b6",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch01.tex",
     "tex_sha256": "c9e3b51f8b068e34dcaf71a57790f4473e795a80016df5b1d630fbaa4d19cdcd"
   },
@@ -62,7 +62,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "91aa0ede963deab21a0abc68494ffd56c60e02302adbc288c7042f3722215794",
+      "sha256": "cef2d45ce30575abac0563fa722bf475fbb4fb461ee821e47df54e7d941bdc93",
       "source_anchor": "ontology-engineering/contracts/vol2/ch01.yaml",
       "source_sha256": "da13adc052ac85a84e91414adbc1ab212723b3dbd1e9f96de2a02795375d2a06"
     },

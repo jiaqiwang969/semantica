@@ -14,7 +14,7 @@
       "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
       "source_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c",
       "guide_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/README.md",
-      "guide_sha256": "d63dddff4bef232aa70fc8b03054c7db05b184c8dd5420914ba21f47c55dc812",
+      "guide_sha256": "d126043105c6d15c00ead22d532de177a49e51fc095666984074b3069d1f5cba",
       "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
       "tex_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c"
     }
@@ -92,7 +92,7 @@
       "path": "contract.yaml",
       "role": "chapter_contract",
       "format": "yaml",
-      "sha256": "42016b6275868c672d0b9aa004d793e5019814378ec97b4d864a9cf22d6501a2",
+      "sha256": "a84d53ad2770180bf58a9f2b57076f588c49fe1773a08214e9101275f47b7863",
       "source_anchor": "contracts/vol1/ch02.yaml",
       "source_sha256": "d1f22d0cf0c14ab6790cf891de18756f60a7812f0d5a3591b333550afeca022b",
       "derivation": "migrated_authoritative_contract"

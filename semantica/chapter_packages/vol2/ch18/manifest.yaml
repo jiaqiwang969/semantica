@@ -12,7 +12,7 @@
     "title": "依赖与韧性本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch18-dependency-ontology/README.md",
-    "guide_sha256": "66a186780fee02e423099fc850fe66fc4328902d6cde2c7c98017b9ba78ca971",
+    "guide_sha256": "6f7ea3148be4cf4ada70a91704156b67d3611a8685be9daf9a4d9e624fb5d9f9",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch18.tex",
     "tex_sha256": "9726caf1d1653101639c15079ca255b4d42bdd79f099b6cff69facf1009880a6"
   },
@@ -51,7 +51,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "bc21885bc91fd0a77ca4520dc4b49bcae3f6b45090a724ee8feeabf41ed52856",
+      "sha256": "9e0abd3bdb09ebf82b7b2d6d8eb6a6d97295903f7e62c41865ae3a770edcff27",
       "source_anchor": "ontology-engineering/contracts/vol2/ch18.yaml",
       "source_sha256": "8b5b8a907889c2486de67a3c50c5c3d1ce032798d0ad65b6fdbbbecbcc6d3fba"
     },

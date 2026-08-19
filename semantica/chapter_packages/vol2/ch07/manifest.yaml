@@ -12,7 +12,7 @@
     "title": "软件级产品开发",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/README.md",
-    "guide_sha256": "dbe5f99416e8f63d9793b31173a79c60f22b58d8c28293164fc13bdc24abe2bf",
+    "guide_sha256": "dfe2888546eb93f7c3b9f7c0cea2eacb53abc30e0576f6f923bf9ea44ea90ef1",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch07.tex",
     "tex_sha256": "4cd678ca39a0358ef9339ea24635f2bc7e60d77fa891c078c3e68cf7b4b9faac"
   },
@@ -74,7 +74,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "4e4f226c9af727b2db4abf1cfe7776620a76f038f0fd624b81cee3ef7489b07d",
+      "sha256": "fe6f58453746128f04787a4502a95fa8a88a52ed75e7d801e0b99a225bf55cac",
       "source_anchor": "ontology-engineering/contracts/vol2/ch07.yaml",
       "source_sha256": "49a3b7548ecb82abaa801ca4fdef95ca245f5c09d127f188d83dfdfe0c84e372"
     },

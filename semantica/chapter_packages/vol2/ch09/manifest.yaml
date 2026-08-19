@@ -12,7 +12,7 @@
     "title": "生产、运行、服务与退役",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/README.md",
-    "guide_sha256": "9c1f50e299deaaebeccc0c6044e9f1733bfbcaacfabc49ad9147ad319b26a8d1",
+    "guide_sha256": "c5db823dc8b3fef8f85b550edc3904adf3a2c0b7bd2db4b0464b95b944847338",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch09.tex",
     "tex_sha256": "294aa797055fc1f4792f5ea63ee27bed14b5c8df9cae75910408adc29785d39c"
   },
@@ -58,7 +58,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "0d269f1eb3c554169a0e33a111c3a4d5bdc71377c5af480e033506afac716828",
+      "sha256": "af4c56e8661b2485d44581281516b9110b2fe90b75619d7c2b4e822440a5ed4f",
       "source_anchor": "ontology-engineering/contracts/vol2/ch09.yaml",
       "source_sha256": "34476ca16cb147ee5ac27c3fd56cc594839b5dd023e15ba3124d884011e75e64"
     },

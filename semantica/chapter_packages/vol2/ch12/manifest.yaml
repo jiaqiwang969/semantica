@@ -12,7 +12,7 @@
     "title": "工程对象与同一本体",
     "copy_policy": "external_book_stone_not_embedded",
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch12-identity-ontology/README.md",
-    "guide_sha256": "f07e27a1b2e03aba121f69ef6229896e4c79b324828823b6a1e672062b7b9c31",
+    "guide_sha256": "ab3f95f9de6345cba142eef8efb8b2e8158396ef5df733d2db7366bc5d420735",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch12.tex",
     "tex_sha256": "8445434cbd478e9b8ac7a36acd581d5465d359642dbe2620b5b9a48911dacdd5"
   },
@@ -63,7 +63,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "c4a50d6c69031e9d6f9de35ab8b1e8e84c5b8adeaf311782ac01a3d8b15e4de2",
+      "sha256": "35d5d1992bf92ecc6ab82c276eaa432494d1c0fc68795fad8a6bc73a63e4cee2",
       "source_anchor": "ontology-engineering/contracts/vol2/ch12.yaml",
       "source_sha256": "efe5637e0c1563da36ab8e76cea3bfce5e76493846f878cb96a145927010934c"
     },
