@@ -113,7 +113,7 @@
       "old_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c",
       "new_package": "semantica.chapter_packages.vol2.ch14",
       "new_asset_id": "chapter-contract",
-      "new_sha256": "2c80cb0b76c60212061611cb74db40df44eef88ea2a1e27fe28ec2e1684de8c8",
+      "new_sha256": "612a6b9495c572cb68472e4c5681fd1cec6378bee208450487aedeca444b9b3d",
       "relation": "authoritative_successor"
     },
     {
@@ -161,7 +161,7 @@
       "old_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca",
       "new_package": "semantica.chapter_packages.vol2.ch20",
       "new_asset_id": "chapter-contract",
-      "new_sha256": "a92dc9bea6b8f319f67cced5f8817b385693ff56fd21ed585b73c075a7f85391",
+      "new_sha256": "295305d58b30cadfbe8ba04146275070b67115f61e46aa7e95b685d364e8f919",
       "relation": "authoritative_successor"
     },
     {

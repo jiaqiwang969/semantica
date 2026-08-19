@@ -14,7 +14,7 @@
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/README.md",
     "guide_sha256": "8cfa2b2afffd297e495571db2adc800d6c538653e88bc97cb76f8b201826470c",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch14.tex",
-    "tex_sha256": "aa3392a30f9e2dd5ba861a480eb78d67334102a8e8e444ae11570c65b3641c34"
+    "tex_sha256": "8002a92e0df5c621613a86e1e454acd83014890de0e99b39732ee1f82bb083aa"
   },
   "release_status": "blocked",
   "gap_asset": "migration-gaps",
@@ -38,7 +38,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "2c80cb0b76c60212061611cb74db40df44eef88ea2a1e27fe28ec2e1684de8c8",
+      "sha256": "612a6b9495c572cb68472e4c5681fd1cec6378bee208450487aedeca444b9b3d",
       "source_anchor": "ontology-engineering/contracts/vol2/ch14.yaml",
       "source_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c"
     },

@@ -14,7 +14,7 @@
     "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/README.md",
     "guide_sha256": "5ad8b197aeffb8c08b3f08a16c94b25af313cd4f90f3facfeec2251cc19343d8",
     "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch20.tex",
-    "tex_sha256": "57d915b17efa38002ff423083844d3bb355ada248ad42c9f338f75abdc98c540"
+    "tex_sha256": "de0be3640ccb8913eb3c947782567e96758bdb17c9bd937b8bdec268ed0b37b8"
   },
   "release_status": "blocked",
   "gap_asset": "migration-gaps",
@@ -38,7 +38,7 @@
       "asset_id": "chapter-contract",
       "role": "chapter_contract",
       "path": "contract.yaml",
-      "sha256": "a92dc9bea6b8f319f67cced5f8817b385693ff56fd21ed585b73c075a7f85391",
+      "sha256": "295305d58b30cadfbe8ba04146275070b67115f61e46aa7e95b685d364e8f919",
       "source_anchor": "ontology-engineering/contracts/vol2/ch20.yaml",
       "source_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca"
     },

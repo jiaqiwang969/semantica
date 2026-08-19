@@ -1,4 +1,4 @@
-# Semantica 0.6.5+oe.2 Release Notes
+# Semantica 0.6.5+oe.3 Release Notes
 
 - Introduces `semantica.ontology.refinery/v1`, the typed native control plane for reusable industry-ontology refinement.
 - Adds complete eight-family `PackageDelta` handling, strict execution projections, real candidate execution suites, and an immutable CAS-backed industry package registry.
