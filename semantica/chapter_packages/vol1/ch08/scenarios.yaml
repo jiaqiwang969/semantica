@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch08",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH08-SCN-GUARDRAIL-001",
+      "status": "adapter",
+      "execution": {
+        "provider": "legacy_book_case_reference",
+        "operation": "propose_validate_execute_audit",
+        "runner_status": "blocked_unsupported_operation_contract"
+      },
+      "inputs": [
+        "ontology-guided-agent"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH08-ORC-001",
+        "status": "ready_reference_only",
+        "verdicts": [
+          {
+            "request": "把3号车床转入维护",
+            "expected": "APPROVED"
+          },
+          {
+            "request": "让7号铣床直接开工",
+            "expected": "REJECTED"
+          },
+          {
+            "request": "给幻影设备派活",
+            "expected": "REJECTED"
+          }
+        ]
+      }
+    }
+  ]
+}

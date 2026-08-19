@@ -1,0 +1,80 @@
+# 知识图谱投影适配与查询对照
+# KG Projection Adapters: Triple Stores vs Property Graphs
+#
+# 两类可重建投影：RDF三元组库（W3C标准栈）与属性图数据库
+# Semantica package/runtime/receipt 始终是唯一可执行语义正本
+
+# ==============================
+# 1. 两种数据模型
+# ==============================
+# RDF三元组模型：
+#   (mfg:Lathe_003, mfg:locatedIn, mfg:WorkCell_A)
+#   一切皆三元组；边本身不带属性
+#   （边属性需具名图或RDF-star：<<:s :p :o>> :since "2026-01" ）
+
+# 属性图模型（Labeled Property Graph）：
+#   节点 (:Equipment {name:'Lathe_003', power:15.5})
+#   边   [:LOCATED_IN {since:'2026-01'}]
+#   节点和边都可携带属性
+
+# ==============================
+# 2. 同一查询的两种写法
+# ==============================
+# 需求：找出A区所有空闲设备的名称与功率
+
+# SPARQL（三元组库）：
+#   PREFIX mfg: <http://example.org/manufacturing#>
+#   SELECT ?name ?power WHERE {
+#       ?e  rdf:type/rdfs:subClassOf* mfg:Equipment ;
+#           mfg:hasStatus  mfg:Idle ;
+#           mfg:locatedIn  mfg:WorkCell_A ;
+#           mfg:hasName    ?name ;
+#           mfg:hasPower   ?power .
+#   }
+
+# Cypher（Neo4j）：
+#   MATCH (e:Equipment {status:'Idle'})-[:LOCATED_IN]->(w:WorkCell {name:'A'})
+#   RETURN e.name, e.power
+
+# 多跳查询对照（产品P001延期影响哪些订单）：
+#   SPARQL:  ?o mfg:contains ?w . ?w mfg:produces mfg:P001 .  （写明每跳）
+#   Cypher:  MATCH (p:Product {id:'P001'})<-[:PRODUCES]-(:WorkOrder)
+#            <-[:CONTAINS]-(o:Order) RETURN o
+#   变长路径：SPARQL用属性路径 mfg:precedes+ ；Cypher用 [:PRECEDES*1..5]
+
+# ==============================
+# 3. 投影 adapter 选型决策表
+# ==============================
+# 维度              三元组库投影              属性图投影
+# ----------------  --------------------------  --------------------------
+# 语义交换保真      RDF/OWL/SHACL保真度高       需显式映射公理与闭包
+# 标准化            SPARQL/W3C，adapter易替换     Cypher/GQL方言仍有差异
+# 边属性            具名图/RDF-star表达         原生支持
+# 图算法            较弱                        强（路径/社区/中心性）
+# 联邦查询          SERVICE关键字原生支持        通常需插件
+# 团队上手          需RDF知识                   开发者友好
+
+# 投影选型经验：
+#   标准 RDF 查询与交换优先 → 从 Semantica receipt 生成只读三元组库投影
+#   路径分析/图算法密集（如供应链追溯）→ 生成只读属性图投影
+#   两头都重 → 从同一绑定 snapshot 生成两类投影；两者都不得反向成为权威层
+
+# ==============================
+# 4. 只读投影 adapter 合同（Fuseki 等实现同理）
+# ==============================
+# 输入：Semantica 已验收的 package digest、Dataset snapshot 与 receipt
+# 生成：确定性全量投影或内容绑定的增量投影
+# 端点：只暴露 SELECT/ASK/CONSTRUCT；UPDATE/LOAD/CLEAR/DROP 禁用
+# 推理：外部物化结果仅是候选输出，必须回 Semantica 重验才能支撑主张
+# 收据：绑定 package/snapshot/adapter 版本与配置、query hash、result hash
+# 变更：任何 mutation 先形成候选 delta，交回 Semantica 重绑定、重验证并签发新 receipt
+
+# ==============================
+# 5. 投影具名图组织策略
+# ==============================
+# 按来源分图：graph <http://example.org/graph/ledger>   台账
+#             graph <http://example.org/graph/mes>      MES
+#             graph <http://example.org/graph/extracted> 文本抽取（低可信）
+# 按时间分图：graph <http://example.org/graph/20260321>  快照（见第5章时态）
+# 价值：来源可信度查询、按图丢弃/重建、抽取数据隔离审计
+# 边界：具名图不是 package 正本；回滚权威内容须由 Semantica 提交反向 delta 并生成新 receipt

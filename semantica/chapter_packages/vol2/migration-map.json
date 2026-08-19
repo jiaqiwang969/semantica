@@ -1,0 +1,854 @@
+{
+  "schema_version": "1.0",
+  "volume": "vol2",
+  "source_repository_end_state": "books_only",
+  "mapping_count": 103,
+  "mappings": [
+    {
+      "old_path": "contracts/vol2/ch01.yaml",
+      "old_sha256": "da13adc052ac85a84e91414adbc1ab212723b3dbd1e9f96de2a02795375d2a06",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "91aa0ede963deab21a0abc68494ffd56c60e02302adbc288c7042f3722215794",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch02.yaml",
+      "old_sha256": "0690a2203ed8fdc06cb7eeecfce05512ccc329bfe9415f55206a8a7e812e2599",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "116144c081bd235300238afe6526eed6107adf6c25fb001100766904d1e767bd",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch03.yaml",
+      "old_sha256": "d627e3b60afdaa81bf1c47c2c501f00cbae4194cbd171c0c1285ab91e0ab84a3",
+      "new_package": "semantica.chapter_packages.vol2.ch03",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "0c30a998c635125c1fe01c43e6372cd7da1292910cacf339d4a490f388a7f104",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch04.yaml",
+      "old_sha256": "5f4adad25298496e08b7a34b035447f17a6ed9f47cdd2e54369f98b02312eaf3",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "70ddaad50d6b786d52ad687fa734381724777e6acb6dddf40750f1b13f876d5b",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch05.yaml",
+      "old_sha256": "00f6a3a057336b9576c4e43ca329355c7499eeaad19dc858be601c4614bcf8a6",
+      "new_package": "semantica.chapter_packages.vol2.ch05",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "ba1e34a54cdb7961217b2a694da306936fa6cbafc4f00bf15e3703f4804da2e0",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch06.yaml",
+      "old_sha256": "0b6381f65d1142eb94b181db117b5fa40f35d7a3b7d47433c042406003ee122d",
+      "new_package": "semantica.chapter_packages.vol2.ch06",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "692e653dc8513d7b164adf86065055c0193f74cfb332d8d0b015285a44ee5101",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch07.yaml",
+      "old_sha256": "49a3b7548ecb82abaa801ca4fdef95ca245f5c09d127f188d83dfdfe0c84e372",
+      "new_package": "semantica.chapter_packages.vol2.ch07",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "4e4f226c9af727b2db4abf1cfe7776620a76f038f0fd624b81cee3ef7489b07d",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch08.yaml",
+      "old_sha256": "902e24202c5d9a4de4eb336e0c432999e4c26872f650d4b9261360721f884b81",
+      "new_package": "semantica.chapter_packages.vol2.ch08",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "87f52f898b1266c4d119a8971a4f43e8c2c647e85cb8d03cdca716b43a64d6d9",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch09.yaml",
+      "old_sha256": "34476ca16cb147ee5ac27c3fd56cc594839b5dd023e15ba3124d884011e75e64",
+      "new_package": "semantica.chapter_packages.vol2.ch09",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "0d269f1eb3c554169a0e33a111c3a4d5bdc71377c5af480e033506afac716828",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch10.yaml",
+      "old_sha256": "6aa602399a6b9ebbf38e76e75c09ca6413d60fa49113a34fac0c500067190f01",
+      "new_package": "semantica.chapter_packages.vol2.ch10",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "e99e14810bc5dc253191cf066013439f3204a3681b2d694091c9f881d38c6de3",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch11.yaml",
+      "old_sha256": "2c0449908b6c5f0b9427ba2e6ab83712074d198b3027a158fee6352909f60479",
+      "new_package": "semantica.chapter_packages.vol2.ch11",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "ef9e41ce2fca5a19db079849d093f038ad3678a47a522192645c31e38212a3bf",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch12.yaml",
+      "old_sha256": "efe5637e0c1563da36ab8e76cea3bfce5e76493846f878cb96a145927010934c",
+      "new_package": "semantica.chapter_packages.vol2.ch12",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "c4a50d6c69031e9d6f9de35ab8b1e8e84c5b8adeaf311782ac01a3d8b15e4de2",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch13.yaml",
+      "old_sha256": "0fef11e053e7dbee2f8604f73df24c4d7767b8c3d89fa608b99076efb1e671f1",
+      "new_package": "semantica.chapter_packages.vol2.ch13",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "8f91c383903f20fcc0df9595b621733cc88ef2933ddb9bea879b8bcfa1c2cb87",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch14.yaml",
+      "old_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c",
+      "new_package": "semantica.chapter_packages.vol2.ch14",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "b183d496c94bd4a8647e154d31cb6565e6d917cc8e714a0f7a71ed8e1d77792f",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch15.yaml",
+      "old_sha256": "3f1c7ac033c6bf806218864b214dc08f4538ff742fe5184faf1f6988e191aa74",
+      "new_package": "semantica.chapter_packages.vol2.ch15",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "8947f183bdd782a99440e4b2a480c5287bc57cef0ba2d41927075796e6314d20",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch16.yaml",
+      "old_sha256": "769ba67e3cf73bd66d4b6bf484cbfc869f4f5f8176da680b0b09508739e5ceac",
+      "new_package": "semantica.chapter_packages.vol2.ch16",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "502b1cbae0faf62030e4780f5721a535e4544a76ccb8702aa95ec817f5f00669",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch17.yaml",
+      "old_sha256": "3d03a34143fecbc96302b39001681f803917a54706a145559e74b02b8b361e43",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "9369e0e9463f5704fb8a91aa9f3b0cd34c2541bed8c61283ae916d5e4588e345",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch18.yaml",
+      "old_sha256": "8b5b8a907889c2486de67a3c50c5c3d1ce032798d0ad65b6fdbbbecbcc6d3fba",
+      "new_package": "semantica.chapter_packages.vol2.ch18",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "bc21885bc91fd0a77ca4520dc4b49bcae3f6b45090a724ee8feeabf41ed52856",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch19.yaml",
+      "old_sha256": "bf81fc516aba86b286bf276c8dc6275431f7bdef494a0c115b1de5a075734c73",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "f83ac8ff61044224e5e2fac4419d449369eef0c85245bf0dc1fc375ee72d738e",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "contracts/vol2/ch20.yaml",
+      "old_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "chapter-contract",
+      "new_sha256": "b45f98d891f35a65af27022b7a477f462faae9b7f930645dfb2ef2a45b280da7",
+      "relation": "authoritative_successor"
+    },
+    {
+      "old_path": "demos/fixtures/ch12_bridge_bad.ttl",
+      "old_sha256": "d93cf8db98075b09ff43c044f91bad7e683e7eeb16fc952c6b5fbf7cd6564ed8",
+      "new_package": "semantica.chapter_packages.vol2.ch12",
+      "new_asset_id": "ch12_bridge_bad",
+      "new_sha256": "d93cf8db98075b09ff43c044f91bad7e683e7eeb16fc952c6b5fbf7cd6564ed8",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch12_bridge_good.ttl",
+      "old_sha256": "466f4222eb81abb68441e0fc20f18bf226205cfdd2b7443430afa1a7c22b68eb",
+      "new_package": "semantica.chapter_packages.vol2.ch12",
+      "new_asset_id": "ch12_bridge_good",
+      "new_sha256": "466f4222eb81abb68441e0fc20f18bf226205cfdd2b7443430afa1a7c22b68eb",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch13_activation_bad.ttl",
+      "old_sha256": "236897c180555e3134bd821f0a95863fb7c053a1af0fc22364ca3ab8305521da",
+      "new_package": "semantica.chapter_packages.vol2.ch13",
+      "new_asset_id": "ch13_activation_bad",
+      "new_sha256": "236897c180555e3134bd821f0a95863fb7c053a1af0fc22364ca3ab8305521da",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch13_governance.ttl",
+      "old_sha256": "8b8f190c53396b9ee94a38b57acba9f6ea0727fc5864355f338cc7b81423cc8d",
+      "new_package": "semantica.chapter_packages.vol2.ch13",
+      "new_asset_id": "ch13_governance",
+      "new_sha256": "8b8f190c53396b9ee94a38b57acba9f6ea0727fc5864355f338cc7b81423cc8d",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch15_traceability.ttl",
+      "old_sha256": "ff9b8d002f0c1c7cbe6efdb7fcbbf271f92441ea9228844a38ef600f2a497885",
+      "new_package": "semantica.chapter_packages.vol2.ch15",
+      "new_asset_id": "ch15_traceability",
+      "new_sha256": "ff9b8d002f0c1c7cbe6efdb7fcbbf271f92441ea9228844a38ef600f2a497885",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch17_change.ttl",
+      "old_sha256": "c8905a56c6c151a128788fc88d3451f5bded9538858450864a80559f9e980ad8",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "ch17_change",
+      "new_sha256": "c8905a56c6c151a128788fc88d3451f5bded9538858450864a80559f9e980ad8",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch17_verdicts_bad.ttl",
+      "old_sha256": "232338bc74199597649f1678d8c4959ea2a468d086214d5881f97172cc2ebe92",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "ch17_verdicts_bad",
+      "new_sha256": "232338bc74199597649f1678d8c4959ea2a468d086214d5881f97172cc2ebe92",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch17_verdicts_good.ttl",
+      "old_sha256": "fc40d1ed9d95f24b7f83706f8bf974bbe96d25882b1ad1100de41c912a547695",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "ch17_verdicts_good",
+      "new_sha256": "fc40d1ed9d95f24b7f83706f8bf974bbe96d25882b1ad1100de41c912a547695",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch18_dependency.ttl",
+      "old_sha256": "ba604abd2e54254ae9837e43f7eafec5f18f1533683cdb551657edf9141789d6",
+      "new_package": "semantica.chapter_packages.vol2.ch18",
+      "new_asset_id": "ch18_dependency",
+      "new_sha256": "ba604abd2e54254ae9837e43f7eafec5f18f1533683cdb551657edf9141789d6",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch19_ledger.ttl",
+      "old_sha256": "62ca313ffcd64111657aa91d3240176f2dee2c7c0ab21a30d03e40efa6024fac",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "ch19_ledger",
+      "new_sha256": "62ca313ffcd64111657aa91d3240176f2dee2c7c0ab21a30d03e40efa6024fac",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch19_substitution_bad.ttl",
+      "old_sha256": "8a46a4dd9253c5b18e5aa6eba9f13d687f8353a3a3cc24afa4608c7760df4043",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "ch19_substitution_bad",
+      "new_sha256": "8a46a4dd9253c5b18e5aa6eba9f13d687f8353a3a3cc24afa4608c7760df4043",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/fixtures/ch19_substitution_good.ttl",
+      "old_sha256": "a00c50b53a43b9c5254a9f3a5ab57dfb0c7cd4ac764bea3aa579f0a1ca544e6a",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "ch19_substitution_good",
+      "new_sha256": "a00c50b53a43b9c5254a9f3a5ab57dfb0c7cd4ac764bea3aa579f0a1ca544e6a",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "demos/vol2_ch12_identity_bridge.py",
+      "old_sha256": "c434b09b4d87c6121052909d3673e1811672a57f3c9eacce347d3b573a177bc8",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch12",
+      "new_asset_id": "demo_vol2_ch12_identity_bridge_query",
+      "new_sha256": "7cb5e24a960c87a506b33f217c234923ec6537d7e18fe9cd00bbd9f7560f0c1a",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch12_identity_bridge.py",
+      "old_sha256": "c434b09b4d87c6121052909d3673e1811672a57f3c9eacce347d3b573a177bc8",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch12",
+      "new_asset_id": "demo_vol2_ch12_identity_bridge_shapes",
+      "new_sha256": "dc5b6c9a3e354eff4d117fe67e83616bc4b8dcf92da4ecb377c9fa25ba98e386",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch13_governance_distance.py",
+      "old_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch13",
+      "new_asset_id": "demo_vol2_ch13_governance_distance_query",
+      "new_sha256": "a3cd0eb6844821e44ccfbfdaa2b4d6a398be1a9fb0634a538721905a43738dbf",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch13_governance_distance.py",
+      "old_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch13",
+      "new_asset_id": "demo_vol2_ch13_governance_distance_shapes",
+      "new_sha256": "0e1f9a3d5e3c5678d992a4e0dd48d505a2ef4b0d6901eaca569d089444672fd8",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch15_reopen_list.py",
+      "old_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch15",
+      "new_asset_id": "demo_vol2_ch15_reopen_list_query",
+      "new_sha256": "e4d499e72e5dda2db9f16b513fff3bae5449dd60e477767b5ddc6588b8e91d11",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch15_reopen_list.py",
+      "old_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch15",
+      "new_asset_id": "demo_vol2_ch15_reopen_list_shapes",
+      "new_sha256": "2a606978c23ad0a04394919e1837d96a3cb3e18c22c88d0a874012183d292369",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch17_change_verdict_gate.py",
+      "old_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "demo_vol2_ch17_change_verdict_gate_query",
+      "new_sha256": "c42f4bcb3a27664cf98dbd351cac08355e10e44de6230eee05ea44f67a35fc6d",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch17_change_verdict_gate.py",
+      "old_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch17",
+      "new_asset_id": "demo_vol2_ch17_change_verdict_gate_shapes",
+      "new_sha256": "6a8fdf33c506e67fac14bb5c526d74edd1fe1ffa93bcb1ffbba2c271fefa6757",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch18_independence_meet.py",
+      "old_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch18",
+      "new_asset_id": "demo_vol2_ch18_independence_meet_query",
+      "new_sha256": "17571f676f181421e30a1342490f4dba9a6187c03883e99b939d988a8a668eab",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch18_independence_meet.py",
+      "old_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch18",
+      "new_asset_id": "demo_vol2_ch18_independence_meet_shapes",
+      "new_sha256": "6179ce8103ca20c7a33a8d9db150dff0c375e0d51a56955b3351a0989892ab11",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch19_substitution_gate.py",
+      "old_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "demo_vol2_ch19_substitution_gate_query",
+      "new_sha256": "e7a5fe6494f70612e7eade75bd967d0d61acd9a7328e06bb43cb735efe6a963b",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_ch19_substitution_gate.py",
+      "old_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch19",
+      "new_asset_id": "demo_vol2_ch19_substitution_gate_shapes",
+      "new_sha256": "cd5de4042d0be9097e99e36b01f15ef2e4bff48fce6b05bf83c3615e7e74a457",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_claim_gate_corroborate.py",
+      "old_sha256": "6a32448d84b5cf258499e7dc23ddc212975c8e02477001d924bea7ae90b2a114",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch11",
+      "new_asset_id": "demo_vol2_claim_gate_corroborate_query",
+      "new_sha256": "391f73a4cc6530c91ceb6080ee134489623f41c25adf863cfa54f857aa50da28",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_claim_gate_corroborate.py",
+      "old_sha256": "6a32448d84b5cf258499e7dc23ddc212975c8e02477001d924bea7ae90b2a114",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch11",
+      "new_asset_id": "demo_vol2_claim_gate_corroborate_shapes",
+      "new_sha256": "aabd2fec9b952014bf466b3e68d405adcff19b0224710bcacca0267ab5229c44",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_hara_asil_corroborate.py",
+      "old_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch14",
+      "new_asset_id": "demo_vol2_hara_asil_corroborate_query",
+      "new_sha256": "1d65df41cc284fb7af40c03f39c94c704fcd609503baf7d352f587b6c6582013",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_hara_asil_corroborate.py",
+      "old_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch14",
+      "new_asset_id": "demo_vol2_hara_asil_corroborate_shapes",
+      "new_sha256": "7c0d8600ff11c56339f8a27cfaf7434de031e1aa3dbbc7477cd573b455c3d7c9",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_iso_normative_query.py",
+      "old_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85",
+      "source_fragment": "source-grounded modality CQ",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "demo_vol2_iso_normative_query_query",
+      "new_sha256": "1e4513224890a7beb103d6b9305c83d687bd6ed22a2c04be3054179d02e20d7f",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_iso_normative_query.py",
+      "old_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85",
+      "source_fragment": "DISCIPLINE SHACL constant",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "demo_vol2_iso_normative_query_shapes",
+      "new_sha256": "caf0058dac7852021b825f783c35fbf730b1334d7c2b367897e7e9f5df8c1299",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_metrics_recompute.py",
+      "old_sha256": "c7e9e8757e046e0ed4bd613ee59dee77b79bcdaaf0437d8bf5394e339c78c2ea",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch16",
+      "new_asset_id": "demo_vol2_metrics_recompute_query",
+      "new_sha256": "4be015075d4ada5792ca2180c0a355290ce3089fb21cca1bae7f13c873a43b58",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_metrics_recompute.py",
+      "old_sha256": "c7e9e8757e046e0ed4bd613ee59dee77b79bcdaaf0437d8bf5394e339c78c2ea",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch16",
+      "new_asset_id": "demo_vol2_metrics_recompute_shapes",
+      "new_sha256": "32d591e2ae6f566f3d04167024d70b34248dc2261af14047ed5a655f460ec820",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_release_binding_gate.py",
+      "old_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769",
+      "source_fragment": "primary SPARQL CQ",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "demo_vol2_release_binding_gate_query",
+      "new_sha256": "56de68077be68c0202c6cf42dee9abcdc83909fdeff4a0deea59dbfa449e208c",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "demos/vol2_release_binding_gate.py",
+      "old_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769",
+      "source_fragment": "SHACL gate",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "demo_vol2_release_binding_gate_shapes",
+      "new_sha256": "b4e694c4cb01026bebbe60e5ddda40b7e13731975449e5dd29425519f7ec62dd",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/README.md",
+      "old_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "readme",
+      "new_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/glosses/part3-glosses.yaml",
+      "old_sha256": "d06ec8600a7753e5a52206678f5432c430451a25e92055f41272d12a147dff84",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "gloss-part3-glosses",
+      "new_sha256": "d06ec8600a7753e5a52206678f5432c430451a25e92055f41272d12a147dff84",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/glosses/teaching-cases.yaml",
+      "old_sha256": "58a78d7b09b5cbc30da2dd2e24bf5c691280f8dd0bf6f9b715cc2238607b0ddd",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "gloss-teaching-cases",
+      "new_sha256": "58a78d7b09b5cbc30da2dd2e24bf5c691280f8dd0bf6f9b715cc2238607b0ddd",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/normative-tbox.ttl",
+      "old_sha256": "c5c377747bc577cdbd77d5e2783f10c4ea00e8c3373159f9d6023e90284bb4d3",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "normative-tbox",
+      "new_sha256": "c5c377747bc577cdbd77d5e2783f10c4ea00e8c3373159f9d6023e90284bb4d3",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/part1-cards.md",
+      "old_sha256": "48bd75ba57ab2e57e394f746b9b8eda828f4906f486d1bde55734fcc8bc20c14",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "part1-cards",
+      "new_sha256": "48bd75ba57ab2e57e394f746b9b8eda828f4906f486d1bde55734fcc8bc20c14",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/part1-vocabulary.ttl",
+      "old_sha256": "87b8d8a728e66c335190007cc7186ee5a7ec392677da2d250131cdf482c7e1ab",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "part1-vocabulary",
+      "new_sha256": "87b8d8a728e66c335190007cc7186ee5a7ec392677da2d250131cdf482c7e1ab",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/part3-cards.md",
+      "old_sha256": "be050ecc9e8441b4da48e73b0581b9afe98116051a363d57b8dbdf7c5cf8023f",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "part3-cards",
+      "new_sha256": "be050ecc9e8441b4da48e73b0581b9afe98116051a363d57b8dbdf7c5cf8023f",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/part3-concept-phase.ttl",
+      "old_sha256": "e1a240c340509557a8f79fb418a6b85199852a599d84961136c8ea620d27e9a0",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "part3-concept-phase",
+      "new_sha256": "e1a240c340509557a8f79fb418a6b85199852a599d84961136c8ea620d27e9a0",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/iso-normative-ontology/teaching-cases.ttl",
+      "old_sha256": "0e7813477bd8e5366b46b092ae40a960cac24838af86887148bc5407799837c0",
+      "new_package": "semantica.chapter_packages.vol2.normative",
+      "new_asset_id": "teaching-cases",
+      "new_sha256": "0e7813477bd8e5366b46b092ae40a960cac24838af86887148bc5407799837c0",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch01-introduction/SOURCE-AUDIT.md",
+      "old_sha256": "710de60e521bdd43b9f352bc618edba4099c7358287f59739b0e5900c5de9b3b",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "source-audit",
+      "new_sha256": "710de60e521bdd43b9f352bc618edba4099c7358287f59739b0e5900c5de9b3b",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch01-introduction/examples/accidents-to-standard.txt",
+      "old_sha256": "2806e97deb6693402a8991298a8194efeea3dad2bad5cafc64a502ab2bde8bd2",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "book-example-accidents-to-standard-txt",
+      "new_sha256": "2806e97deb6693402a8991298a8194efeea3dad2bad5cafc64a502ab2bde8bd2",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch01-introduction/examples/book-roadmap.txt",
+      "old_sha256": "ae7c2d6e54ad79fbc33bac57dc5a6a312ddee298b472f7244aea061608cf1eee",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "book-example-book-roadmap-txt",
+      "new_sha256": "ae7c2d6e54ad79fbc33bac57dc5a6a312ddee298b472f7244aea061608cf1eee",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch01-introduction/examples/functional-safety-in-ai-era.txt",
+      "old_sha256": "8c2e8050ffca12df54f0691565b703b4b998b07e2f0cb515940f153f6714681a",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "book-example-functional-safety-in-ai-era-txt",
+      "new_sha256": "8c2e8050ffca12df54f0691565b703b4b998b07e2f0cb515940f153f6714681a",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch01-introduction/problem-contract.yaml",
+      "old_sha256": "dd3ce1412f0b10e7231990d3a03437682d733e575f7260baa6ea50f4860a3046",
+      "new_package": "semantica.chapter_packages.vol2.ch01",
+      "new_asset_id": "source-problem-contract",
+      "new_sha256": "dd3ce1412f0b10e7231990d3a03437682d733e575f7260baa6ea50f4860a3046",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch02-concepts-terminology/SOURCE-AUDIT.md",
+      "old_sha256": "391a36326952c308fa46c16fac1b23c4a02764e712e84f0f290c95998365333a",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "source-audit",
+      "new_sha256": "391a36326952c308fa46c16fac1b23c4a02764e712e84f0f290c95998365333a",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch02-concepts-terminology/examples/asil-explained.txt",
+      "old_sha256": "5c1999d8975f5999b61f416c331cdede8837199366611e05a76d7a738c1eb79a",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "book-example-asil-explained-txt",
+      "new_sha256": "5c1999d8975f5999b61f416c331cdede8837199366611e05a76d7a738c1eb79a",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch02-concepts-terminology/examples/core-terms.txt",
+      "old_sha256": "fd6f0c4ff2c4e184dc7f27362c8a16e716401e2445f934021536c3cfa5c93581",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "book-example-core-terms-txt",
+      "new_sha256": "fd6f0c4ff2c4e184dc7f27362c8a16e716401e2445f934021536c3cfa5c93581",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch02-concepts-terminology/examples/fault-error-failure.txt",
+      "old_sha256": "20afa7097f2863be7c3a4b02937f4d231c936f2a2ee869d1c9e379e4c6233d64",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "book-example-fault-error-failure-txt",
+      "new_sha256": "20afa7097f2863be7c3a4b02937f4d231c936f2a2ee869d1c9e379e4c6233d64",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch02-concepts-terminology/problem-contract.yaml",
+      "old_sha256": "d48aaaefffaf77d04cf42b75780b328158ed8bbe787c6ff00b21e9c0358f50dc",
+      "new_package": "semantica.chapter_packages.vol2.ch02",
+      "new_asset_id": "source-problem-contract",
+      "new_sha256": "d48aaaefffaf77d04cf42b75780b328158ed8bbe787c6ff00b21e9c0358f50dc",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch03-safety-management/examples/confirmation-measures.txt",
+      "old_sha256": "c94d16ebb31a29c868e684926f722f99e420c56dbc8844f238cf1fdd35d96368",
+      "new_package": "semantica.chapter_packages.vol2.ch03",
+      "new_asset_id": "book-example-confirmation-measures-txt",
+      "new_sha256": "c94d16ebb31a29c868e684926f722f99e420c56dbc8844f238cf1fdd35d96368",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch03-safety-management/examples/safety-case-skeleton.txt",
+      "old_sha256": "ab0015b07fb420bc882f8c2b706663116397a4936f4e9f0d2e216d77557966a5",
+      "new_package": "semantica.chapter_packages.vol2.ch03",
+      "new_asset_id": "book-example-safety-case-skeleton-txt",
+      "new_sha256": "ab0015b07fb420bc882f8c2b706663116397a4936f4e9f0d2e216d77557966a5",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch03-safety-management/examples/safety-culture.md",
+      "old_sha256": "b0d1502eb70ae5db32527e0fb5428b8a6601923a22037031a4048342dac01eea",
+      "new_package": "semantica.chapter_packages.vol2.ch03",
+      "new_asset_id": "book-example-safety-culture-md",
+      "new_sha256": "b0d1502eb70ae5db32527e0fb5428b8a6601923a22037031a4048342dac01eea",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch03-safety-management/examples/safety-plan-template.md",
+      "old_sha256": "c0934373919733dfdf20234ba279005cbfdf64e50247971fc8b93b21b96f85c9",
+      "new_package": "semantica.chapter_packages.vol2.ch03",
+      "new_asset_id": "book-example-safety-plan-template-md",
+      "new_sha256": "c0934373919733dfdf20234ba279005cbfdf64e50247971fc8b93b21b96f85c9",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/asil-determination.txt",
+      "old_sha256": "0aea586274ae651f2a7038bca961eb7bbeded1c43c515f3d79ab1240b2f21d23",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-asil-determination-txt",
+      "new_sha256": "0aea586274ae651f2a7038bca961eb7bbeded1c43c515f3d79ab1240b2f21d23",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/fsc-derivation.md",
+      "old_sha256": "ff0b7c043feea82f0e3ba0a6b56581714880febccdad8959fb501b2cd5bf55de",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-fsc-derivation-md",
+      "new_sha256": "ff0b7c043feea82f0e3ba0a6b56581714880febccdad8959fb501b2cd5bf55de",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/hara-casebook.md",
+      "old_sha256": "57db2527ef23c7964f9f21b578e33011514d285ff55d874125ab8cb82cccc26a",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-hara-casebook-md",
+      "new_sha256": "57db2527ef23c7964f9f21b578e33011514d285ff55d874125ab8cb82cccc26a",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/hara-worksheet.csv",
+      "old_sha256": "05a8db3d5e87b2eb9503f5ca6f8ceccf540fecea60c19b16ecb04c5f120fea42",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-hara-worksheet-csv",
+      "new_sha256": "05a8db3d5e87b2eb9503f5ca6f8ceccf540fecea60c19b16ecb04c5f120fea42",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/item-definition-eps.md",
+      "old_sha256": "3c1779d442fc35119d86979d2d1b88532bebf62425004f5aee4dc599afb49b65",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-item-definition-eps-md",
+      "new_sha256": "3c1779d442fc35119d86979d2d1b88532bebf62425004f5aee4dc599afb49b65",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/ontology-module-spec.md",
+      "old_sha256": "3eff54da8c6143aeadd299fe67ed4f72147eec7902205f98c9b6123bb2fd38de",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-ontology-module-spec-md",
+      "new_sha256": "3eff54da8c6143aeadd299fe67ed4f72147eec7902205f98c9b6123bb2fd38de",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/examples/safety-goals.md",
+      "old_sha256": "272420142150c7474fdf72297d7c914d094152af8676ef69c57164750c46d9a5",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "book-example-safety-goals-md",
+      "new_sha256": "272420142150c7474fdf72297d7c914d094152af8676ef69c57164750c46d9a5",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch04-concept-hara/problem-contract.yaml",
+      "old_sha256": "40ecc707bf0915e53ca69c5deac79b04142f91c675635cff375152a620dc3464",
+      "new_package": "semantica.chapter_packages.vol2.ch04",
+      "new_asset_id": "source-problem-contract",
+      "new_sha256": "40ecc707bf0915e53ca69c5deac79b04142f91c675635cff375152a620dc3464",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch05-system-development/examples/ftti-timing.md",
+      "old_sha256": "5b08d3cf043d28f8f8352d4c393ea4ab30367e23448013b320ef3a7e2cf9cc5e",
+      "new_package": "semantica.chapter_packages.vol2.ch05",
+      "new_asset_id": "book-example-ftti-timing-md",
+      "new_sha256": "5b08d3cf043d28f8f8352d4c393ea4ab30367e23448013b320ef3a7e2cf9cc5e",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch05-system-development/examples/integration-test-strategy.md",
+      "old_sha256": "466eef5a475fd9deba342ea73c15f97df3762f55a6e89bb48aa27e17100d3a6d",
+      "new_package": "semantica.chapter_packages.vol2.ch05",
+      "new_asset_id": "book-example-integration-test-strategy-md",
+      "new_sha256": "466eef5a475fd9deba342ea73c15f97df3762f55a6e89bb48aa27e17100d3a6d",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch05-system-development/examples/tsc-architecture-analysis.md",
+      "old_sha256": "223ca6ed680ff3b820b6d767312d7cadcaa7907b212eded7a231add110d7d4f1",
+      "new_package": "semantica.chapter_packages.vol2.ch05",
+      "new_asset_id": "book-example-tsc-architecture-analysis-md",
+      "new_sha256": "223ca6ed680ff3b820b6d767312d7cadcaa7907b212eded7a231add110d7d4f1",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch06-hardware-development/examples/metrics-walkthrough.md",
+      "old_sha256": "1b7974a750e80f803f8416b9dcfea561f35076a03aef0da29045597c95c2ba25",
+      "new_package": "semantica.chapter_packages.vol2.ch06",
+      "new_asset_id": "book-example-metrics-walkthrough-md",
+      "new_sha256": "1b7974a750e80f803f8416b9dcfea561f35076a03aef0da29045597c95c2ba25",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch07-software-development/examples/sw-architecture.txt",
+      "old_sha256": "888d12b09b312080ca0e70d222ec30fb16c7eb736cdf7e9018940c1a40033e68",
+      "new_package": "semantica.chapter_packages.vol2.ch07",
+      "new_asset_id": "book-example-sw-architecture-txt",
+      "new_sha256": "888d12b09b312080ca0e70d222ec30fb16c7eb736cdf7e9018940c1a40033e68",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch07-software-development/examples/sw-method-selection.md",
+      "old_sha256": "a1e7c7aa09501af09de1503585116ce81d1f2bf76784829cfbb987b46ef67b5f",
+      "new_package": "semantica.chapter_packages.vol2.ch07",
+      "new_asset_id": "book-example-sw-method-selection-md",
+      "new_sha256": "a1e7c7aa09501af09de1503585116ce81d1f2bf76784829cfbb987b46ef67b5f",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch07-software-development/examples/sw-safety-requirements.md",
+      "old_sha256": "7507d8e3d2adef62174239df27f7a4078f5b544b42a0d169aa1a8de6ced18c06",
+      "new_package": "semantica.chapter_packages.vol2.ch07",
+      "new_asset_id": "book-example-sw-safety-requirements-md",
+      "new_sha256": "7507d8e3d2adef62174239df27f7a4078f5b544b42a0d169aa1a8de6ced18c06",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch07-software-development/examples/unit-verification-cases.txt",
+      "old_sha256": "095b9edcfc818a22576abbb11d077bbd670e95eb1c4443e4655a187a1dab208c",
+      "new_package": "semantica.chapter_packages.vol2.ch07",
+      "new_asset_id": "book-example-unit-verification-cases-txt",
+      "new_sha256": "095b9edcfc818a22576abbb11d077bbd670e95eb1c4443e4655a187a1dab208c",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch09-production-operation/SOURCE-AUDIT.md",
+      "old_sha256": "837df954716f297736d3255dadc9dfab29cf3b84a4268cce751f0cf313b9d6f0",
+      "new_package": "semantica.chapter_packages.vol2.ch09",
+      "new_asset_id": "source-audit",
+      "new_sha256": "837df954716f297736d3255dadc9dfab29cf3b84a4268cce751f0cf313b9d6f0",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch09-production-operation/examples/field-monitoring.txt",
+      "old_sha256": "347dc534b3185d618e8a6ac7fe9d2bd3b7bfda9bebb4b47ac8d190393fc376cf",
+      "new_package": "semantica.chapter_packages.vol2.ch09",
+      "new_asset_id": "book-example-field-monitoring-txt",
+      "new_sha256": "347dc534b3185d618e8a6ac7fe9d2bd3b7bfda9bebb4b47ac8d190393fc376cf",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch09-production-operation/examples/production-control-plan.md",
+      "old_sha256": "d41d19c848707fd124cdc3b382c867f31fddca1f4a0d36be905dfb6eac32342b",
+      "new_package": "semantica.chapter_packages.vol2.ch09",
+      "new_asset_id": "book-example-production-control-plan-md",
+      "new_sha256": "d41d19c848707fd124cdc3b382c867f31fddca1f4a0d36be905dfb6eac32342b",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch10-supporting-processes/SOURCE-AUDIT.md",
+      "old_sha256": "4606a1a3fe41ec44a31bb0c4e797c68cab342f0b367bee02c48c8bae07cecd8b",
+      "new_package": "semantica.chapter_packages.vol2.ch10",
+      "new_asset_id": "source-audit",
+      "new_sha256": "4606a1a3fe41ec44a31bb0c4e797c68cab342f0b367bee02c48c8bae07cecd8b",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch10-supporting-processes/examples/tool-qualification.md",
+      "old_sha256": "176f2c2d84922e7e22dbf30f501255b884007417730ab6c809089d1dcd859ed2",
+      "new_package": "semantica.chapter_packages.vol2.ch10",
+      "new_asset_id": "book-example-tool-qualification-md",
+      "new_sha256": "176f2c2d84922e7e22dbf30f501255b884007417730ab6c809089d1dcd859ed2",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch10-supporting-processes/examples/tool-tcl-decision.txt",
+      "old_sha256": "19b52d013245a67ec11954a3f1d5a5ccc784d2a843244d974a3c3d35adcf4581",
+      "new_package": "semantica.chapter_packages.vol2.ch10",
+      "new_asset_id": "book-example-tool-tcl-decision-txt",
+      "new_sha256": "19b52d013245a67ec11954a3f1d5a5ccc784d2a843244d974a3c3d35adcf4581",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch11-capstone-three-items/bundle-manifest.yaml",
+      "old_sha256": "36d560e6118073a481009d7a82d2e4d0e18b68f1e82f0310569db3a6ddf1369d",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "legacy-capstone-bundle-manifest",
+      "new_sha256": "36d560e6118073a481009d7a82d2e4d0e18b68f1e82f0310569db3a6ddf1369d",
+      "relation": "byte_identical"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch11-capstone-three-items/src/capstone.py",
+      "old_sha256": "c1d0dcecfb24703045f09c101104b300828977e28f53a1bd447c7f505f9a11ec",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "legacy-capstone-boundary-rules",
+      "new_sha256": "1ac266de17587a62c786cd3f1d25ea4d69c4beca32ddc0434e9d571db47f4308",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch11-capstone-three-items/src/capstone.py",
+      "old_sha256": "c1d0dcecfb24703045f09c101104b300828977e28f53a1bd447c7f505f9a11ec",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "legacy-capstone-queries",
+      "new_sha256": "df4bf1bcc248a218012c7f6ca7dd1d60500b9617d16f19e8dbe9b74aefaf6216",
+      "relation": "source_grounded_extraction"
+    },
+    {
+      "old_path": "references/product-trustworthiness-book/ch11-capstone-three-items/src/freeze_bundle.py",
+      "old_sha256": "8e2acd0e82697b9651bee247c9538afd91b63ac9acc6bf3ad9c5faccee822540",
+      "new_package": "semantica.chapter_packages.vol2.ch20",
+      "new_asset_id": "legacy-capstone-boundary-rules",
+      "new_sha256": "1ac266de17587a62c786cd3f1d25ea4d69c4beca32ddc0434e9d571db47f4308",
+      "relation": "source_grounded_extraction"
+    }
+  ]
+}

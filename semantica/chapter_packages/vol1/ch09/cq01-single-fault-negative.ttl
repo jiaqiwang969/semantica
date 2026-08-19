@@ -1,0 +1,8 @@
+@prefix mfg: <http://example.org/manufacturing#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+mfg:Aluminum a mfg:Material .
+mfg:Lathe_001 a mfg:Equipment ;
+    rdfs:label "数控车床一号"@zh .
+mfg:Mill_002 a mfg:Equipment ;
+    rdfs:label "立式铣床二号"@zh .

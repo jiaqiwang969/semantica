@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "identity",
+  "source_demo": "demos/vol2_ch12_identity_bridge.py",
+  "source_demo_sha256": "c434b09b4d87c6121052909d3673e1811672a57f3c9eacce347d3b573a177bc8",
+  "enforcement_assets": [
+    "demo_vol2_ch12_identity_bridge_shapes",
+    "demo_vol2_ch12_identity_bridge_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH02-RULE-001",
+      "status": "native",
+      "statement": "A physical-unit alias may only target a PhysicalUnit."
+    },
+    {
+      "id": "V2-CH02-RULE-002",
+      "status": "native",
+      "statement": "Same/Different/Unknown must be based on an explicit identity criterion and bridge evidence."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

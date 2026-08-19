@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "chapter": "ch12",
+  "package_status": "partial",
+  "gaps": [
+    {
+      "id": "reasoning-profile",
+      "stage": "query_validate_reason",
+      "status": "partial",
+      "blocks_release": true,
+      "description": "The chapter query and SHACL oracle are native; a complete explicit reasoning profile is not yet bound."
+    },
+    {
+      "id": "execution-receipt-not-issued",
+      "stage": "release",
+      "status": "absent",
+      "mechanism_status": "native",
+      "blocks_release": true,
+      "description": "No content-bound execution receipt has yet been issued for this package."
+    }
+  ]
+}

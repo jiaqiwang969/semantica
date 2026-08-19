@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch04",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH04-CQ-001",
+      "question": "同一图经支持格式往返后是否图同构，并能通过统一 API 查询和校验？",
+      "claim_ids": [
+        "OE-V1-CH04-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH04-SCN-OPEN-VS-CLOSED-001"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-01",
+      "query_asset_id": "cq01",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-02",
+      "query_asset_id": "cq02",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-03",
+      "query_asset_id": "cq03",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-04",
+      "query_asset_id": "cq04",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-05",
+      "query_asset_id": "cq05",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-06",
+      "query_asset_id": "cq06",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-07",
+      "query_asset_id": "cq07",
+      "status": "external_dependency",
+      "oracle": {
+        "status": "absent",
+        "gap": "SERVICE endpoint is external and intentionally not invoked offline."
+      }
+    },
+    {
+      "id": "OE-V1-CH04-BOOK-CQ-08",
+      "query_asset_id": "cq08",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no exact ABox result oracle for this query."
+      }
+    }
+  ]
+}
+

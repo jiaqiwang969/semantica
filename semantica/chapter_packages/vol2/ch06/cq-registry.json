@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch06",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH06-CQ-001",
+      "question": "给定底账，系统能否复算硬件度量并指出数字、分母或来源不一致？",
+      "scenario_id": "semantica.vol2.ch06.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch06",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "negative-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_metrics_recompute_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "record",
+            "got",
+            "need"
+          ],
+          "rows": [
+            {
+              "record": {
+                "value": "https://product-trustworthiness.local/metric#SPFM_walkthrough",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "got": {
+                "value": "95.48",
+                "term_type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#decimal",
+                "language": null
+              },
+              "need": {
+                "value": "99.0",
+                "term_type": "literal",
+                "datatype": "http://www.w3.org/2001/XMLSchema#decimal",
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_metrics_recompute_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_metrics_recompute_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "got < need",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

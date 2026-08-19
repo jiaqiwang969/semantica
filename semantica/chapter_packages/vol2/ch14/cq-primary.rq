@@ -1,0 +1,7 @@
+PREFIX haz: <https://product-trustworthiness.local/hazard#>
+SELECT ?event ?actual ?expected WHERE {
+  ?event a haz:HazardousEvent ; haz:hasSeverity "S2" ; haz:hasExposure "E4" ;
+         haz:hasControllability "C3" ; haz:hasASIL ?actual .
+  BIND("ASIL C" AS ?expected)
+  FILTER(?actual != ?expected)
+}

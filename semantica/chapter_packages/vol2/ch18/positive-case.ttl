@@ -1,0 +1,8 @@
+@prefix dep: <https://product-trustworthiness.local/dependency#> .
+dep:MainChain dep:feedsFrom dep:LDO_Main .
+dep:MonChain dep:feedsFrom dep:LDO_Mon .
+dep:LDO_Main dep:feedsFrom dep:Reg5V_U3 .
+dep:LDO_Mon dep:feedsFrom dep:Reg5V_U3 .
+dep:Reg5V_U3 dep:feedsFrom dep:Batt_KL30 .
+dep:Excl_NoSharedSensor a dep:Exclusion ; dep:restsOn dep:Fact_SensorPair_v4 .
+dep:Claim_ChannelIndep dep:hasExclusion dep:Excl_NoSharedSensor .

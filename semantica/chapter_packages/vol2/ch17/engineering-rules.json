@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "change",
+  "source_demo": "demos/vol2_ch17_change_verdict_gate.py",
+  "source_demo_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae",
+  "enforcement_assets": [
+    "demo_vol2_ch17_change_verdict_gate_shapes",
+    "demo_vol2_ch17_change_verdict_gate_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH17-RULE-001",
+      "status": "native",
+      "statement": "Every pass verdict is bound to the snapshot/configuration in which it was obtained."
+    },
+    {
+      "id": "V2-CH17-RULE-002",
+      "status": "native",
+      "statement": "Revoke requires a non-empty impact scope; retain requires an explicit reason."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

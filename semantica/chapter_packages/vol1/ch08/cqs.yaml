@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch08",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH08-CQ-001",
+      "question": "自然语言请求能否经本体归一化与校验后路由，并为查询、工具动作与 Unknown 留下审计证据？",
+      "claim_ids": [
+        "OE-V1-CH08-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH08-SCN-GUARDRAIL-001"
+      ],
+      "status": "partial"
+    }
+  ]
+}
+

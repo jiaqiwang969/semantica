@@ -1,0 +1,12 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix isoN: <https://ontology-engineering.local/iso26262/normative#> .
+isoN:NormativeUnitShape a sh:NodeShape ;
+    sh:targetClass isoN:NormativeUnit ;
+    sh:property [ sh:path isoN:clauseId ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:message "条款个体必须有且仅有一个条款坐标 clauseId" ] ;
+    sh:property [ sh:path isoN:modality ; sh:minCount 1 ; sh:maxCount 1 ;
+                  sh:message "条款个体必须有且仅有一个模态（模态保真纪律）" ] ;
+    sh:property [ sh:path isoN:glossStatus ; sh:minCount 1 ;
+                  sh:in ("glossed" "pending") ;
+                  sh:message "刻录状态只能是 glossed 或 pending" ] .

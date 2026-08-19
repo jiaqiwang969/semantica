@@ -45,3 +45,17 @@ def reset_graph() -> None:
     """Reset the singleton (mainly useful in tests)."""
     global _graph
     _graph = None
+
+
+class MCPSession:
+    """Backward-compatible in-process client for the canonical MCP adapter."""
+
+    def __init__(self, config: Optional[dict] = None) -> None:
+        # Configuration remains accepted for API compatibility.  Canonical MCP
+        # handlers own their runtime/session configuration.
+        self.config = dict(config or {})
+
+    def call_tool(self, tool_name: str, **arguments: Any) -> dict:
+        from semantica.mcp_server import call_mcp_tool
+
+        return call_mcp_tool(tool_name, arguments)

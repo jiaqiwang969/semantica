@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "field",
+  "source_demo": "demos/vol2_ch19_substitution_gate.py",
+  "source_demo_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997",
+  "enforcement_assets": [
+    "demo_vol2_ch19_substitution_gate_shapes",
+    "demo_vol2_ch19_substitution_gate_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH09-RULE-001",
+      "status": "native",
+      "statement": "A substitution request requires a DesignAssessment covering every touched premise."
+    },
+    {
+      "id": "V2-CH09-RULE-002",
+      "status": "native",
+      "statement": "Inferred ledger candidates must not be promoted to authoritative facts without a controlled source record."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

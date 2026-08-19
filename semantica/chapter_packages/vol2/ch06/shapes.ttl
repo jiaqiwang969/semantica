@@ -1,0 +1,12 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix m: <https://product-trustworthiness.local/metric#> .
+m:TargetGate a sh:NodeShape ;
+    sh:targetClass m:MetricRecord ;
+    sh:sparql [
+        sh:message "got < need：度量未达到所选项目目标" ;
+        sh:select """
+            PREFIX m: <https://product-trustworthiness.local/metric#>
+            SELECT $this WHERE { $this m:got ?g ; m:need ?n . FILTER(?g < ?n) }
+        """ ;
+    ] .

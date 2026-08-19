@@ -1,0 +1,17 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix fld: <https://product-trustworthiness.local/field#> .
+fld: a owl:Ontology .
+fld:DesignDefinition a owl:Class .
+fld:ProductionLot a owl:Class .
+fld:PhysicalItem a owl:Class .
+fld:SubstitutionRequest a owl:Class .
+fld:DesignAssessment a owl:Class .
+fld:LedgerFact a owl:Class .
+fld:assessedBy a owl:ObjectProperty .
+fld:coversPremise a owl:ObjectProperty .
+fld:fromRecord a owl:ObjectProperty .
+fld:verdict a owl:DatatypeProperty .

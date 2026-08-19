@@ -1,22 +1,17 @@
+"""Compatibility view of the canonical Semantica MCP tool registry.
+
+The active registry lives in :mod:`semantica.mcp_server`.  The historical
+top-level ``mcp.tools`` import remains available, but it no longer assembles a
+second set of handlers.
 """
-MCP tool registry — imports all tool handlers and assembles TOOL_DEFINITIONS.
 
-Each module under mcp/tools/ registers its handlers here.
-"""
+from semantica.mcp_server import TOOLS as TOOL_DEFINITIONS
 
-from .decisions import DECISION_TOOLS
-from .export import EXPORT_TOOLS
-from .extraction import EXTRACTION_TOOLS
-from .graph import GRAPH_TOOLS
-from .reasoning import REASONING_TOOLS
 
-# Ordered list — exposed to the MCP client via tools/list
-TOOL_DEFINITIONS = (
-    EXTRACTION_TOOLS
-    + DECISION_TOOLS
-    + GRAPH_TOOLS
-    + REASONING_TOOLS
-    + EXPORT_TOOLS
-)
+__all__ = ["TOOL_DEFINITIONS"] + [
+    tool["name"] for tool in TOOL_DEFINITIONS
+]
+for _tool in TOOL_DEFINITIONS:
+    globals()[_tool["name"]] = _tool["_handler"]
 
-__all__ = ["TOOL_DEFINITIONS"]
+del _tool

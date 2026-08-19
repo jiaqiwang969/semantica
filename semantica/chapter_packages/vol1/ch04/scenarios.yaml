@@ -1,0 +1,37 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch04",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH04-SCN-OPEN-VS-CLOSED-001",
+      "status": "partial",
+      "execution": {
+        "provider": "SemanticRuntime",
+        "operation": "select_then_cross_package_validate",
+        "query_asset_id": "cq-missing-serial",
+        "shape_dependency": "semantica.chapter_packages.vol1.ch07:kg-quality-shacl"
+      },
+      "inputs": [
+        "open-world-data"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH04-ORC-OPEN-CLOSED-001",
+        "status": "ready",
+        "select": {
+          "row_count": 1,
+          "bindings": {
+            "equipment": [
+              "http://example.org/manufacturing#Lathe_BAD"
+            ]
+          }
+        },
+        "validation": {
+          "conforms": false,
+          "required_message_contains": "序列号"
+        }
+      }
+    }
+  ]
+}

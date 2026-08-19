@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "chapter": "ch20",
+  "package_status": "partial",
+  "gaps": [
+    {
+      "id": "reasoning-profile",
+      "stage": "query_validate_reason",
+      "status": "partial",
+      "blocks_release": true,
+      "description": "The chapter query and SHACL oracle are native; a complete explicit reasoning profile is not yet bound."
+    },
+    {
+      "id": "legacy-capstone-inputs-missing",
+      "stage": "load",
+      "status": "absent",
+      "blocks_release": true,
+      "description": "All 41 inputs declared by the frozen capstone manifest are absent from the OE snapshot; manifest, queries and boundary rules are retained without fabricating data.",
+      "evidence_asset": "legacy-capstone-missing-inputs"
+    },
+    {
+      "id": "execution-receipt-not-issued",
+      "stage": "release",
+      "status": "absent",
+      "mechanism_status": "native",
+      "blocks_release": true,
+      "description": "No content-bound execution receipt has yet been issued for this package."
+    }
+  ]
+}

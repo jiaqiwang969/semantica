@@ -1,0 +1,187 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch05",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch05#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch05",
+    "title": "知识表示与推理机制",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch05.tex",
+      "source_sha256": "b51b94053733b4969f01bd31062fe368aa08e9f9dc24c0e2b480d75db72e488f",
+      "guide_anchor": "references/ontology-engineering-book/ch05-reasoning/README.md",
+      "guide_sha256": "a1415661d311623c6a94437f1225e427f26363501deee5416cb155f20cfce0e2",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch05.tex",
+      "tex_sha256": "b51b94053733b4969f01bd31062fe368aa08e9f9dc24c0e2b480d75db72e488f"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "absent",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "absent",
+    "cases": "native",
+    "engineering_rules": "adapter",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "原书 SWRL 已无损迁入，但 SemanticRuntime 尚无 SWRL/builtin profile。",
+    "当前可复算场景使用 SemanticRuntime 受限正向规则 API 与预计算 PowerAbove10 事实。",
+    "DL tableau、时序、概率与默认逻辑不可执行；必须保持 fail closed。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "f215fb3faaae13a0b5cf78657809b2094c43ce04b7676fe79693e071f0e28b4b",
+      "source_anchor": "contracts/vol1/ch05.yaml",
+      "source_sha256": "2f3c237daffbc5646a3373a9dba357dcb4daff72284104a77d9b53579b3524bd",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "9af8bb3a661277cd6c34ae2e56e651f6cb8c9b0c2b72b67b354e891794bf0656",
+      "source_anchor": "contracts/vol1/ch05.yaml",
+      "source_sha256": "2f3c237daffbc5646a3373a9dba357dcb4daff72284104a77d9b53579b3524bd",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "description-logic-examples",
+      "path": "description-logic-examples.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "82a86785be3dcbb5c76238cecc55bc5f3a3e486711080d5058feb4df1565c95f",
+      "source_anchor": "references/ontology-engineering-book/ch05-reasoning/examples/description-logic-examples.txt",
+      "source_sha256": "82a86785be3dcbb5c76238cecc55bc5f3a3e486711080d5058feb4df1565c95f",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "forward-chain-facts",
+      "path": "forward-chain.facts",
+      "role": "case",
+      "format": "semantica-fact",
+      "sha256": "8120744b23646f464df6fc3cbfddb588fb3ac5ebfd426240135385a3fdd0eeb2",
+      "source_anchor": "demos/ch05_forward_chaining.py",
+      "source_sha256": "fe7666d70c88616c63cc232935f746acfa3c06c89c926b7d8f87307aeb458024",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch05_forward_chaining.py"
+    },
+    {
+      "asset_id": "forward-chain-rules",
+      "path": "forward-chain.rules",
+      "role": "rules",
+      "format": "semantica-rule",
+      "sha256": "b269ebf38f141cd9edf25d70a4e35391510e5d22c5116333b0b1b03328fefc99",
+      "source_anchor": "demos/ch05_forward_chaining.py",
+      "source_sha256": "fe7666d70c88616c63cc232935f746acfa3c06c89c926b7d8f87307aeb458024",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch05_forward_chaining.py"
+    },
+    {
+      "asset_id": "probabilistic-reasoning",
+      "path": "probabilistic-reasoning.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "432ac16df4cbf89e7108de4cbb01d5c9c2a4b1d8e545385d6dc75c1cf0fba7ce",
+      "source_anchor": "references/ontology-engineering-book/ch05-reasoning/examples/probabilistic-reasoning.txt",
+      "source_sha256": "432ac16df4cbf89e7108de4cbb01d5c9c2a4b1d8e545385d6dc75c1cf0fba7ce",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "eebe7c6bd4cef4065ecf4afd4192134d4a177eb317611dbf6e6e06900904d8a3",
+      "source_anchor": "contracts/vol1/ch05.yaml",
+      "source_sha256": "2f3c237daffbc5646a3373a9dba357dcb4daff72284104a77d9b53579b3524bd",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "swrl-rules",
+      "path": "swrl-rules.swrl",
+      "role": "rules",
+      "format": "swrl",
+      "sha256": "62a06bf7a560e2a7e843dd9db02c241dad062241bf22b0fe48f44dc39f1df66b",
+      "source_anchor": "references/ontology-engineering-book/ch05-reasoning/examples/swrl-rules.swrl",
+      "source_sha256": "62a06bf7a560e2a7e843dd9db02c241dad062241bf22b0fe48f44dc39f1df66b",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "temporal-reasoning",
+      "path": "temporal-reasoning.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "d5fe820ec4ff24e39d9bd2a64c9739eb3a58ecace6fa4e131d78a5751f96aabc",
+      "source_anchor": "references/ontology-engineering-book/ch05-reasoning/examples/temporal-reasoning.txt",
+      "source_sha256": "d5fe820ec4ff24e39d9bd2a64c9739eb3a58ecace6fa4e131d78a5751f96aabc",
+      "derivation": "byte_for_byte_copy"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

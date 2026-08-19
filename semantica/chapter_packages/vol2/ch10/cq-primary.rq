@@ -1,0 +1,7 @@
+PREFIX rel: <https://product-trustworthiness.local/release#>
+SELECT ?member ?binding WHERE {
+  rel:PKG_RC18_draft rel:hasMember ?member .
+  ?member rel:boundTo ?binding .
+  FILTER(?binding != rel:RC18)
+}
+ORDER BY ?member

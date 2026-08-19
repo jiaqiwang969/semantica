@@ -1,0 +1,16 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX :     <http://example.org/manufacturing#>
+
+DELETE { ?equipment :hasStatus :Idle }
+INSERT { ?equipment :hasStatus :Running }
+WHERE {
+    ?equipment a :Equipment ;
+               :hasStatus :Idle ;
+               :assignedTo ?task .
+    ?task :hasStartTime ?start .
+    FILTER(?start <= NOW())
+}
+

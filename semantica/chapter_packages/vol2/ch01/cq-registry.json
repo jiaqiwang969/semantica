@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch01",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH01-CQ-001",
+      "question": "给定多个局部 PASS，系统能否列出可信主张缺件并拒绝无边界的整体放行？",
+      "scenario_id": "semantica.vol2.ch01.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch01",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "negative-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_claim_gate_corroborate_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "claim",
+            "part"
+          ],
+          "rows": [
+            {
+              "claim": {
+                "value": "https://product-trustworthiness.local/claim#Release_RC17",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "part": {
+                "value": "validWindow",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_claim_gate_corroborate_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_claim_gate_corroborate_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "缺件即拒",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix gov: <https://product-trustworthiness.local/governance#> .
+gov: a owl:Ontology .
+gov:ActivationAction a owl:Class .
+gov:Authorization a owl:Class .
+gov:activates a owl:ObjectProperty .
+gov:recordedBy a owl:ObjectProperty .
+gov:grantor a owl:ObjectProperty .
+gov:memberOf a owl:ObjectProperty .
+gov:reportsTo a owl:ObjectProperty .
+gov:appraisedBy a owl:ObjectProperty .
+gov:validUntil a owl:DatatypeProperty .

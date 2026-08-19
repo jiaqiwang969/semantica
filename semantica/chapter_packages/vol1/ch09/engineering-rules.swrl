@@ -1,0 +1,8 @@
+# Source-grounded rule payload extracted from manufacturing.owl.
+# Current SemanticRuntime registers these losslessly but does not claim SWRL execution.
+
+Task(?t) ^ requiresMaterial(?t, ?m) ^ assignedTo(?t, ?e) ^ Equipment(?e) ^ not(canProcess(?e, ?m)) -> CapabilityConflict(?t)
+Equipment(?e) ^ hasStatus(?e, Running) ^ Task(?t) ^ assignedTo(?t, ?e) -> StatusConflict(?t)
+Task(?t1) ^ Task(?t2) ^ assignedTo(?t1, ?e) ^ assignedTo(?t2, ?e) ^ hasStartTime(?t1, ?s1) ^ hasEndTime(?t1, ?e1) ^ hasStartTime(?t2, ?s2) ^ hasEndTime(?t2, ?e2) ^ swrlb:lessThan(?s1, ?e2) ^ swrlb:greaterThan(?e1, ?s2) -> TimeConflict(?t1)
+Product(?p1) ^ Product(?p2) ^ hasMaterial(?p1, ?m) ^ hasMaterial(?p2, ?m) ^ hasFeature(?p1, ?f) ^ hasFeature(?p2, ?f) ^ hasProcess(?p2, ?proc) -> recommendedProcess(?p1, ?proc)
+Operation(?op1) ^ Operation(?op2) ^ precedes(?op1, ?op2) ^ hasStatus(?op1, Completed) -> canStart(?op2, true)

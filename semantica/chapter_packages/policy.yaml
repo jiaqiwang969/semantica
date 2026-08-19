@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "contract_count": 29,
+  "contract_role": "semantica_package_migration_ledger",
+  "target_package_root": "semantica.chapter_packages",
+  "source_repository_end_state": "books_only",
+  "distribution_scope": "authorized_repository_fork",
+  "rights_notice": "NOTICE.md",
+  "book_derived_assets_relicensed_by_semantica_mit": false,
+  "completion_status": "native",
+  "status_vocabulary": ["native", "adapter", "partial", "placeholder", "absent"],
+  "release_status_vocabulary": ["blocked", "complete"],
+  "required_asset_kinds": [
+    "source_anchor",
+    "chapter_manifest",
+    "cq_registry",
+    "positive_fixture",
+    "single_fault_negative_fixture",
+    "capability_tests"
+  ],
+  "required_oracle_kinds": [
+    "cq_exact",
+    "positive_path",
+    "single_fault_negative"
+  ],
+  "required_migration_payload_kinds": [
+    "ontology",
+    "competency_questions",
+    "shapes",
+    "sparql",
+    "cases",
+    "engineering_rules",
+    "chapter_contract"
+  ],
+  "required_lifecycle_stages": [
+    "load",
+    "query_validate_reason",
+    "version",
+    "provenance",
+    "release"
+  ],
+  "required_receipt_fields": [
+    "runtime_commit",
+    "runtime_artifact_sha256",
+    "chapter_contract_sha256",
+    "dataset_sha256",
+    "capability_report",
+    "cq_report",
+    "oracle_report",
+    "provenance_bundle"
+  ]
+}

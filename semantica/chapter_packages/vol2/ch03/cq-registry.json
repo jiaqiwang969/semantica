@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch03",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH03-CQ-001",
+      "question": "某项批准是否由当时有效且满足独立性要求的授权人作出？",
+      "scenario_id": "semantica.vol2.ch03.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch03",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "query-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch13_governance_distance_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "tooClose"
+          ],
+          "rows": [
+            {
+              "tooClose": {
+                "value": "同一考核线",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "tooClose": {
+                "value": "同一队伍",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch13_governance_distance_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch13_governance_distance_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "授权生效必须是授权人本人",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": "1.0",
+  "family": "hara",
+  "source_demo": "demos/vol2_hara_asil_corroborate.py",
+  "source_demo_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5",
+  "enforcement_assets": [
+    "demo_vol2_hara_asil_corroborate_shapes",
+    "demo_vol2_hara_asil_corroborate_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH14-RULE-001",
+      "status": "native",
+      "statement": "A HazardousEvent is the composition of a hazard and an operating situation."
+    },
+    {
+      "id": "V2-CH14-RULE-002",
+      "status": "native",
+      "statement": "S/E/C evidence and the controlled ASIL lookup must be retained with the decision."
+    },
+    {
+      "id": "V2-CH14-RULE-003",
+      "status": "native",
+      "statement": "The bundled executable gate covers the source-grounded S2/E4/C3 -> ASIL C cell; the full controlled table remains a declared gap."
+    }
+  ],
+  "additional_source_grounded_data": {
+    "table4_subset": {
+      "S3/E4/C3": "ASIL D",
+      "S3/E4/C2": "ASIL C",
+      "S3/E4/C1": "ASIL B",
+      "S3/E3/C3": "ASIL C",
+      "S3/E3/C2": "ASIL B",
+      "S3/E3/C1": "ASIL A",
+      "S2/E4/C3": "ASIL C",
+      "S2/E4/C2": "ASIL B",
+      "S2/E4/C1": "ASIL A",
+      "S1/E3/C3": "ASIL A",
+      "S1/E3/C2": "QM",
+      "S1/E3/C1": "QM"
+    },
+    "coverage": "representative subset copied from the bundled demo; not the complete controlled 36-row table"
+  },
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

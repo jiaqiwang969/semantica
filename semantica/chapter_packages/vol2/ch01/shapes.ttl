@@ -1,0 +1,29 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix claim: <https://product-trustworthiness.local/claim#> .
+
+# ch03 门禁：ClaimAccepted 的三联动（案例已批准 + 确认评审完成 + 证据全 Accepted）
+claim:ClaimAcceptedGate a sh:NodeShape ;
+    sh:targetClass claim:Claim ;
+    sh:sparql [
+        sh:message "ClaimAccepted 门禁：主张被标接受，但其 Safety Case 未批准、确认评审未完成、或存在非 EvidenceAccepted 的支撑证据" ;
+        sh:select """
+            PREFIX claim: <https://product-trustworthiness.local/claim#>
+            SELECT $this WHERE {
+                $this claim:claimStatus "ClaimAccepted" .
+                { ?case claim:containsClaim $this .
+                  FILTER NOT EXISTS { ?case claim:reviewStatus "Approved" } }
+                UNION
+                { ?arg claim:supportsClaim $this ; claim:backedByEvidence ?ev .
+                  FILTER NOT EXISTS { ?ev claim:evidenceStatus "EvidenceAccepted" } }
+            }
+        """ ;
+    ] .
+
+# ch11 门禁：缺任何一个部件的主张不得进入评审队列
+claim:CompletePartsGate a sh:NodeShape ;
+    sh:targetClass claim:ReleaseClaim ;
+    sh:property [ sh:path claim:context ; sh:minCount 1 ;
+                  sh:message "缺件即拒：主张缺 context 部件，不得进入评审队列" ] ;
+    sh:property [ sh:path claim:validWindow ; sh:minCount 1 ;
+                  sh:message "缺件即拒：主张缺 validWindow 部件，不得进入评审队列" ] .

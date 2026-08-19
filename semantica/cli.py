@@ -21,7 +21,7 @@ if sys.platform == "win32":
 
 from dataclasses import asdict, dataclass, field, is_dataclass
 from pathlib import Path, PurePosixPath, PureWindowsPath
-from typing import TYPE_CHECKING, Any, Callable, Dict, List, Optional, Sequence, Tuple
+from typing import TYPE_CHECKING, Any, Callable, Dict, List, Mapping, Optional, Sequence, Tuple
 
 import yaml
 
@@ -370,6 +370,7 @@ _BANNER = (
 _HELP_SECTIONS: List[Tuple[str, List[str]]] = [
     ("📥 Data Ingestion",   ["ingest", "watch", "parse", "split", "normalize"]),
     ("🧠 Intelligence",     ["extract", "deduplicate", "reason", "decision", "temporal"]),
+    ("📚 Semantic Packages", ["package"]),
     ("🕸️  Knowledge Graph", ["kg"]),
     ("📊 Analytics",        ["embed", "validate", "ontology", "provenance"]),
     ("📤 Export & Viz",     ["export", "visualize"]),
@@ -1157,6 +1158,480 @@ def _serialize_extract_result(obj: Any) -> Any:
     if isinstance(obj, dict):
         return {k: _serialize_extract_result(v) for k, v in obj.items()}
     return obj
+
+
+# ─── Built-in semantic packages ────────────────────────────────────────────────
+
+
+_NORMATIVE_PACKAGE_ID = "semantica.chapter_packages.vol2.normative"
+_PACKAGE_SHA256_LENGTH = 64
+
+
+def _package_json_echo(data: Mapping[str, Any]) -> None:
+    """Emit deterministic UTF-8 JSON for package automation."""
+
+    click.echo(
+        json.dumps(
+            data,
+            ensure_ascii=False,
+            sort_keys=True,
+            separators=(",", ":"),
+        )
+    )
+
+
+def _package_descriptor_dict(descriptor: Any) -> Dict[str, Any]:
+    """Project a registry descriptor without exposing its filesystem path."""
+
+    return {
+        "chapter": descriptor.chapter,
+        "key": descriptor.key,
+        "kind": "chapter",
+        "package_id": descriptor.package_id,
+        "release_status": descriptor.release_status,
+        "status": descriptor.status,
+        "title": descriptor.title,
+        "version": descriptor.version,
+        "volume": descriptor.volume,
+    }
+
+
+def _normative_package_record() -> Tuple[Dict[str, Any], Mapping[str, Any]]:
+    """Return the one registered domain package from a fixed, non-user path."""
+
+    from . import chapter_packages as chapter_package_module
+
+    package_root = Path(chapter_package_module.__file__).resolve().parent
+    manifest_path = package_root / "vol2" / "normative" / "manifest.yaml"
+    try:
+        manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise click.ClickException(
+            "The built-in normative package manifest cannot be read."
+        ) from exc
+    if not isinstance(manifest, Mapping):
+        raise click.ClickException(
+            "The built-in normative package manifest must be a mapping."
+        )
+    if manifest.get("package_id") != _NORMATIVE_PACKAGE_ID:
+        raise click.ClickException(
+            "Built-in normative package identity does not match its manifest."
+        )
+    record = {
+        "chapter": None,
+        "key": "vol2.normative",
+        "kind": "domain",
+        "package_id": _NORMATIVE_PACKAGE_ID,
+        "release_status": str(manifest.get("release_status", "blocked")),
+        "status": str(manifest.get("status", "partial")),
+        "title": str(
+            manifest.get("title")
+            or manifest.get("domain")
+            or "ISO 26262 normative derived layer"
+        ),
+        "version": str(manifest.get("version", "")),
+        "volume": "vol2",
+    }
+    return record, manifest
+
+
+def _package_catalog(volume: Optional[str] = None) -> Tuple[Dict[str, Any], ...]:
+    """Discover all 29 chapter packages plus the fixed normative package."""
+
+    from .chapter_packages import list_chapter_packages
+
+    if volume not in (None, "vol1", "vol2"):
+        raise click.ClickException("volume must be 'vol1' or 'vol2'")
+    records = [
+        _package_descriptor_dict(descriptor)
+        for descriptor in list_chapter_packages(volume)
+    ]
+    if volume in (None, "vol2"):
+        records.append(_normative_package_record()[0])
+    return tuple(records)
+
+
+def _resolve_package(
+    package_id: str,
+) -> Tuple[Dict[str, Any], Mapping[str, Any]]:
+    """Resolve only allowlisted built-ins; package IDs never become paths."""
+
+    from .chapter_packages import list_chapter_packages, read_chapter_manifest
+
+    if package_id == _NORMATIVE_PACKAGE_ID:
+        return _normative_package_record()
+    for descriptor in list_chapter_packages():
+        if descriptor.package_id == package_id:
+            return (
+                _package_descriptor_dict(descriptor),
+                read_chapter_manifest(descriptor.volume, descriptor.chapter),
+            )
+    raise click.ClickException("Unknown built-in package ID: {}".format(package_id))
+
+
+def _package_runner() -> Any:
+    """Construct the native runner lazily so discovery stays dependency-light."""
+
+    try:
+        from .chapter_packages import SemanticPackageRunner
+    except ImportError as exc:
+        raise click.ClickException(
+            "SemanticPackageRunner is unavailable; package execution is blocked."
+        ) from exc
+    return SemanticPackageRunner()
+
+
+def _package_public_json(value: Any) -> Any:
+    if hasattr(value, "as_dict") and callable(value.as_dict):
+        value = value.as_dict()
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    if isinstance(value, Mapping):
+        if not all(isinstance(key, str) for key in value):
+            raise click.ClickException(
+                "SemanticPackageRunner DTO keys must be strings."
+            )
+        return {key: _package_public_json(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_package_public_json(item) for item in value]
+    raise click.ClickException(
+        "SemanticPackageRunner returned a non-public result; execution is blocked."
+    )
+
+
+def _package_dto_dict(value: Any) -> Dict[str, Any]:
+    """Accept public DTOs/mappings only; never stringify backend objects."""
+
+    projected = _package_public_json(value)
+    if not isinstance(projected, dict):
+        raise click.ClickException(
+            "SemanticPackageRunner returned a non-DTO result; execution is blocked."
+        )
+    return projected
+
+
+def _validate_package_binding(
+    runtime_commit: Optional[str], artifact_sha256: Optional[str]
+) -> Tuple[str, str]:
+    if not isinstance(runtime_commit, str) or not runtime_commit.strip():
+        raise click.ClickException("runtime commit must not be empty")
+    if not isinstance(artifact_sha256, str):
+        raise click.ClickException("runtime artifact SHA-256 is required")
+    digest = artifact_sha256.lower()
+    if (
+        len(digest) != _PACKAGE_SHA256_LENGTH
+        or any(char not in "0123456789abcdef" for char in digest)
+    ):
+        raise click.ClickException(
+            "runtime artifact SHA-256 must be exactly 64 hexadecimal characters"
+        )
+    return runtime_commit, digest
+
+
+def _package_error_payload(exc: Exception) -> Dict[str, Any]:
+    if isinstance(exc, click.ClickException):
+        message = exc.format_message()
+        code = "invalid_request"
+        if message.startswith("Unknown built-in package ID"):
+            code = "package_not_found"
+        elif "unavailable" in message or "blocked" in message:
+            code = "execution_blocked"
+    else:
+        message = "Package operation failed closed."
+        code = "package_operation_failed"
+    return {
+        "error": {"code": code, "message": message},
+        "ok": False,
+        "schema_version": "1.0",
+    }
+
+
+def _run_package_operation(
+    *,
+    operation: str,
+    package_id: str,
+    scenario_id: Optional[str],
+    runtime_commit: Optional[str],
+    runtime_artifact_sha256: Optional[str],
+) -> Dict[str, Any]:
+    """Call the single package runner surface with release-bound inputs."""
+
+    _resolve_package(package_id)
+    runtime_commit, runtime_artifact_sha256 = _validate_package_binding(
+        runtime_commit, runtime_artifact_sha256
+    )
+    runner = _package_runner()
+    run_method = getattr(runner, "run", None)
+    if run_method is None or not callable(run_method):
+        raise click.ClickException(
+            "SemanticPackageRunner does not provide 'run'; operation is blocked."
+        )
+    execution = run_method(
+        package_id=package_id,
+        scenario_id=scenario_id,
+        runtime_commit=runtime_commit,
+        runtime_artifact_sha256=runtime_artifact_sha256,
+    )
+    execution_payload = _package_dto_dict(execution)
+    if operation == "run":
+        return execution_payload
+    if operation != "verify":
+        raise click.ClickException("Unknown package operation: {}".format(operation))
+    verify_method = getattr(runner, "verify", None)
+    if verify_method is None or not callable(verify_method):
+        raise click.ClickException(
+            "SemanticPackageRunner does not provide 'verify'; operation is blocked."
+        )
+    verdict = verify_method(execution)
+    return {
+        "execution": execution_payload,
+        "release_verdict": _package_dto_dict(verdict),
+    }
+
+
+@main.group(name="package", invoke_without_command=True)
+@click.pass_context
+def package_group(ctx: click.Context) -> None:
+    """Discover, execute, and verify Semantica's built-in semantic packages."""
+
+    if ctx.invoked_subcommand is None:
+        click.echo(ctx.get_help())
+
+
+@package_group.command(name="list")
+@click.option("--volume", type=click.Choice(["vol1", "vol2"]), default=None)
+@click.option("--json", "local_json", is_flag=True, default=False)
+@click.pass_obj
+def package_list(
+    cli_ctx: CLIContext, volume: Optional[str], local_json: bool
+) -> None:
+    """List 29 chapter packages and the normative domain package."""
+
+    cli_ctx = _require_ctx(cli_ctx)
+    try:
+        packages = _package_catalog(volume)
+        payload = {
+            "chapter_package_count": sum(
+                item["kind"] == "chapter" for item in packages
+            ),
+            "domain_package_count": sum(
+                item["kind"] == "domain" for item in packages
+            ),
+            "ok": True,
+            "package_count": len(packages),
+            "packages": list(packages),
+            "schema_version": "1.0",
+        }
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(payload)
+        else:
+            _pprint(cli_ctx, payload)
+    except Exception as exc:
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(_package_error_payload(exc))
+            raise click.exceptions.Exit(1)
+        raise
+
+
+@package_group.command(name="show")
+@click.argument("package_id")
+@click.option("--json", "local_json", is_flag=True, default=False)
+@click.pass_obj
+def package_show(
+    cli_ctx: CLIContext, package_id: str, local_json: bool
+) -> None:
+    """Show one allowlisted built-in package and its manifest."""
+
+    cli_ctx = _require_ctx(cli_ctx)
+    try:
+        record, manifest = _resolve_package(package_id)
+        payload = {
+            "manifest": dict(manifest),
+            "ok": True,
+            "package": record,
+            "schema_version": "1.0",
+        }
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(payload)
+        else:
+            _pprint(cli_ctx, payload)
+    except Exception as exc:
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(_package_error_payload(exc))
+            raise click.exceptions.Exit(1)
+        raise
+
+
+@package_group.command(name="verify-books")
+@click.option(
+    "--book-root",
+    required=True,
+    type=click.Path(exists=True, file_okay=False, dir_okay=True),
+    help="Root of the ontology-engineering checkout containing both books.",
+)
+@click.option("--volume", type=click.Choice(["vol1", "vol2"]), default=None)
+@click.option("--json", "local_json", is_flag=True, default=False)
+@click.pass_obj
+def package_verify_books(
+    cli_ctx: CLIContext,
+    book_root: str,
+    volume: Optional[str],
+    local_json: bool,
+) -> None:
+    """Fail closed when a book, TeX snapshot, contract, or source hash drifts."""
+
+    cli_ctx = _require_ctx(cli_ctx)
+    try:
+        from .chapter_packages import verify_book_source_bindings
+
+        verification = verify_book_source_bindings(Path(book_root), volume=volume)
+        payload = {
+            "ok": verification.passed,
+            "operation": "verify-books",
+            "result": verification.as_dict(),
+            "schema_version": "1.0",
+        }
+        if not verification.passed:
+            payload["error"] = {
+                "code": "book_source_binding_failed",
+                "message": "Book-to-Semantica source verification is blocked.",
+            }
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(payload)
+        else:
+            _pprint(cli_ctx, payload)
+        if not verification.passed:
+            raise click.exceptions.Exit(1)
+    except click.exceptions.Exit:
+        raise
+    except Exception as exc:
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(_package_error_payload(exc))
+            raise click.exceptions.Exit(1)
+        raise
+
+
+def _execute_package_cli(
+    cli_ctx: CLIContext,
+    *,
+    operation: str,
+    package_id: str,
+    scenario_id: Optional[str],
+    runtime_commit: Optional[str],
+    runtime_artifact_sha256: Optional[str],
+    local_json: bool,
+) -> None:
+    try:
+        result = _run_package_operation(
+            operation=operation,
+            package_id=package_id,
+            scenario_id=scenario_id,
+            runtime_commit=runtime_commit,
+            runtime_artifact_sha256=runtime_artifact_sha256,
+        )
+        payload = {
+            "ok": True,
+            "operation": operation,
+            "package_id": package_id,
+            "result": result,
+            "schema_version": "1.0",
+        }
+        blocked = (
+            operation == "verify"
+            and result.get("release_verdict", {}).get("status") != "complete"
+        )
+        if blocked:
+            payload["ok"] = False
+            payload["error"] = {
+                "code": "release_blocked",
+                "message": "Package release verification is blocked.",
+            }
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(payload)
+        else:
+            _pprint(cli_ctx, payload)
+        if blocked:
+            raise click.exceptions.Exit(1)
+    except click.exceptions.Exit:
+        raise
+    except Exception as exc:
+        if _is_json(cli_ctx, local_json):
+            _package_json_echo(_package_error_payload(exc))
+            raise click.exceptions.Exit(1)
+        raise
+
+
+def _package_execution_options(function: Callable[..., Any]) -> Callable[..., Any]:
+    function = click.option(
+        "--runtime-artifact-sha256",
+        required=False,
+        metavar="SHA256",
+        help="SHA-256 of the exact Semantica runtime artifact.",
+    )(function)
+    function = click.option(
+        "--runtime-commit",
+        required=False,
+        help="Commit identity of the exact Semantica runtime.",
+    )(function)
+    function = click.option(
+        "--scenario-id",
+        default=None,
+        help="Exact scenario ID; omission is resolved fail-closed by the runner.",
+    )(function)
+    function = click.option(
+        "--json", "local_json", is_flag=True, default=False
+    )(function)
+    return function
+
+
+@package_group.command(name="run")
+@click.argument("package_id")
+@_package_execution_options
+@click.pass_obj
+def package_run(
+    cli_ctx: CLIContext,
+    package_id: str,
+    runtime_artifact_sha256: Optional[str],
+    runtime_commit: Optional[str],
+    scenario_id: Optional[str],
+    local_json: bool,
+) -> None:
+    """Execute a package scenario and emit its bound receipt DTO."""
+
+    _execute_package_cli(
+        _require_ctx(cli_ctx),
+        operation="run",
+        package_id=package_id,
+        scenario_id=scenario_id,
+        runtime_commit=runtime_commit,
+        runtime_artifact_sha256=runtime_artifact_sha256,
+        local_json=local_json,
+    )
+
+
+@package_group.command(name="verify")
+@click.argument("package_id")
+@_package_execution_options
+@click.pass_obj
+def package_verify(
+    cli_ctx: CLIContext,
+    package_id: str,
+    runtime_artifact_sha256: Optional[str],
+    runtime_commit: Optional[str],
+    scenario_id: Optional[str],
+    local_json: bool,
+) -> None:
+    """Execute and verify one package through the native release gate."""
+
+    _execute_package_cli(
+        _require_ctx(cli_ctx),
+        operation="verify",
+        package_id=package_id,
+        scenario_id=scenario_id,
+        runtime_commit=runtime_commit,
+        runtime_artifact_sha256=runtime_artifact_sha256,
+        local_json=local_json,
+    )
 
 
 # ─── Additional kg subcommands ────────────────────────────────────────────────
@@ -4320,7 +4795,13 @@ def mcp_list_tools(cli_ctx: CLIContext, local_json: bool) -> None:
 
     def _action() -> None:
         try:
-            from mcp.tools import __all__ as tools
+            import mcp.tools as tool_registry
+
+            definitions = getattr(tool_registry, "TOOL_DEFINITIONS", None)
+            if definitions is not None:
+                tools = [item["name"] for item in definitions]
+            else:
+                tools = list(tool_registry.__all__)
         except ImportError:
             tools = [
                 "extract_entities", "extract_relations", "build_graph",

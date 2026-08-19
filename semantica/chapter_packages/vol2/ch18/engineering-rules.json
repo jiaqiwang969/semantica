@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "dependency",
+  "source_demo": "demos/vol2_ch18_independence_meet.py",
+  "source_demo_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959",
+  "enforcement_assets": [
+    "demo_vol2_ch18_independence_meet_shapes",
+    "demo_vol2_ch18_independence_meet_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH18-RULE-001",
+      "status": "native",
+      "statement": "Independence is evaluated over transitive dependency closure, not one hop."
+    },
+    {
+      "id": "V2-CH18-RULE-002",
+      "status": "native",
+      "statement": "An exclusion resting on a superseded fact becomes stale and reopens its claim."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

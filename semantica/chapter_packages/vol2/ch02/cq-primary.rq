@@ -1,0 +1,6 @@
+PREFIX id: <https://product-trustworthiness.local/identity#>
+SELECT ?unit ?bridge WHERE {
+  id:Alias_DUT_P07 id:aliasOf ?unit .
+  id:Alias_SN_000417 id:aliasOf ?unit .
+  id:Alias_DUT_P07 id:evidence ?bridge .
+}

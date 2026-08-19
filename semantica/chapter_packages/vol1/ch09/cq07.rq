@@ -1,0 +1,22 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX :     <http://example.org/manufacturing#>
+
+SELECT ?equipment ?name ?warningType
+WHERE {
+    {
+        ?equipment a :LongMaintenanceWarning ;
+                   rdfs:label ?name .
+        BIND("长时间维护预警（超过24小时）" AS ?warningType)
+    }
+    UNION
+    {
+        ?equipment :hasStatus :Faulty ;
+                   rdfs:label ?name .
+        BIND("设备故障，需立即处理" AS ?warningType)
+    }
+    FILTER(lang(?name) = "zh")
+}
+

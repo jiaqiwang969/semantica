@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch03",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch03#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch03",
+    "title": "本体构建方法论",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch03.tex",
+      "source_sha256": "94f589ba02c577e745a4eed1e05d11606c057a0fb13a7f0c9f827646eb212216",
+      "guide_anchor": "references/ontology-engineering-book/ch03-ontology-methodology/README.md",
+      "guide_sha256": "7f48823c89dcb29585911a107e4526dedc23b42027f58fefce46c0de19bd2934",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch03.tex",
+      "tex_sha256": "94f589ba02c577e745a4eed1e05d11606c057a0fb13a7f0c9f827646eb212216"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "partial",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "native",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "Ontology 101/METHONTOLOGY 阶段门禁尚未成为 runner。",
+    "OntoClean 刚性、同一性、统一性与依赖性检查器缺失。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "competency-questions",
+      "path": "competency-questions.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "3b53f89674f7528cd03782908a8f62d4eeebcaaeee3eaced1695817580513801",
+      "source_anchor": "references/ontology-engineering-book/ch03-ontology-methodology/examples/competency-questions.txt",
+      "source_sha256": "3b53f89674f7528cd03782908a8f62d4eeebcaaeee3eaced1695817580513801",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "09dcdd18ed136fc253ae9bd6a89a5a5934d07807e52c884c0d8effe08d9f5580",
+      "source_anchor": "contracts/vol1/ch03.yaml",
+      "source_sha256": "c88ede990660da7e1d2a42479358af3ba61ed1f8071ada97f603dcd4e0e9343b",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cq01-positive",
+      "path": "cq01-positive.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "1826174b431ad307d74d14677ebee1153ef46ab2e569868ab0e70d6d21d19361",
+      "source_anchor": "demos/vol1_ch03_cq_acceptance.py",
+      "source_sha256": "00e47ce7383f0af949b3585c9df4519f4d3383ae4e5445e65cf1e0f97865ba86",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch03_cq_acceptance.py"
+    },
+    {
+      "asset_id": "cq01-single-fault-negative",
+      "path": "cq01-single-fault-negative.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "negative_fixture",
+      "load_into_dataset": false,
+      "sha256": "f6d00ffebb75c6a15a0b5e6708587d93b39ac9c1d8f803a0ddbe6652ce16b318",
+      "source_anchor": "demos/vol1_ch03_cq_acceptance.py",
+      "source_sha256": "00e47ce7383f0af949b3585c9df4519f4d3383ae4e5445e65cf1e0f97865ba86",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch03_cq_acceptance.py"
+    },
+    {
+      "asset_id": "cq01",
+      "path": "cq01.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "25fee9baf07f1a1bf9d2e3c280fae4dcd8a93b1ad49eb7f16be1767aa3668412",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "query_split_without_semantic_rewrite"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "d8d1d9564ead7f61b4e536e473a03f9fba004a6b33399881d698427ce728813f",
+      "source_anchor": "contracts/vol1/ch03.yaml",
+      "source_sha256": "c88ede990660da7e1d2a42479358af3ba61ed1f8071ada97f603dcd4e0e9343b",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "methontology-lifecycle",
+      "path": "methontology-lifecycle.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "bd1e34561ff486e689303212cb95033ec5ec2fda98ea765aba9857771c5fb5db",
+      "source_anchor": "references/ontology-engineering-book/ch03-ontology-methodology/examples/methontology-lifecycle.txt",
+      "source_sha256": "bd1e34561ff486e689303212cb95033ec5ec2fda98ea765aba9857771c5fb5db",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "ontoclean-evaluation",
+      "path": "ontoclean-evaluation.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "5084fd309be51c79543765dc9fcbfdd6dfca7dfccba29ecd842decb90ce553ed",
+      "source_anchor": "references/ontology-engineering-book/ch03-ontology-methodology/examples/ontoclean-evaluation.txt",
+      "source_sha256": "5084fd309be51c79543765dc9fcbfdd6dfca7dfccba29ecd842decb90ce553ed",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "ontology-101-process",
+      "path": "ontology-101-process.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "b5cef215093fd8aabaff91f442ce59138cc7028d4e42660c6b4a6de719583ac2",
+      "source_anchor": "references/ontology-engineering-book/ch03-ontology-methodology/examples/ontology-101-process.txt",
+      "source_sha256": "b5cef215093fd8aabaff91f442ce59138cc7028d4e42660c6b4a6de719583ac2",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "4a89a233c820422ea2dfa4192439b737357b1646e1ef9a23ba4817e4d4dd9357",
+      "source_anchor": "contracts/vol1/ch03.yaml",
+      "source_sha256": "c88ede990660da7e1d2a42479358af3ba61ed1f8071ada97f603dcd4e0e9343b",
+      "derivation": "bounded_contract_extraction"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

@@ -1,0 +1,142 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "oe.vol1.ch06",
+  "package_id": "semantica.chapter_packages.vol1.ch06",
+  "package_version": "1.0.0",
+  "volume": "vol1",
+  "chapter": "ch06",
+  "title": "工程领域应用案例",
+  "external_specification": {
+    "kind": "book",
+    "stone": true,
+    "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch06.tex",
+    "source_sha256": "2e09d7b3c4ae834ca60e4c39138a3b55e3a32ec568cd912b20642b9c2a681f93",
+    "guide_anchor": "references/ontology-engineering-book/ch06-applications/README.md",
+    "guide_sha256": "e56c1dce3d4a63252994794571eefea606c8d732a6704d986649d6e430ee2931",
+    "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch06.tex",
+    "tex_sha256": "2e09d7b3c4ae834ca60e4c39138a3b55e3a32ec568cd912b20642b9c2a681f93"
+  },
+  "status": "absent",
+  "claims": [
+    {
+      "id": "OE-V1-CH06-CLM-001",
+      "statement": "工程本体能力必须在真实结构的自动驾驶、BIM、航空 FMEA 或制造任务中端到端复现。"
+    }
+  ],
+  "competency_question_ids": [
+    "OE-V1-CH06-CQ-001"
+  ],
+  "payload_status": {
+    "ontology": "absent",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "absent",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "absent",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; this chapter has no complete executable binding."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "release": {
+    "status": "blocked",
+    "blocking_gaps": [
+      "四类书中案例文本已迁入包，但尚未形式化为 RDF/OWL。",
+      "没有案例 SHACL、SPARQL、正例/单因反例与 exact oracle。",
+      "四类案例尚无可执行场景绑定，因此尚未产生执行收据。"
+    ]
+  },
+  "receipt": {
+    "status": "absent",
+    "required_fields": [
+      "runtime_commit",
+      "runtime_artifact_sha256",
+      "chapter_contract_sha256",
+      "dataset_sha256",
+      "capability_report",
+      "cq_report",
+      "oracle_report",
+      "provenance_bundle"
+    ],
+    "fields": {
+      "runtime_commit": {
+        "status": "absent",
+        "value": null
+      },
+      "runtime_artifact_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "chapter_contract_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "dataset_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "capability_report": {
+        "status": "absent",
+        "value": null
+      },
+      "cq_report": {
+        "status": "absent",
+        "value": null
+      },
+      "oracle_report": {
+        "status": "absent",
+        "value": null
+      },
+      "provenance_bundle": {
+        "status": "absent",
+        "value": null
+      }
+    },
+    "gap": "No release receipt has been issued; blocked release must not be interpreted as green."
+  },
+  "truthfulness": {
+    "no_fallback": true,
+    "missing_assets_are_gaps": true,
+    "book_is_external_authority": true
+  }
+}

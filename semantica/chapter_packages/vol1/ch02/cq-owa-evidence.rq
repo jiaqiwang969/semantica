@@ -1,0 +1,3 @@
+PREFIX mfg: <http://example.org/manufacturing#>
+
+ASK { mfg:Product_B mfg:producedBy mfg:Lathe_001 }

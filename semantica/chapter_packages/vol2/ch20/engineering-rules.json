@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "family": "assurance",
+  "source_demo": "demos/vol2_release_binding_gate.py",
+  "source_demo_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769",
+  "enforcement_assets": [
+    "demo_vol2_release_binding_gate_shapes",
+    "demo_vol2_release_binding_gate_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH20-RULE-001",
+      "status": "native",
+      "statement": "Every evidence-package member must bind to the package's declared release snapshot."
+    },
+    {
+      "id": "V2-CH20-RULE-002",
+      "status": "native",
+      "statement": "A gate rejection is a traceable disposition item, not only an error message."
+    },
+    {
+      "id": "V2-CH20-RULE-003",
+      "status": "native",
+      "statement": "Passing this knowledge-model gate is not product release authorization."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch07",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH07-CQ-001",
+      "question": "从采集到存储查询和质量门禁的同一数据集是否保真、可版本化且有 provenance？",
+      "claim_ids": [
+        "OE-V1-CH07-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH07-SCN-SHACL-QUALITY-001"
+      ],
+      "status": "partial"
+    }
+  ]
+}
+

@@ -1,0 +1,17 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix haz: <https://product-trustworthiness.local/hazard#> .
+haz: a owl:Ontology .
+haz:HazardousEvent a owl:Class .
+haz:OperatingSituation a owl:Class .
+haz:Hazard a owl:Class .
+haz:SafetyGoal a owl:Class .
+haz:hasHazard a owl:ObjectProperty .
+haz:hasSituation a owl:ObjectProperty .
+haz:hasSeverity a owl:DatatypeProperty .
+haz:hasExposure a owl:DatatypeProperty .
+haz:hasControllability a owl:DatatypeProperty .
+haz:hasASIL a owl:DatatypeProperty .

@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch04",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/hazard#",
+  "chapter": "ch04",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/chapter.md",
+    "sha256": "7a73c40c7482996c3fc448118d807a437e6886cc480fa3b3aeb304b9d9278f19",
+    "title": "概念阶段与 HARA",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/README.md",
+    "guide_sha256": "91e90f01077c6f357d05cc6f28eb45fdec06380422fd08f69c4ad2d1be662a6c",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch04.tex",
+    "tex_sha256": "74405eec13bf1a6eddc2ae76226b554dcd661cac76cc41d484ee57969320ddb6"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch04.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_hara_asil_corroborate.py",
+    "demo_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5",
+    "query_asset_id": "demo_vol2_hara_asil_corroborate_query",
+    "shapes_asset_id": "demo_vol2_hara_asil_corroborate_shapes",
+    "fixture_asset_ids": []
+  },
+  "assets": [
+    {
+      "asset_id": "book-example-asil-determination-txt",
+      "role": "teaching_case",
+      "path": "book-example-asil-determination.txt",
+      "sha256": "0aea586274ae651f2a7038bca961eb7bbeded1c43c515f3d79ab1240b2f21d23",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/asil-determination.txt",
+      "source_sha256": "0aea586274ae651f2a7038bca961eb7bbeded1c43c515f3d79ab1240b2f21d23"
+    },
+    {
+      "asset_id": "book-example-fsc-derivation-md",
+      "role": "teaching_case",
+      "path": "book-example-fsc-derivation.md",
+      "sha256": "ff0b7c043feea82f0e3ba0a6b56581714880febccdad8959fb501b2cd5bf55de",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/fsc-derivation.md",
+      "source_sha256": "ff0b7c043feea82f0e3ba0a6b56581714880febccdad8959fb501b2cd5bf55de"
+    },
+    {
+      "asset_id": "book-example-hara-casebook-md",
+      "role": "teaching_case",
+      "path": "book-example-hara-casebook.md",
+      "sha256": "57db2527ef23c7964f9f21b578e33011514d285ff55d874125ab8cb82cccc26a",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/hara-casebook.md",
+      "source_sha256": "57db2527ef23c7964f9f21b578e33011514d285ff55d874125ab8cb82cccc26a"
+    },
+    {
+      "asset_id": "book-example-hara-worksheet-csv",
+      "role": "case_table",
+      "path": "book-example-hara-worksheet.csv",
+      "sha256": "05a8db3d5e87b2eb9503f5ca6f8ceccf540fecea60c19b16ecb04c5f120fea42",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/hara-worksheet.csv",
+      "source_sha256": "05a8db3d5e87b2eb9503f5ca6f8ceccf540fecea60c19b16ecb04c5f120fea42"
+    },
+    {
+      "asset_id": "book-example-item-definition-eps-md",
+      "role": "teaching_case",
+      "path": "book-example-item-definition-eps.md",
+      "sha256": "3c1779d442fc35119d86979d2d1b88532bebf62425004f5aee4dc599afb49b65",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/item-definition-eps.md",
+      "source_sha256": "3c1779d442fc35119d86979d2d1b88532bebf62425004f5aee4dc599afb49b65"
+    },
+    {
+      "asset_id": "book-example-ontology-module-spec-md",
+      "role": "teaching_case",
+      "path": "book-example-ontology-module-spec.md",
+      "sha256": "3eff54da8c6143aeadd299fe67ed4f72147eec7902205f98c9b6123bb2fd38de",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/ontology-module-spec.md",
+      "source_sha256": "3eff54da8c6143aeadd299fe67ed4f72147eec7902205f98c9b6123bb2fd38de"
+    },
+    {
+      "asset_id": "book-example-safety-goals-md",
+      "role": "teaching_case",
+      "path": "book-example-safety-goals.md",
+      "sha256": "272420142150c7474fdf72297d7c914d094152af8676ef69c57164750c46d9a5",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/examples/safety-goals.md",
+      "source_sha256": "272420142150c7474fdf72297d7c914d094152af8676ef69c57164750c46d9a5"
+    },
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "70ddaad50d6b786d52ad687fa734381724777e6acb6dddf40750f1b13f876d5b",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch04.yaml",
+      "source_sha256": "5f4adad25298496e08b7a34b035447f17a6ed9f47cdd2e54369f98b02312eaf3"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "11c4190e742eeb80a63c3a99b87cab827c4cafe9f3e290b7de27150cb5ac2ac4",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch04.yaml",
+      "source_sha256": "5f4adad25298496e08b7a34b035447f17a6ed9f47cdd2e54369f98b02312eaf3"
+    },
+    {
+      "asset_id": "demo_vol2_hara_asil_corroborate_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "1d65df41cc284fb7af40c03f39c94c704fcd609503baf7d352f587b6c6582013",
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "demo_vol2_hara_asil_corroborate_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "7c0d8600ff11c56339f8a27cfaf7434de031e1aa3dbbc7477cd573b455c3d7c9",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "959b23eba07db6ba726e5d0dc409d6d0614d6349b081d6d2ac380138fd7483f4",
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "2405ca7664b6a1c9937fa8d9648ea4af9af6ea374f5e5a8edb0b32c819fe2b0e",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch04.yaml",
+      "source_sha256": "5f4adad25298496e08b7a34b035447f17a6ed9f47cdd2e54369f98b02312eaf3"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "8326ccc8b39562166fe592e6d5e6f0ce972e2fd171c216fb6ab6cec7edca5cea",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/chapter.md",
+      "source_sha256": "7a73c40c7482996c3fc448118d807a437e6886cc480fa3b3aeb304b9d9278f19"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "b6f3c94fd50298b2ae881d6c45a8172a80b1c64ab43e489cf55c2244ebee3b17",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/chapter.md",
+      "source_sha256": "7a73c40c7482996c3fc448118d807a437e6886cc480fa3b3aeb304b9d9278f19"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "a06c878c32ddd96775fa4ec4fc87a41314bae7378dcc0a3bf049081dd9688a2d",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/chapter.md",
+      "source_sha256": "7a73c40c7482996c3fc448118d807a437e6886cc480fa3b3aeb304b9d9278f19"
+    },
+    {
+      "asset_id": "source-problem-contract",
+      "role": "source_contract",
+      "path": "source-problem-contract.yaml",
+      "sha256": "40ecc707bf0915e53ca69c5deac79b04142f91c675635cff375152a620dc3464",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch04-concept-hara/problem-contract.yaml",
+      "source_sha256": "40ecc707bf0915e53ca69c5deac79b04142f91c675635cff375152a620dc3464"
+    }
+  ]
+}

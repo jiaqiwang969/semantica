@@ -1,0 +1,3 @@
+@prefix gov: <https://product-trustworthiness.local/governance#> .
+gov:NewAuthority a gov:Authorization ; gov:grantor gov:LaoHe .
+gov:Act_1 a gov:ActivationAction ; gov:activates gov:NewAuthority ; gov:recordedBy gov:LaoHe .

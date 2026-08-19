@@ -1,0 +1,14 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix req: <https://product-trustworthiness.local/requirements#> .
+req: a owl:Ontology .
+req:Requirement a owl:Class .
+req:TraceEdge a owl:Class .
+req:Rationale a owl:Class .
+req:rationale a owl:ObjectProperty .
+req:toReq a owl:ObjectProperty .
+req:dependsOnAspect a owl:ObjectProperty .
+req:justification a owl:DatatypeProperty .

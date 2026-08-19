@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch09",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/field#",
+  "chapter": "ch09",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/chapter.md",
+    "sha256": "6ff429373027991be763f4cc581845bf4ee1c5c537a1ea189a391cc6c8b4b59d",
+    "title": "生产、运行、服务与退役",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/README.md",
+    "guide_sha256": "9c1f50e299deaaebeccc0c6044e9f1733bfbcaacfabc49ad9147ad319b26a8d1",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch09.tex",
+    "tex_sha256": "294aa797055fc1f4792f5ea63ee27bed14b5c8df9cae75910408adc29785d39c"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch09.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_ch19_substitution_gate.py",
+    "demo_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997",
+    "query_asset_id": "demo_vol2_ch19_substitution_gate_query",
+    "shapes_asset_id": "demo_vol2_ch19_substitution_gate_shapes",
+    "fixture_asset_ids": [
+      "ch19_ledger",
+      "ch19_substitution_bad",
+      "ch19_substitution_good"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "book-example-field-monitoring-txt",
+      "role": "teaching_case",
+      "path": "book-example-field-monitoring.txt",
+      "sha256": "347dc534b3185d618e8a6ac7fe9d2bd3b7bfda9bebb4b47ac8d190393fc376cf",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/examples/field-monitoring.txt",
+      "source_sha256": "347dc534b3185d618e8a6ac7fe9d2bd3b7bfda9bebb4b47ac8d190393fc376cf"
+    },
+    {
+      "asset_id": "book-example-production-control-plan-md",
+      "role": "teaching_case",
+      "path": "book-example-production-control-plan.md",
+      "sha256": "d41d19c848707fd124cdc3b382c867f31fddca1f4a0d36be905dfb6eac32342b",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/examples/production-control-plan.md",
+      "source_sha256": "d41d19c848707fd124cdc3b382c867f31fddca1f4a0d36be905dfb6eac32342b"
+    },
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "0d269f1eb3c554169a0e33a111c3a4d5bdc71377c5af480e033506afac716828",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch09.yaml",
+      "source_sha256": "34476ca16cb147ee5ac27c3fd56cc594839b5dd023e15ba3124d884011e75e64"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "504267310f2f452891f0ec250e0f681bec404da0a537184f581ab1f0d7a09725",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch09.yaml",
+      "source_sha256": "34476ca16cb147ee5ac27c3fd56cc594839b5dd023e15ba3124d884011e75e64"
+    },
+    {
+      "asset_id": "demo_vol2_ch19_substitution_gate_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "e7a5fe6494f70612e7eade75bd967d0d61acd9a7328e06bb43cb735efe6a963b",
+      "source_anchor": "ontology-engineering/demos/vol2_ch19_substitution_gate.py",
+      "source_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997"
+    },
+    {
+      "asset_id": "demo_vol2_ch19_substitution_gate_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "cd5de4042d0be9097e99e36b01f15ef2e4bff48fce6b05bf83c3615e7e74a457",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_ch19_substitution_gate.py",
+      "source_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "cd35651bf77e18587bbe16cbf277cd6814dca8fa91b0cc920117d561b52d16b8",
+      "source_anchor": "ontology-engineering/demos/vol2_ch19_substitution_gate.py",
+      "source_sha256": "4194109d73f742639c8cb2879e20db02f78098b830161c67e2fe7d07394a7997"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "feb3e095308dfb37a7ecadc8d96561d77793b6cb829748b53c6da554250e365b",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch09.yaml",
+      "source_sha256": "34476ca16cb147ee5ac27c3fd56cc594839b5dd023e15ba3124d884011e75e64"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "8a46a4dd9253c5b18e5aa6eba9f13d687f8353a3a3cc24afa4608c7760df4043",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/chapter.md",
+      "source_sha256": "6ff429373027991be763f4cc581845bf4ee1c5c537a1ea189a391cc6c8b4b59d"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "b23bb5ce3d94de047d3bea540f4dbc3908ec40353f0b05da348ddb451be5a047",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/chapter.md",
+      "source_sha256": "6ff429373027991be763f4cc581845bf4ee1c5c537a1ea189a391cc6c8b4b59d"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "a00c50b53a43b9c5254a9f3a5ab57dfb0c7cd4ac764bea3aa579f0a1ca544e6a",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/chapter.md",
+      "source_sha256": "6ff429373027991be763f4cc581845bf4ee1c5c537a1ea189a391cc6c8b4b59d"
+    },
+    {
+      "asset_id": "source-audit",
+      "role": "provenance",
+      "path": "source-source-audit.md",
+      "sha256": "837df954716f297736d3255dadc9dfab29cf3b84a4268cce751f0cf313b9d6f0",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch09-production-operation/SOURCE-AUDIT.md",
+      "source_sha256": "837df954716f297736d3255dadc9dfab29cf3b84a4268cce751f0cf313b9d6f0"
+    }
+  ]
+}

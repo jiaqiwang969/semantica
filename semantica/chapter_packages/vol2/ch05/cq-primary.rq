@@ -1,0 +1,8 @@
+PREFIX req: <https://product-trustworthiness.local/requirements#>
+SELECT ?affected ?why WHERE {
+  ?edge req:rationale ?r .
+  ?r req:dependsOnAspect req:Param_SensorUpdate .
+  ?edge req:toReq ?affected .
+  ?r req:justification ?why .
+}
+ORDER BY ?affected

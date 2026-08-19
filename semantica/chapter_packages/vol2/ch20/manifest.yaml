@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch20",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/release#",
+  "chapter": "ch20",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/chapter.md",
+    "sha256": "fb25b789ec51c38fa17b08a6a0f124917929141dd24788b14553d55dfd5f8a87",
+    "title": "持续保证决定本体",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/README.md",
+    "guide_sha256": "1a2dd62752bbee213ea707a6eeb301321ed38d1b87e9da985e91ea05175bcb1e",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch20.tex",
+    "tex_sha256": "d1bcaaa0366364610bacdeed0efdebdaec1a032099a8a216b9222bf8bdb55525"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch20.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_release_binding_gate.py",
+    "demo_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769",
+    "query_asset_id": "demo_vol2_release_binding_gate_query",
+    "shapes_asset_id": "demo_vol2_release_binding_gate_shapes",
+    "fixture_asset_ids": []
+  },
+  "assets": [
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "b45f98d891f35a65af27022b7a477f462faae9b7f930645dfb2ef2a45b280da7",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch20.yaml",
+      "source_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "c6c91628822fa17d048f3d54c787b23b06b47993ea114b8ec23206fa930b76ee",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch20.yaml",
+      "source_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca"
+    },
+    {
+      "asset_id": "demo_vol2_release_binding_gate_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "56de68077be68c0202c6cf42dee9abcdc83909fdeff4a0deea59dbfa449e208c",
+      "source_anchor": "ontology-engineering/demos/vol2_release_binding_gate.py",
+      "source_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769"
+    },
+    {
+      "asset_id": "demo_vol2_release_binding_gate_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "b4e694c4cb01026bebbe60e5ddda40b7e13731975449e5dd29425519f7ec62dd",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_release_binding_gate.py",
+      "source_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "a3331f655b36314a7ac19152c2806d545191dc2c425c0bea4e3e1cf8274ab9c6",
+      "source_anchor": "ontology-engineering/demos/vol2_release_binding_gate.py",
+      "source_sha256": "4d4a8281d2e1fb90095f558a2999fac82023a143eacbaf687ecb3c2b0c764769"
+    },
+    {
+      "asset_id": "legacy-capstone-boundary-rules",
+      "role": "engineering_rules",
+      "path": "legacy-capstone-boundary-rules.json",
+      "sha256": "1ac266de17587a62c786cd3f1d25ea4d69c4beca32ddc0434e9d571db47f4308",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch11-capstone-three-items/src/capstone.py",
+      "source_sha256": "c1d0dcecfb24703045f09c101104b300828977e28f53a1bd447c7f505f9a11ec"
+    },
+    {
+      "asset_id": "legacy-capstone-bundle-manifest",
+      "role": "legacy_manifest",
+      "path": "legacy-capstone-bundle-manifest.yaml",
+      "sha256": "36d560e6118073a481009d7a82d2e4d0e18b68f1e82f0310569db3a6ddf1369d",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch11-capstone-three-items/bundle-manifest.yaml",
+      "source_sha256": "36d560e6118073a481009d7a82d2e4d0e18b68f1e82f0310569db3a6ddf1369d"
+    },
+    {
+      "asset_id": "legacy-capstone-missing-inputs",
+      "role": "migration_gaps",
+      "path": "legacy-capstone-missing-inputs.json",
+      "sha256": "dcaa29495a6565c144e83414404a2e5c84a2031b6b584188d0e5d46f4b79e785",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch11-capstone-three-items/bundle-manifest.yaml",
+      "source_sha256": "36d560e6118073a481009d7a82d2e4d0e18b68f1e82f0310569db3a6ddf1369d"
+    },
+    {
+      "asset_id": "legacy-capstone-queries",
+      "role": "query_registry",
+      "path": "legacy-capstone-queries.json",
+      "sha256": "df4bf1bcc248a218012c7f6ca7dd1d60500b9617d16f19e8dbe9b74aefaf6216",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch11-capstone-three-items/src/capstone.py",
+      "source_sha256": "c1d0dcecfb24703045f09c101104b300828977e28f53a1bd447c7f505f9a11ec"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "ec064f16968ec7bda437048f3dd75f7b4e0d8679082f9434edc7fdd5b03d6881",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch20.yaml",
+      "source_sha256": "5bedb973432b778025dca80ad8515a211a9e24be8d9b472997afa4b15cabf7ca"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "f10acf66f2df250f5cf04e5e00f517718f04691f60e2fae21c886ded0d81aceb",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/chapter.md",
+      "source_sha256": "fb25b789ec51c38fa17b08a6a0f124917929141dd24788b14553d55dfd5f8a87"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "9a51db510f892344df5b56d3fca75107f5c651709fee8cc58b303e10cbbbf36a",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/chapter.md",
+      "source_sha256": "fb25b789ec51c38fa17b08a6a0f124917929141dd24788b14553d55dfd5f8a87"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "43ffa75e402bec44c83258e923ab9ff401c908f84f286420427a275479c64ba1",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch20-assurance-ontology/chapter.md",
+      "source_sha256": "fb25b789ec51c38fa17b08a6a0f124917929141dd24788b14553d55dfd5f8a87"
+    }
+  ]
+}

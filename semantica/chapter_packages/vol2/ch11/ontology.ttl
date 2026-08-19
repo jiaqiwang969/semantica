@@ -1,0 +1,19 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix claim: <https://product-trustworthiness.local/claim#> .
+claim: a owl:Ontology .
+claim:Claim a owl:Class .
+claim:ReleaseClaim a owl:Class ; rdfs:subClassOf claim:Claim .
+claim:SafetyCase a owl:Class .
+claim:Evidence a owl:Class .
+claim:context a owl:ObjectProperty .
+claim:validWindow a owl:DatatypeProperty .
+claim:claimStatement a owl:DatatypeProperty .
+claim:claimStatus a owl:DatatypeProperty .
+claim:evidenceStatus a owl:DatatypeProperty .
+claim:containsClaim a owl:ObjectProperty .
+claim:supportsClaim a owl:ObjectProperty .
+claim:backedByEvidence a owl:ObjectProperty .

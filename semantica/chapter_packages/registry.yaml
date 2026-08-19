@@ -1,0 +1,346 @@
+{
+  "schema_version": "1.0",
+  "policy": "policy.yaml",
+  "expected_package_count": 29,
+  "expected_coverage": {
+    "vol1": [
+      "ch01",
+      "ch02",
+      "ch03",
+      "ch04",
+      "ch05",
+      "ch06",
+      "ch07",
+      "ch08",
+      "ch09"
+    ],
+    "vol2": [
+      "ch01",
+      "ch02",
+      "ch03",
+      "ch04",
+      "ch05",
+      "ch06",
+      "ch07",
+      "ch08",
+      "ch09",
+      "ch10",
+      "ch11",
+      "ch12",
+      "ch13",
+      "ch14",
+      "ch15",
+      "ch16",
+      "ch17",
+      "ch18",
+      "ch19",
+      "ch20"
+    ]
+  },
+  "external_specification": [
+    "《工程本体论》",
+    "《产品可信工程》"
+  ],
+  "packages": [
+    {
+      "volume": "vol1",
+      "chapter": "ch01",
+      "package_id": "semantica.chapter_packages.vol1.ch01",
+      "version": "1.0.0",
+      "title": "绪论——从哲学本体论到工程本体论",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch01/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch02",
+      "package_id": "semantica.chapter_packages.vol1.ch02",
+      "version": "1.0.0",
+      "title": "本体论基础理论",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch02/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch03",
+      "package_id": "semantica.chapter_packages.vol1.ch03",
+      "version": "1.0.0",
+      "title": "本体构建方法论",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch03/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch04",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "version": "1.0.0",
+      "title": "本体描述语言与工具",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch04/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch05",
+      "package_id": "semantica.chapter_packages.vol1.ch05",
+      "version": "1.0.0",
+      "title": "知识表示与推理机制",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch05/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch06",
+      "package_id": "semantica.chapter_packages.vol1.ch06",
+      "version": "1.0.0",
+      "title": "工程领域应用案例",
+      "status": "absent",
+      "release_status": "blocked",
+      "manifest": "vol1/ch06/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch07",
+      "package_id": "semantica.chapter_packages.vol1.ch07",
+      "version": "1.0.0",
+      "title": "知识图谱构建与管理",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch07/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch08",
+      "package_id": "semantica.chapter_packages.vol1.ch08",
+      "version": "1.0.0",
+      "title": "本体与大语言模型",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch08/manifest.yaml"
+    },
+    {
+      "volume": "vol1",
+      "chapter": "ch09",
+      "package_id": "semantica.chapter_packages.vol1.ch09",
+      "version": "1.0.0",
+      "title": "综合实战案例：智能制造知识管理系统",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol1/ch09/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch01",
+      "package_id": "semantica.chapter_packages.vol2.ch01",
+      "version": "0.1.0",
+      "title": "为什么全绿不等于产品可信",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch01/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch02",
+      "package_id": "semantica.chapter_packages.vol2.ch02",
+      "version": "0.1.0",
+      "title": "概念与术语：同一句可靠在说什么",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch02/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch03",
+      "package_id": "semantica.chapter_packages.vol2.ch03",
+      "version": "0.1.0",
+      "title": "安全管理：谁有权说可以相信",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch03/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch04",
+      "package_id": "semantica.chapter_packages.vol2.ch04",
+      "version": "0.1.0",
+      "title": "概念阶段与 HARA",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch04/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch05",
+      "package_id": "semantica.chapter_packages.vol2.ch05",
+      "version": "0.1.0",
+      "title": "系统级产品开发",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch05/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch06",
+      "package_id": "semantica.chapter_packages.vol2.ch06",
+      "version": "0.1.0",
+      "title": "硬件级产品开发",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch06/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch07",
+      "package_id": "semantica.chapter_packages.vol2.ch07",
+      "version": "0.1.0",
+      "title": "软件级产品开发",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch07/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch08",
+      "package_id": "semantica.chapter_packages.vol2.ch08",
+      "version": "0.1.0",
+      "title": "ASIL 分解与依赖失效分析",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch08/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch09",
+      "package_id": "semantica.chapter_packages.vol2.ch09",
+      "version": "0.1.0",
+      "title": "生产、运行、服务与退役",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch09/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch10",
+      "package_id": "semantica.chapter_packages.vol2.ch10",
+      "version": "0.1.0",
+      "title": "支持过程与发布保证",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch10/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch11",
+      "package_id": "semantica.chapter_packages.vol2.ch11",
+      "version": "0.1.0",
+      "title": "可信主张本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch11/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch12",
+      "package_id": "semantica.chapter_packages.vol2.ch12",
+      "version": "0.1.0",
+      "title": "工程对象与同一本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch12/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch13",
+      "package_id": "semantica.chapter_packages.vol2.ch13",
+      "version": "0.1.0",
+      "title": "工程治理本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch13/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch14",
+      "package_id": "semantica.chapter_packages.vol2.ch14",
+      "version": "0.1.0",
+      "title": "情境与目标本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch14/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch15",
+      "package_id": "semantica.chapter_packages.vol2.ch15",
+      "version": "0.1.0",
+      "title": "需求与架构本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch15/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch16",
+      "package_id": "semantica.chapter_packages.vol2.ch16",
+      "version": "0.1.0",
+      "title": "测量证据本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch16/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch17",
+      "package_id": "semantica.chapter_packages.vol2.ch17",
+      "version": "0.1.0",
+      "title": "配置与变化本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch17/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch18",
+      "package_id": "semantica.chapter_packages.vol2.ch18",
+      "version": "0.1.0",
+      "title": "依赖与韧性本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch18/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch19",
+      "package_id": "semantica.chapter_packages.vol2.ch19",
+      "version": "0.1.0",
+      "title": "产品数字线程本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch19/manifest.yaml"
+    },
+    {
+      "volume": "vol2",
+      "chapter": "ch20",
+      "package_id": "semantica.chapter_packages.vol2.ch20",
+      "version": "0.1.0",
+      "title": "持续保证决定本体",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/ch20/manifest.yaml"
+    }
+  ],
+  "expected_domain_package_count": 1,
+  "domain_packages": [
+    {
+      "package_id": "semantica.chapter_packages.vol2.normative",
+      "version": "0.1.0",
+      "status": "partial",
+      "release_status": "blocked",
+      "manifest": "vol2/normative/manifest.yaml"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+IF Equipment(?x) AND PowerAbove10(?x) THEN HighPowerEquipment(?x)
+IF HighPowerEquipment(?x) THEN RequiresCooling(?x)

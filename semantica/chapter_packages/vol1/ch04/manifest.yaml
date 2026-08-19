@@ -1,0 +1,328 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch04",
+  "version": "1.0.0",
+  "namespace": "http://example.org/manufacturing#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch04",
+    "title": "本体描述语言与工具",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
+      "source_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8",
+      "guide_anchor": "references/ontology-engineering-book/ch04-ontology-languages/README.md",
+      "guide_sha256": "c85661755759a46920d0eb8b59375a9bde18359d114605c785589cb07c25c949",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
+      "tex_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "native",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "Manchester Syntax 资产被无损保留，但当前 SemanticRuntime 不解析 Manchester。",
+    "本章依赖 vol1.ch07 的 SHACL 资产，未伪造章内 shapes。",
+    "图同构 round-trip oracle 尚未声明。",
+    "CQ7 SERVICE 需要外部端点，离线执行应 fail closed。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "8afe3c03885bde497973b5704510102c4987450e3202ab40a9637e19b70f891d",
+      "source_anchor": "contracts/vol1/ch04.yaml",
+      "source_sha256": "1e8948b25a9d7cbaca83721f6c653da6c4da6e68f1badb811ccb09b81326e016",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cq-missing-serial",
+      "path": "cq-missing-serial.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "f7eeec78af5d9c3fe2c83d313843ebf734bfa96eb29496ab32a25096b0f5fcf6",
+      "source_anchor": "demos/ch04_shacl_open_vs_closed.py",
+      "source_sha256": "a396e0dffb5883644ebb51d26236a5c213095662b63e6c14f0d61ff104b73a03",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch04_shacl_open_vs_closed.py"
+    },
+    {
+      "asset_id": "cq01",
+      "path": "cq01.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "dd269fcd42895368bed06852486f6c9d9e4041572240e3cd37f028af31617fcf",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq02",
+      "path": "cq02.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "96935b5a029eca3212ba07cc1001e114eb8e7b5785fb9aef2635b5c6f0cbc7c3",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq03",
+      "path": "cq03.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "59c761f7faf59d39ec899a01e2819bcb44cf2911ed5797b388d42b5223877194",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq04",
+      "path": "cq04.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "f764b0eeb4edfb17ca910d5de5f6c74cd9e149119a55105b0cb561abe525c999",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq05",
+      "path": "cq05.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "18acac2fc843d8bfe649b1b137b88396c267742bae53bd08be66d7028c45aa97",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq06",
+      "path": "cq06.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "74125a6eef84ca59b1d1e3a195a7b31c05c4a6bf4b0bc20e6b1d7bc94a0e42ec",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq07",
+      "path": "cq07.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "abe0974dbbac4d50c26a4d6c892c77f8c5089d4d3596f8a6b49150159e94e524",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq08",
+      "path": "cq08.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "d15bb6c1eaaec4dfd9aa12e178283c8f57da008cc29e98f68e81b49ea02fe287",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "4b03e00c6934cec67c3876422214c7dae886b7fcc48bf4e93fd89be48379ff92",
+      "source_anchor": "contracts/vol1/ch04.yaml",
+      "source_sha256": "1e8948b25a9d7cbaca83721f6c653da6c4da6e68f1badb811ccb09b81326e016",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "manufacturing",
+      "path": "manufacturing.owl",
+      "role": "ontology",
+      "kind": "rdf",
+      "format": "xml",
+      "load_into_dataset": true,
+      "sha256": "9b2a19fb6a10869218dd97a8cef8dd376ee580287a51195511a5eacae739ebc0",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/manufacturing.owl",
+      "source_sha256": "9b2a19fb6a10869218dd97a8cef8dd376ee580287a51195511a5eacae739ebc0",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "open-world-data",
+      "path": "open-world-data.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "8a9df1cb02f237fb86bac6b74e8426257d51c9a77b704aaf425820ecc576ffba",
+      "source_anchor": "demos/ch04_shacl_open_vs_closed.py",
+      "source_sha256": "a396e0dffb5883644ebb51d26236a5c213095662b63e6c14f0d61ff104b73a03",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch04_shacl_open_vs_closed.py"
+    },
+    {
+      "asset_id": "owl-classes",
+      "path": "owl-classes.owl",
+      "role": "ontology_source",
+      "format": "manchester",
+      "load_into_dataset": false,
+      "sha256": "67c740a951e5270f69271bc94f5971113b1037c97515ccdd9a609de01c1fd407",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/owl-classes.owl",
+      "source_sha256": "67c740a951e5270f69271bc94f5971113b1037c97515ccdd9a609de01c1fd407",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "owl-properties",
+      "path": "owl-properties.owl",
+      "role": "ontology_source",
+      "format": "manchester",
+      "load_into_dataset": false,
+      "sha256": "99437caad3268478fa5ee65bdaf248eeb6ccc078ddc16600f676c403170d8c63",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/owl-properties.owl",
+      "source_sha256": "99437caad3268478fa5ee65bdaf248eeb6ccc078ddc16600f676c403170d8c63",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "property-restrictions",
+      "path": "property-restrictions.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "80bfe11053404e5ddfc88bf86ce96cf5ed2b62fafb4831af150a0e54d305fc81",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/property-restrictions.txt",
+      "source_sha256": "80bfe11053404e5ddfc88bf86ce96cf5ed2b62fafb4831af150a0e54d305fc81",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "rdf-turtle-examples",
+      "path": "rdf-turtle-examples.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "ontology",
+      "load_into_dataset": true,
+      "sha256": "8941b3b6ecc06c9a37ce5ae514aa5d17c978abfaebda7d6ad5a951b3844604b9",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdf-turtle-examples.ttl",
+      "source_sha256": "8941b3b6ecc06c9a37ce5ae514aa5d17c978abfaebda7d6ad5a951b3844604b9",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "rdf-xml-examples",
+      "path": "rdf-xml-examples.rdf",
+      "role": "ontology",
+      "kind": "rdf",
+      "format": "xml",
+      "load_into_dataset": true,
+      "sha256": "a329085ff6b52f8e289cb711de25238d869836feeb874720128b594913406580",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdf-xml-examples.rdf",
+      "source_sha256": "a329085ff6b52f8e289cb711de25238d869836feeb874720128b594913406580",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "rdfs-examples",
+      "path": "rdfs-examples.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "ontology",
+      "load_into_dataset": true,
+      "sha256": "692356f8a256fc41a5e185dd238a929f014ac44d6105ddaf6bae073f22105c96",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdfs-examples.ttl",
+      "source_sha256": "692356f8a256fc41a5e185dd238a929f014ac44d6105ddaf6bae073f22105c96",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "b8b2145d475853ba94b05437ce0507d5966f8d813f6a279bf640895b9d219d62",
+      "source_anchor": "contracts/vol1/ch04.yaml",
+      "source_sha256": "1e8948b25a9d7cbaca83721f6c653da6c4da6e68f1badb811ccb09b81326e016",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "sparql-queries",
+      "path": "sparql-queries.sparql",
+      "role": "sparql_collection",
+      "format": "sparql",
+      "sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "source_anchor": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "source_sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "derivation": "byte_for_byte_copy"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

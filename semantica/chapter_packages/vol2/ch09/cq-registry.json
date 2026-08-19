@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch09",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH09-CQ-001",
+      "question": "给定现场单件和代换事件，系统能否反查受影响范围并验证其设计评估？",
+      "scenario_id": "semantica.vol2.ch09.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch09",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "positive-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch19_substitution_gate_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "verdict"
+          ],
+          "rows": [
+            {
+              "verdict": {
+                "value": "需实测低温曲线后再判",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch19_substitution_gate_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch19_substitution_gate_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "对照表不是评估",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch05",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH05-CQ-001",
+      "question": "某项系统承诺能否追到目标、参数化理由、责任分配、接口和验证证据？",
+      "scenario_id": "semantica.vol2.ch05.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch05",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "positive-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch15_reopen_list_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "affected",
+            "why"
+          ],
+          "rows": [
+            {
+              "affected": {
+                "value": "https://product-trustworthiness.local/requirements#FSR_TorqueLimit",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "why": {
+                "value": "最坏刷新时间参与其超时预算推导",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "affected": {
+                "value": "https://product-trustworthiness.local/requirements#SwReq_PlausibilityCheck",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "why": {
+                "value": "似真性检查周期引用了该刷新承诺",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "affected": {
+                "value": "https://product-trustworthiness.local/requirements#TSR_WatchdogWindow",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "why": {
+                "value": "看门狗窗口以传感器刷新为下界",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch15_reopen_list_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch15_reopen_list_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "缺少一等理由对象",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix chg: <https://product-trustworthiness.local/change#> .
+chg: a owl:Ontology .
+chg:Change a owl:Class .
+chg:PassRecord a owl:Class .
+chg:RevokeVerdict a owl:Class .
+chg:RetainVerdict a owl:Class .
+chg:changedDimension a owl:ObjectProperty .
+chg:changedFrom a owl:ObjectProperty .
+chg:bindsDimension a owl:ObjectProperty .
+chg:revokes a owl:ObjectProperty .
+chg:retainReason a owl:DatatypeProperty .

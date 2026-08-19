@@ -1,0 +1,7 @@
+PREFIX mfg: <http://example.org/manufacturing#>
+
+ASK {
+  FILTER NOT EXISTS {
+    mfg:Product_B mfg:producedBy mfg:Lathe_001
+  }
+}

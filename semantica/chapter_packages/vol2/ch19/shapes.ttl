@@ -1,0 +1,11 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fld: <https://product-trustworthiness.local/field#> .
+fld:SubstitutionGate a sh:NodeShape ;
+    sh:targetClass fld:SubstitutionRequest ;
+    sh:property [ sh:path fld:assessedBy ; sh:minCount 1 ; sh:class fld:DesignAssessment ;
+        sh:message "缺设计评估的代换，机器拒绝：对照表不是评估" ] .
+fld:FactProvenanceGate a sh:NodeShape ;
+    sh:targetClass fld:LedgerFact ;
+    sh:property [ sh:path fld:fromRecord ; sh:minCount 1 ;
+        sh:message "事实必须挂着受控记录的来源：推断只能作为标记候选留给人判，不能写成事实" ] .

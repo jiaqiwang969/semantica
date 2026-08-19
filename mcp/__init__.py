@@ -1,13 +1,12 @@
-"""
-Semantica MCP Server Package
+"""Compatibility package for Semantica's canonical MCP server.
 
-A full Model Context Protocol (MCP) server for Semantica — exposes knowledge graph
-construction, semantic extraction, decision intelligence, reasoning, analytics,
-and export capabilities as MCP tools and resources.
+All protocol dispatch, tool registration, and resource registration live in
+``semantica.mcp_server``.  This top-level package preserves the historical
+``python -m mcp`` command without maintaining a second implementation.
 
 Run the server:
     python -m mcp.server        # from repo root
-    python -m semantica.mcp_server  # alias inside installed package
+    python -m semantica.mcp_server  # canonical installed entry
 
 Configure in Claude Desktop, Windsurf, Cline, Continue, VS Code:
     {

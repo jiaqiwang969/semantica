@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch09",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH09-CQ-001",
+      "question": "制造案例能否只通过 Semantica 公共 API 从本体加载运行到带 receipt 的发布判定？",
+      "claim_ids": [
+        "OE-V1-CH09-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH09-SCN-CQ01-001"
+      ],
+      "status": "partial"
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-01",
+      "query_asset_id": "cq01",
+      "status": "native",
+      "oracle": {
+        "status": "ready",
+        "scenario_id": "OE-V1-CH09-SCN-CQ01-001"
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-02",
+      "query_asset_id": "cq02",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-03",
+      "query_asset_id": "cq03",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-04",
+      "query_asset_id": "cq04",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-05",
+      "query_asset_id": "cq05",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-06",
+      "query_asset_id": "cq06",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    },
+    {
+      "id": "OE-V1-CH09-BOOK-CQ-07",
+      "query_asset_id": "cq07",
+      "status": "registered",
+      "oracle": {
+        "status": "absent",
+        "gap": "The book supplies no executable ABox/exact result oracle for this query."
+      }
+    }
+  ]
+}
+

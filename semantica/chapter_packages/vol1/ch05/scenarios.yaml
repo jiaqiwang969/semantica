@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch05",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH05-SCN-FORWARD-CHAIN-001",
+      "status": "adapter",
+      "execution": {
+        "provider": "semantica.reasoning.Reasoner",
+        "operation": "forward_chain",
+        "runner_status": "native"
+      },
+      "inputs": [
+        "forward-chain-facts",
+        "forward-chain-rules"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH05-ORC-001",
+        "status": "ready",
+        "expected_conclusions": [
+          "HighPowerEquipment(Lathe_003)",
+          "RequiresCooling(Lathe_003)"
+        ]
+      }
+    }
+  ]
+}

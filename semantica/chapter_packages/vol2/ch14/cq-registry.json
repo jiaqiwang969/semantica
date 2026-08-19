@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch14",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH14-CQ-001",
+      "question": "当运行情境改变时，哪些危害事件、S/E/C 结论、目标和证据必须重新判断？",
+      "scenario_id": "semantica.vol2.ch14.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch14",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "negative-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_hara_asil_corroborate_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "event",
+            "actual",
+            "expected"
+          ],
+          "rows": [
+            {
+              "event": {
+                "value": "https://product-trustworthiness.local/hazard#HE_Bad",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "actual": {
+                "value": "ASIL B",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              },
+              "expected": {
+                "value": "ASIL C",
+                "term_type": "literal",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_hara_asil_corroborate_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_hara_asil_corroborate_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "实际 ASIL 与 Table 4",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

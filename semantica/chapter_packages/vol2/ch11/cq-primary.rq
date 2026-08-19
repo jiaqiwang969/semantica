@@ -1,0 +1,10 @@
+PREFIX claim: <https://product-trustworthiness.local/claim#>
+SELECT ?claim ?part WHERE {
+  VALUES (?property ?part) {
+    (claim:context "context")
+    (claim:validWindow "validWindow")
+  }
+  ?claim a claim:ReleaseClaim .
+  FILTER NOT EXISTS { ?claim ?property ?value }
+}
+ORDER BY ?claim ?part

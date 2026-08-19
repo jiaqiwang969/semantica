@@ -1,0 +1,16 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix haz: <https://product-trustworthiness.local/hazard#> .
+haz:ASILTable4Shape a sh:NodeShape ;
+    sh:targetClass haz:HazardousEvent ;
+    sh:sparql [
+        sh:message "实际 ASIL 与 Table 4 查表结果不同（书中反例：S2E4C3 应为 ASIL C）" ;
+        sh:select """
+            PREFIX haz: <https://product-trustworthiness.local/hazard#>
+            SELECT $this WHERE {
+                $this haz:hasSeverity "S2" ; haz:hasExposure "E4" ;
+                      haz:hasControllability "C3" ; haz:hasASIL ?a .
+                FILTER(?a != "ASIL C")
+            }
+        """ ;
+    ] .

@@ -1,0 +1,17 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX :     <http://example.org/manufacturing#>
+
+SELECT ?product ?process ?processLabel ?confidence
+WHERE {
+    ?product a :Product ;
+             :recommendedProcess ?process .
+    ?process rdfs:label ?processLabel .
+    OPTIONAL { ?process :confidence ?confidence }
+    FILTER(?product = :Product_001)
+    FILTER(lang(?processLabel) = "zh")
+}
+ORDER BY DESC(?confidence)
+

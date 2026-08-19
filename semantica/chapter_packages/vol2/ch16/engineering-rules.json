@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "family": "measurement",
+  "source_demo": "demos/vol2_metrics_recompute.py",
+  "source_demo_sha256": "c7e9e8757e046e0ed4bd613ee59dee77b79bcdaaf0437d8bf5394e339c78c2ea",
+  "enforcement_assets": [
+    "demo_vol2_metrics_recompute_shapes",
+    "demo_vol2_metrics_recompute_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH16-RULE-001",
+      "status": "native",
+      "statement": "Metric values must bind object, characteristic, value/unit, method, source, configuration, and time."
+    },
+    {
+      "id": "V2-CH16-RULE-002",
+      "status": "native",
+      "statement": "Denominators are auditable rosters with explicit exclusions."
+    }
+  ],
+  "additional_source_grounded_data": {
+    "baseline_fit": {
+      "传感器": [
+        100,
+        0,
+        5,
+        20,
+        5,
+        70
+      ],
+      "控制器": [
+        200,
+        0,
+        8,
+        60,
+        12,
+        120
+      ],
+      "驱动功率级": [
+        98,
+        0,
+        5,
+        20,
+        3,
+        70
+      ],
+      "未监控供电": [
+        2,
+        2,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "formulae": {
+      "closure": "lambda = lambda_SPF + lambda_RF + lambda_MPF_DP + lambda_MPF_L + lambda_S",
+      "SPFM": "1 - (lambda_SPF + lambda_RF) / sum_lambda",
+      "LFM": "1 - lambda_MPF_L / (sum_lambda - lambda_SPF - lambda_RF)"
+    }
+  },
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

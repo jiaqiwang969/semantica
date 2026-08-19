@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch05",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH05-CQ-001",
+      "question": "给定推理 profile，运行时能否返回正确闭包、证明链和明确的不支持错误？",
+      "claim_ids": [
+        "OE-V1-CH05-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH05-SCN-FORWARD-CHAIN-001"
+      ],
+      "status": "partial"
+    }
+  ]
+}
+

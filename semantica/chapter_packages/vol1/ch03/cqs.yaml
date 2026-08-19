@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch03",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH03-CQ-001",
+      "question": "每个 CQ 是否实际执行并由 exact oracle 判定，而非依靠关键词匹配？",
+      "claim_ids": [
+        "OE-V1-CH03-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH03-SCN-CQ-ACCEPTANCE-001"
+      ],
+      "status": "partial"
+    }
+  ]
+}
+

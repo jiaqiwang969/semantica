@@ -1,0 +1,203 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch07",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch07#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch07",
+    "title": "知识图谱构建与管理",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch07.tex",
+      "source_sha256": "25fb57e78e7f3f320bebe6d2504f405c2f88681f43e43352013a6bb855d29114",
+      "guide_anchor": "references/ontology-engineering-book/ch07-knowledge-graph/README.md",
+      "guide_sha256": "7fdef95f025bbfd2f52d16f0deefd6de99ca58abb4f36da3d428c9df7018e9c3",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch07.tex",
+      "tex_sha256": "25fb57e78e7f3f320bebe6d2504f405c2f88681f43e43352013a6bb855d29114"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "partial",
+    "competency_questions": "native",
+    "shapes": "native",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "native",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "SHACL、snapshot/diff 与 PROV 机制均为原生；本章尚未声明领域 mutation 的原子事务合同。",
+    "Property Graph 与 canonical RDF Dataset 尚未形成统一事务。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "07a3c4e4b9668da95d947830fcefe9d4db6a88a172ae6c84697302dc9b93e998",
+      "source_anchor": "contracts/vol1/ch07.yaml",
+      "source_sha256": "7b406427c41185a73e919db62c061907b1fb12a837b91c0d445e849cd1fa4434",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cq-missing-serial",
+      "path": "cq-missing-serial.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "f7eeec78af5d9c3fe2c83d313843ebf734bfa96eb29496ab32a25096b0f5fcf6",
+      "source_anchor": "demos/ch04_shacl_open_vs_closed.py",
+      "source_sha256": "a396e0dffb5883644ebb51d26236a5c213095662b63e6c14f0d61ff104b73a03",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch04_shacl_open_vs_closed.py"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "b0eb9143d920e67edfe3afbed70f2a3f4a2566446187aaa960ab42021ca69c72",
+      "source_anchor": "contracts/vol1/ch07.yaml",
+      "source_sha256": "7b406427c41185a73e919db62c061907b1fb12a837b91c0d445e849cd1fa4434",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "entity-resolution",
+      "path": "entity-resolution.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "547a45e489e33274be1c32f581dde1541a41a26eed2076ad23113d531f1dc522",
+      "source_anchor": "references/ontology-engineering-book/ch07-knowledge-graph/examples/entity-resolution.txt",
+      "source_sha256": "547a45e489e33274be1c32f581dde1541a41a26eed2076ad23113d531f1dc522",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "kg-construction-pipeline",
+      "path": "kg-construction-pipeline.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "b977f3e00ac3ab426cab1657557d370b299ec92abba557dc36840125fd457fbe",
+      "source_anchor": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-construction-pipeline.txt",
+      "source_sha256": "b977f3e00ac3ab426cab1657557d370b299ec92abba557dc36840125fd457fbe",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "kg-quality-shacl",
+      "path": "kg-quality-shacl.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "shapes",
+      "load_into_dataset": false,
+      "sha256": "6280f4de4e1e80de75d6c9f228b5f7e8cf48e681fcc43aa95899bc1eb324a752",
+      "source_anchor": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-quality-shacl.ttl",
+      "source_sha256": "6280f4de4e1e80de75d6c9f228b5f7e8cf48e681fcc43aa95899bc1eb324a752",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "kg-storage-query",
+      "path": "kg-storage-query.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "11496ed2728c8208a830d3cd594f7823f719595f6adf1a2e8c1d5155e0ea8a9e",
+      "source_anchor": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-storage-query.txt",
+      "source_sha256": "9259c67427b43473b9d422154ad8dad17e234e97e6b78d4bf186f6f340bc5fa7",
+      "derivation": "semantica_projection_authority_rewrite"
+    },
+    {
+      "asset_id": "positive",
+      "path": "positive.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "882bc23488ab0226a266b1bae9d38a7c690fc99b485f0b54081c3b8ef422489b",
+      "source_anchor": "demos/ch04_shacl_open_vs_closed.py",
+      "source_sha256": "a396e0dffb5883644ebb51d26236a5c213095662b63e6c14f0d61ff104b73a03",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch04_shacl_open_vs_closed.py"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "c15e85df0637aeab4b0eb381fd1c06e1273ccb5a78e34d7b4e2d4dcf03902a73",
+      "source_anchor": "contracts/vol1/ch07.yaml",
+      "source_sha256": "7b406427c41185a73e919db62c061907b1fb12a837b91c0d445e849cd1fa4434",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "single-fault-missing-serial",
+      "path": "single-fault-missing-serial.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "36d90a348bf696cb9f8d847d7593b5e9cd363f584e06504d453277aadb0a3c60",
+      "source_anchor": "demos/ch04_shacl_open_vs_closed.py",
+      "source_sha256": "a396e0dffb5883644ebb51d26236a5c213095662b63e6c14f0d61ff104b73a03",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/ch04_shacl_open_vs_closed.py"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

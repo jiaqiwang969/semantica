@@ -1,0 +1,15 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix gov: <https://product-trustworthiness.local/governance#> .
+gov:ActivationGate a sh:NodeShape ;
+    sh:targetClass gov:ActivationAction ;
+    sh:sparql [
+        sh:message "授权生效必须是授权人本人的记录动作——调用成功不是事实，执行更不是授权" ;
+        sh:select """
+            PREFIX gov: <https://product-trustworthiness.local/governance#>
+            SELECT $this WHERE {
+                $this gov:activates ?auth ; gov:recordedBy ?who .
+                ?auth gov:grantor ?grantor . FILTER(?who != ?grantor)
+            }
+        """ ;
+    ] .

@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch07",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/change#",
+  "chapter": "ch07",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/chapter.md",
+    "sha256": "9f36045ec86a739ba848530b455f6259fb5beeb6102cec56e1c13f09f9e5f5f4",
+    "title": "软件级产品开发",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/README.md",
+    "guide_sha256": "dbe5f99416e8f63d9793b31173a79c60f22b58d8c28293164fc13bdc24abe2bf",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch07.tex",
+    "tex_sha256": "4cd678ca39a0358ef9339ea24635f2bc7e60d77fa891c078c3e68cf7b4b9faac"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch07.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_ch17_change_verdict_gate.py",
+    "demo_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae",
+    "query_asset_id": "demo_vol2_ch17_change_verdict_gate_query",
+    "shapes_asset_id": "demo_vol2_ch17_change_verdict_gate_shapes",
+    "fixture_asset_ids": [
+      "ch17_change",
+      "ch17_verdicts_bad",
+      "ch17_verdicts_good"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "book-example-sw-architecture-txt",
+      "role": "teaching_case",
+      "path": "book-example-sw-architecture.txt",
+      "sha256": "888d12b09b312080ca0e70d222ec30fb16c7eb736cdf7e9018940c1a40033e68",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/examples/sw-architecture.txt",
+      "source_sha256": "888d12b09b312080ca0e70d222ec30fb16c7eb736cdf7e9018940c1a40033e68"
+    },
+    {
+      "asset_id": "book-example-sw-method-selection-md",
+      "role": "teaching_case",
+      "path": "book-example-sw-method-selection.md",
+      "sha256": "a1e7c7aa09501af09de1503585116ce81d1f2bf76784829cfbb987b46ef67b5f",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/examples/sw-method-selection.md",
+      "source_sha256": "a1e7c7aa09501af09de1503585116ce81d1f2bf76784829cfbb987b46ef67b5f"
+    },
+    {
+      "asset_id": "book-example-sw-safety-requirements-md",
+      "role": "teaching_case",
+      "path": "book-example-sw-safety-requirements.md",
+      "sha256": "7507d8e3d2adef62174239df27f7a4078f5b544b42a0d169aa1a8de6ced18c06",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/examples/sw-safety-requirements.md",
+      "source_sha256": "7507d8e3d2adef62174239df27f7a4078f5b544b42a0d169aa1a8de6ced18c06"
+    },
+    {
+      "asset_id": "book-example-unit-verification-cases-txt",
+      "role": "teaching_case",
+      "path": "book-example-unit-verification-cases.txt",
+      "sha256": "095b9edcfc818a22576abbb11d077bbd670e95eb1c4443e4655a187a1dab208c",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/examples/unit-verification-cases.txt",
+      "source_sha256": "095b9edcfc818a22576abbb11d077bbd670e95eb1c4443e4655a187a1dab208c"
+    },
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "4e4f226c9af727b2db4abf1cfe7776620a76f038f0fd624b81cee3ef7489b07d",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch07.yaml",
+      "source_sha256": "49a3b7548ecb82abaa801ca4fdef95ca245f5c09d127f188d83dfdfe0c84e372"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "200a00d1c3224575434dd150af5f75153f6750b167ca3b2d9f5f0d33da276e76",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch07.yaml",
+      "source_sha256": "49a3b7548ecb82abaa801ca4fdef95ca245f5c09d127f188d83dfdfe0c84e372"
+    },
+    {
+      "asset_id": "demo_vol2_ch17_change_verdict_gate_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "c42f4bcb3a27664cf98dbd351cac08355e10e44de6230eee05ea44f67a35fc6d",
+      "source_anchor": "ontology-engineering/demos/vol2_ch17_change_verdict_gate.py",
+      "source_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae"
+    },
+    {
+      "asset_id": "demo_vol2_ch17_change_verdict_gate_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "6a8fdf33c506e67fac14bb5c526d74edd1fe1ffa93bcb1ffbba2c271fefa6757",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_ch17_change_verdict_gate.py",
+      "source_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "2c627ebefd352d70ec0226fd5c7b57c8c99610b294026b4a25932d8367528652",
+      "source_anchor": "ontology-engineering/demos/vol2_ch17_change_verdict_gate.py",
+      "source_sha256": "86425a2b903d6aacb910934de189185afcd867bd97b619a6fa6349d01ed092ae"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "1dd2c6c6f8d597ee32501246fe812137de58c995e3ab08a535dfadc02184be8e",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch07.yaml",
+      "source_sha256": "49a3b7548ecb82abaa801ca4fdef95ca245f5c09d127f188d83dfdfe0c84e372"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "7939af25196141fc0fe9ef134e1f17674e92002af46d9d1184e783f87c33c3c7",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/chapter.md",
+      "source_sha256": "9f36045ec86a739ba848530b455f6259fb5beeb6102cec56e1c13f09f9e5f5f4"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "e382f49d4efb15efe9dc50801c9b5807e4d4acfd25f42cf6667f28bf9ced5647",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/chapter.md",
+      "source_sha256": "9f36045ec86a739ba848530b455f6259fb5beeb6102cec56e1c13f09f9e5f5f4"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "fc40d1ed9d95f24b7f83706f8bf974bbe96d25882b1ad1100de41c912a547695",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/chapter.md",
+      "source_sha256": "9f36045ec86a739ba848530b455f6259fb5beeb6102cec56e1c13f09f9e5f5f4"
+    },
+    {
+      "asset_id": "query-case",
+      "role": "case_query",
+      "path": "query-case.ttl",
+      "sha256": "c8905a56c6c151a128788fc88d3451f5bded9538858450864a80559f9e980ad8",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch07-software-development/chapter.md",
+      "source_sha256": "9f36045ec86a739ba848530b455f6259fb5beeb6102cec56e1c13f09f9e5f5f4"
+    }
+  ]
+}

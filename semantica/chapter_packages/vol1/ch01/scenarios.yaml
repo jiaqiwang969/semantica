@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch01",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH01-SCN-001",
+      "status": "absent",
+      "execution": {
+        "operation": "requirements_specification_report",
+        "provider": "unimplemented"
+      },
+      "inputs": [
+        "book-roadmap",
+        "philosophy-to-engineering"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH01-ORC-001",
+        "status": "absent",
+        "gap": "尚无机器可判定的目的、范围、共同体与概念化边界报告。"
+      }
+    }
+  ]
+}

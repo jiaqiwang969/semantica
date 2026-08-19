@@ -1,0 +1,5 @@
+@prefix rel: <https://product-trustworthiness.local/release#> .
+rel:RC18 a rel:ReleaseSnapshot ; rel:configItem rel:HW_H32, rel:SW_184, rel:CAL_C41, rel:DRV_D7, rel:BASE_V12 .
+rel:PKG_RC18_draft a rel:EvidencePackage ; rel:declaredSnapshot rel:RC18 ;
+    rel:memberListClosed true ; rel:hasMember rel:SWRegReport_r11 .
+rel:SWRegReport_r11 rel:boundTo rel:RC18 ; rel:producedBy rel:SWRegRun_r11 .

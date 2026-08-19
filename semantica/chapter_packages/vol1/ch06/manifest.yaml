@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch06",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch06#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch06",
+    "title": "工程领域应用案例",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch06.tex",
+      "source_sha256": "2e09d7b3c4ae834ca60e4c39138a3b55e3a32ec568cd912b20642b9c2a681f93",
+      "guide_anchor": "references/ontology-engineering-book/ch06-applications/README.md",
+      "guide_sha256": "e56c1dce3d4a63252994794571eefea606c8d732a6704d986649d6e430ee2931",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch06.tex",
+      "tex_sha256": "2e09d7b3c4ae834ca60e4c39138a3b55e3a32ec568cd912b20642b9c2a681f93"
+    }
+  },
+  "status": "absent",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "absent",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "absent",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "absent",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; this chapter has no complete executable binding."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "四类书中案例文本已迁入包，但尚未形式化为 RDF/OWL。",
+    "没有案例 SHACL、SPARQL、正例/单因反例与 exact oracle。",
+    "四类案例尚无可执行场景绑定，因此尚未产生执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "aerospace-fmea",
+      "path": "aerospace-fmea.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "ad9560eef318563dec016275e294e75d90c4e60d21c9e9c6d86a81a9bbd29af3",
+      "source_anchor": "references/ontology-engineering-book/ch06-applications/examples/aerospace-fmea.txt",
+      "source_sha256": "ad9560eef318563dec016275e294e75d90c4e60d21c9e9c6d86a81a9bbd29af3",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "autonomous-driving",
+      "path": "autonomous-driving.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "f8aa43f8bd3b577f573d795b065a662172ea146460dd694a80de9a9746192388",
+      "source_anchor": "references/ontology-engineering-book/ch06-applications/examples/autonomous-driving.txt",
+      "source_sha256": "f8aa43f8bd3b577f573d795b065a662172ea146460dd694a80de9a9746192388",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "bim-ontology",
+      "path": "bim-ontology.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "e9b7e35bdfb8dd1107b8010d0cc184015cec5723b06dca7d3e4d95776bbff269",
+      "source_anchor": "references/ontology-engineering-book/ch06-applications/examples/bim-ontology.txt",
+      "source_sha256": "e9b7e35bdfb8dd1107b8010d0cc184015cec5723b06dca7d3e4d95776bbff269",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "2b6186e45e29a35622f22deffa8a399a0fa5ce6ee16883870ec76e831db5bddb",
+      "source_anchor": "contracts/vol1/ch06.yaml",
+      "source_sha256": "51fb78a107ea1e2e029729b79fee82616f9f3b19c689aed7a52ceb504fa3f901",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "156414b39fb24a5da74446f35e9774f6aaa161b32b621cfc4f01a15b571dad15",
+      "source_anchor": "contracts/vol1/ch06.yaml",
+      "source_sha256": "51fb78a107ea1e2e029729b79fee82616f9f3b19c689aed7a52ceb504fa3f901",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "manufacturing-scheduling",
+      "path": "manufacturing-scheduling.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "b4f57d3fcc92834d035ddb2fb114b3d11f15f6a2507a91703e667afa31458a05",
+      "source_anchor": "references/ontology-engineering-book/ch06-applications/examples/manufacturing-scheduling.txt",
+      "source_sha256": "b4f57d3fcc92834d035ddb2fb114b3d11f15f6a2507a91703e667afa31458a05",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "034eef34885166d18236a0a3810b5dd5a5c48f6c9235b72a78cbc691cb6e2a84",
+      "source_anchor": "contracts/vol1/ch06.yaml",
+      "source_sha256": "51fb78a107ea1e2e029729b79fee82616f9f3b19c689aed7a52ceb504fa3f901",
+      "derivation": "bounded_contract_extraction"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

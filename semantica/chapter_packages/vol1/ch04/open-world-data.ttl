@@ -1,0 +1,8 @@
+@prefix mfg: <http://example.org/manufacturing#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+mfg:Lathe_OK a mfg:Equipment ;
+    mfg:hasSerialNumber "EQ-2026-0001" ;
+    mfg:hasPower "15.0"^^xsd:float .
+mfg:Lathe_BAD a mfg:Equipment ;
+    mfg:hasPower "15.0"^^xsd:float .

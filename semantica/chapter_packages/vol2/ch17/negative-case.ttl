@@ -1,0 +1,2 @@
+@prefix chg: <https://product-trustworthiness.local/change#> .
+chg:Verdict_ConceptCard a chg:RetainVerdict .

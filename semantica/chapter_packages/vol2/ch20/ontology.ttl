@@ -1,0 +1,16 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix rel: <https://product-trustworthiness.local/release#> .
+rel: a owl:Ontology .
+rel:ReleaseSnapshot a owl:Class .
+rel:EvidencePackage a owl:Class .
+rel:Evidence a owl:Class .
+rel:ReleaseDecision a owl:Class .
+rel:declaredSnapshot a owl:ObjectProperty .
+rel:hasMember a owl:ObjectProperty .
+rel:boundTo a owl:ObjectProperty .
+rel:producedBy a owl:ObjectProperty .
+rel:memberListClosed a owl:DatatypeProperty .

@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.normative",
+  "version": "0.1.0",
+  "namespace": "https://ontology-engineering.local/iso26262/normative#",
+  "domain": "iso26262-normative-derived-layer",
+  "status": "partial",
+  "release_status": "blocked",
+  "source_repository_end_state": "removed_after_cutover",
+  "legacy_entry": {
+    "directory": "references/iso-normative-ontology",
+    "demo": "demos/vol2_iso_normative_query.py",
+    "demo_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85"
+  },
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.normative.scenario.modality-fidelity",
+      "cq_registry_asset": "cq-registry"
+    }
+  ],
+  "assets": [
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "3d0200dbb606c88030a1e6d062ccd868be9b1e54c049324dcd621db41d6cd3fd",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/README.md",
+      "source_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "7af67862f4e3781c2bbfc4fe505c9f14983fd7dea5cbc6839dac5c9906e8195e",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/README.md",
+      "source_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b"
+    },
+    {
+      "asset_id": "demo_vol2_iso_normative_query_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "1e4513224890a7beb103d6b9305c83d687bd6ed22a2c04be3054179d02e20d7f",
+      "source_anchor": "ontology-engineering/demos/vol2_iso_normative_query.py",
+      "source_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85"
+    },
+    {
+      "asset_id": "demo_vol2_iso_normative_query_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "caf0058dac7852021b825f783c35fbf730b1334d7c2b367897e7e9f5df8c1299",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_iso_normative_query.py",
+      "source_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85"
+    },
+    {
+      "asset_id": "gloss-part3-glosses",
+      "role": "seed",
+      "path": "gloss-part3-glosses.yaml",
+      "sha256": "d06ec8600a7753e5a52206678f5432c430451a25e92055f41272d12a147dff84",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/glosses/part3-glosses.yaml",
+      "source_sha256": "d06ec8600a7753e5a52206678f5432c430451a25e92055f41272d12a147dff84"
+    },
+    {
+      "asset_id": "gloss-teaching-cases",
+      "role": "seed",
+      "path": "gloss-teaching-cases.yaml",
+      "sha256": "58a78d7b09b5cbc30da2dd2e24bf5c691280f8dd0bf6f9b715cc2238607b0ddd",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/glosses/teaching-cases.yaml",
+      "source_sha256": "58a78d7b09b5cbc30da2dd2e24bf5c691280f8dd0bf6f9b715cc2238607b0ddd"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "fa16a1d3892cd0b46dcbba2d0da1528931f75c935ace5b1e3ba91ecdecf36f11",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/README.md",
+      "source_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b"
+    },
+    {
+      "asset_id": "normative-tbox",
+      "role": "ontology",
+      "path": "normative-tbox.ttl",
+      "sha256": "c5c377747bc577cdbd77d5e2783f10c4ea00e8c3373159f9d6023e90284bb4d3",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/normative-tbox.ttl",
+      "source_sha256": "c5c377747bc577cdbd77d5e2783f10c4ea00e8c3373159f9d6023e90284bb4d3"
+    },
+    {
+      "asset_id": "part1-cards",
+      "role": "view",
+      "path": "part1-cards.md",
+      "sha256": "48bd75ba57ab2e57e394f746b9b8eda828f4906f486d1bde55734fcc8bc20c14",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/part1-cards.md",
+      "source_sha256": "48bd75ba57ab2e57e394f746b9b8eda828f4906f486d1bde55734fcc8bc20c14"
+    },
+    {
+      "asset_id": "part1-vocabulary",
+      "role": "data",
+      "path": "part1-vocabulary.ttl",
+      "sha256": "87b8d8a728e66c335190007cc7186ee5a7ec392677da2d250131cdf482c7e1ab",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/part1-vocabulary.ttl",
+      "source_sha256": "87b8d8a728e66c335190007cc7186ee5a7ec392677da2d250131cdf482c7e1ab"
+    },
+    {
+      "asset_id": "part3-cards",
+      "role": "view",
+      "path": "part3-cards.md",
+      "sha256": "be050ecc9e8441b4da48e73b0581b9afe98116051a363d57b8dbdf7c5cf8023f",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/part3-cards.md",
+      "source_sha256": "be050ecc9e8441b4da48e73b0581b9afe98116051a363d57b8dbdf7c5cf8023f"
+    },
+    {
+      "asset_id": "part3-concept-phase",
+      "role": "data",
+      "path": "part3-concept-phase.ttl",
+      "sha256": "e1a240c340509557a8f79fb418a6b85199852a599d84961136c8ea620d27e9a0",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/part3-concept-phase.ttl",
+      "source_sha256": "e1a240c340509557a8f79fb418a6b85199852a599d84961136c8ea620d27e9a0"
+    },
+    {
+      "asset_id": "readme",
+      "role": "provenance",
+      "path": "README.md",
+      "sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b",
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/README.md",
+      "source_sha256": "af28cfefae92fa5176e8775a73bd30f348cad12d55fd2ede91a17c460955aa3b"
+    },
+    {
+      "asset_id": "single-fault-negative",
+      "role": "case_negative",
+      "path": "single-fault-negative.ttl",
+      "sha256": "c7597ef12768a56fa044e69281cb01ba76c350ea453c0b90111088d88554ed17",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_iso_normative_query.py",
+      "source_sha256": "f9538d106a6223111616a348d46c24646d6f65ee8fa2452c86c7abdae2143c85"
+    },
+    {
+      "asset_id": "teaching-cases",
+      "role": "data",
+      "path": "teaching-cases.ttl",
+      "sha256": "0e7813477bd8e5366b46b092ae40a960cac24838af86887148bc5407799837c0",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/iso-normative-ontology/teaching-cases.ttl",
+      "source_sha256": "0e7813477bd8e5366b46b092ae40a960cac24838af86887148bc5407799837c0"
+    }
+  ]
+}

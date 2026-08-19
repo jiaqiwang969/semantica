@@ -1,0 +1,154 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch01",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch01#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch01",
+    "title": "绪论——从哲学本体论到工程本体论",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch01.tex",
+      "source_sha256": "85250ae3292db6c66c0d17c52da5de16b62b94b92710841fbe3aad153ea42fda",
+      "guide_anchor": "references/ontology-engineering-book/ch01-introduction/README.md",
+      "guide_sha256": "48245060df9d3866f9a3c3431df9df191aaf32c877976c51f4dc49c5421698c9",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch01.tex",
+      "tex_sha256": "85250ae3292db6c66c0d17c52da5de16b62b94b92710841fbe3aad153ea42fda"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "absent",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "absent",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "absent",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; this chapter has no complete executable binding."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "没有可执行 conceptualization manifest 与边界检查。",
+    "尚无范围声明正例和缺边界的单因反例。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "book-roadmap",
+      "path": "book-roadmap.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "b048561ccc068e006fd69dfa19595065d1c7a12194245d872e50b5fa6151c31a",
+      "source_anchor": "references/ontology-engineering-book/ch01-introduction/examples/book-roadmap.txt",
+      "source_sha256": "b048561ccc068e006fd69dfa19595065d1c7a12194245d872e50b5fa6151c31a",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "b7820f98c29a73a5baa441a0f9cdbcc2b51e75d8a95ceaf50f80e191fd124fa5",
+      "source_anchor": "contracts/vol1/ch01.yaml",
+      "source_sha256": "b404d7aeb9b46a0f8b112c4b1c1dff6730fcf8f7f65d07984d97e415437eebb4",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "2989b595762ffecacce6b13a8491ff9e1c256f31e80b3068a931ca9cfe984d6a",
+      "source_anchor": "contracts/vol1/ch01.yaml",
+      "source_sha256": "b404d7aeb9b46a0f8b112c4b1c1dff6730fcf8f7f65d07984d97e415437eebb4",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "ontology-in-ai-era",
+      "path": "ontology-in-ai-era.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "d7863d21126281de90c7b8305ae911cbf28c8132e08b3e15f67f360315c5a40a",
+      "source_anchor": "references/ontology-engineering-book/ch01-introduction/examples/ontology-in-ai-era.txt",
+      "source_sha256": "d7863d21126281de90c7b8305ae911cbf28c8132e08b3e15f67f360315c5a40a",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "philosophy-to-engineering",
+      "path": "philosophy-to-engineering.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "a4ef35eec0bb6962049005d7d2946bbcae67486c1c8a5d53fdcccc1906dc90fc",
+      "source_anchor": "references/ontology-engineering-book/ch01-introduction/examples/philosophy-to-engineering.txt",
+      "source_sha256": "a4ef35eec0bb6962049005d7d2946bbcae67486c1c8a5d53fdcccc1906dc90fc",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "2f7b5164d615e6d2328ce1ca6764043f7d66eabcd0ec8729dd1278729bc79840",
+      "source_anchor": "contracts/vol1/ch01.yaml",
+      "source_sha256": "b404d7aeb9b46a0f8b112c4b1c1dff6730fcf8f7f65d07984d97e415437eebb4",
+      "derivation": "bounded_contract_extraction"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

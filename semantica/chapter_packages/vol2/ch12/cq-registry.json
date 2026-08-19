@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch12",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH12-CQ-001",
+      "question": "两个标识是否指向同一工程对象，结论由哪类身份判据与桥接证据支持？",
+      "scenario_id": "semantica.vol2.ch12.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch12",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "positive-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch12_identity_bridge_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "unit",
+            "bridge"
+          ],
+          "rows": [
+            {
+              "unit": {
+                "value": "https://product-trustworthiness.local/identity#Unit_SN_000417",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "bridge": {
+                "value": "https://product-trustworthiness.local/identity#RigEntryForm",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch12_identity_bridge_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch12_identity_bridge_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "把型号当单件",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

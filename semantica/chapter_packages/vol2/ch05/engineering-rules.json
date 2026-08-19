@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "requirements",
+  "source_demo": "demos/vol2_ch15_reopen_list.py",
+  "source_demo_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192",
+  "enforcement_assets": [
+    "demo_vol2_ch15_reopen_list_shapes",
+    "demo_vol2_ch15_reopen_list_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH05-RULE-001",
+      "status": "native",
+      "statement": "Every derivation/allocation/interface trace edge carries an explicit rationale."
+    },
+    {
+      "id": "V2-CH05-RULE-002",
+      "status": "native",
+      "statement": "Reopen lists are selected through rationale dependencies rather than by module-name proximity."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

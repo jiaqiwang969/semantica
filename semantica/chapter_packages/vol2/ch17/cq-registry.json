@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch17",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH17-CQ-001",
+      "question": "给定一次变化，哪些既有通过结论受影响，每项保留或作废是否有理由？",
+      "scenario_id": "semantica.vol2.ch17.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch17",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "query-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch17_change_verdict_gate_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "pass"
+          ],
+          "rows": [
+            {
+              "pass": {
+                "value": "https://product-trustworthiness.local/change#Pass_FaultInjection",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "pass": {
+                "value": "https://product-trustworthiness.local/change#Pass_HilRun",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "pass": {
+                "value": "https://product-trustworthiness.local/change#Pass_SwReg",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch17_change_verdict_gate_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch17_change_verdict_gate_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "保留是判断，不是默认",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

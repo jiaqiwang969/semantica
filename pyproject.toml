@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "semantica"
-version = "0.6.5"
+version = "0.6.5+oe.1"
 description = "Accountability and context layer for AI agents. Context graphs, decision intelligence, full provenance tracking, and explainable reasoning engines — every AI decision traceable, every output auditable."
 readme = "README.md"
 license = { text = "MIT" }
@@ -118,6 +118,11 @@ parse-docling = ["docling>=2.107.0"]
 
 # ---- SHACL Validation ----
 shacl = ["pyshacl>=0.25.0"]
+
+# ---- Unified Ontology Runtime ----
+# SemanticRuntime owns its validation engine dependency.  Alternate backends
+# are not preinstalled or silently selected; requesting one fails closed.
+ontology-runtime = ["pyshacl>=0.25.0"]
 
 # ---- Database Connectors ----
 db-snowflake = ["snowflake-connector-python>=4.6.0", "cryptography>=49.0.0"]
@@ -272,6 +277,17 @@ include = ["semantica*", "integrations*"]
 # Explicit patterns are more reliable than **/* across setuptools versions.
 # static/* covers index.html / favicon; static/assets/* covers all JS/CSS chunks.
 "semantica" = ["static/*", "static/assets/*"]
+"semantica.chapter_packages" = [
+  "*.md",
+  "*.yaml",
+  "*.json",
+  "vol1/*.yaml",
+  "vol1/ch*/*",
+  "vol2/*.yaml",
+  "vol2/*.json",
+  "vol2/ch*/*",
+  "vol2/normative/*"
+]
 
 [tool.black]
 line-length = 88

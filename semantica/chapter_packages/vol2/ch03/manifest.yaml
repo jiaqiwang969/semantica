@@ -1,0 +1,168 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch03",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/governance#",
+  "chapter": "ch03",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/chapter.md",
+    "sha256": "4622efb9c9a3c4581b29b18e862d07b226d617ff76e8739d40d0148687344b7f",
+    "title": "安全管理：谁有权说可以相信",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/README.md",
+    "guide_sha256": "e25b027bd8e62b125d84f15fb605f32e364bcfc3d3f8d57859fbbe7b6b006195",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch03.tex",
+    "tex_sha256": "6d30bcc178ae2521ae26eae46f30854e9bf6c1dc03fb4e118f2b7768bd75a4bd"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch03.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_ch13_governance_distance.py",
+    "demo_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031",
+    "query_asset_id": "demo_vol2_ch13_governance_distance_query",
+    "shapes_asset_id": "demo_vol2_ch13_governance_distance_shapes",
+    "fixture_asset_ids": [
+      "ch13_activation_bad",
+      "ch13_governance"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "book-example-confirmation-measures-txt",
+      "role": "teaching_case",
+      "path": "book-example-confirmation-measures.txt",
+      "sha256": "c94d16ebb31a29c868e684926f722f99e420c56dbc8844f238cf1fdd35d96368",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/examples/confirmation-measures.txt",
+      "source_sha256": "c94d16ebb31a29c868e684926f722f99e420c56dbc8844f238cf1fdd35d96368"
+    },
+    {
+      "asset_id": "book-example-safety-case-skeleton-txt",
+      "role": "teaching_case",
+      "path": "book-example-safety-case-skeleton.txt",
+      "sha256": "ab0015b07fb420bc882f8c2b706663116397a4936f4e9f0d2e216d77557966a5",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/examples/safety-case-skeleton.txt",
+      "source_sha256": "ab0015b07fb420bc882f8c2b706663116397a4936f4e9f0d2e216d77557966a5"
+    },
+    {
+      "asset_id": "book-example-safety-culture-md",
+      "role": "teaching_case",
+      "path": "book-example-safety-culture.md",
+      "sha256": "b0d1502eb70ae5db32527e0fb5428b8a6601923a22037031a4048342dac01eea",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/examples/safety-culture.md",
+      "source_sha256": "b0d1502eb70ae5db32527e0fb5428b8a6601923a22037031a4048342dac01eea"
+    },
+    {
+      "asset_id": "book-example-safety-plan-template-md",
+      "role": "teaching_case",
+      "path": "book-example-safety-plan-template.md",
+      "sha256": "c0934373919733dfdf20234ba279005cbfdf64e50247971fc8b93b21b96f85c9",
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/examples/safety-plan-template.md",
+      "source_sha256": "c0934373919733dfdf20234ba279005cbfdf64e50247971fc8b93b21b96f85c9"
+    },
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "0c30a998c635125c1fe01c43e6372cd7da1292910cacf339d4a490f388a7f104",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch03.yaml",
+      "source_sha256": "d627e3b60afdaa81bf1c47c2c501f00cbae4194cbd171c0c1285ab91e0ab84a3"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "ca88bfba5656dceb44ec93fd33519c4a3e675acb58b4c933958d4000d80e961f",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch03.yaml",
+      "source_sha256": "d627e3b60afdaa81bf1c47c2c501f00cbae4194cbd171c0c1285ab91e0ab84a3"
+    },
+    {
+      "asset_id": "demo_vol2_ch13_governance_distance_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "a3cd0eb6844821e44ccfbfdaa2b4d6a398be1a9fb0634a538721905a43738dbf",
+      "source_anchor": "ontology-engineering/demos/vol2_ch13_governance_distance.py",
+      "source_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031"
+    },
+    {
+      "asset_id": "demo_vol2_ch13_governance_distance_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "0e1f9a3d5e3c5678d992a4e0dd48d505a2ef4b0d6901eaca569d089444672fd8",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_ch13_governance_distance.py",
+      "source_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "54edc2e21c3c93dee7fe7a572c7dd9ba9658552be88c60b318f607976c080185",
+      "source_anchor": "ontology-engineering/demos/vol2_ch13_governance_distance.py",
+      "source_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "90e22e1470bc80ee0c1fd2233903d8758f6304e5bba44dd9e9aa892ce0999608",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch03.yaml",
+      "source_sha256": "d627e3b60afdaa81bf1c47c2c501f00cbae4194cbd171c0c1285ab91e0ab84a3"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "236897c180555e3134bd821f0a95863fb7c053a1af0fc22364ca3ab8305521da",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/chapter.md",
+      "source_sha256": "4622efb9c9a3c4581b29b18e862d07b226d617ff76e8739d40d0148687344b7f"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "a665ca305aa72c70bd4dc9f4c7cbc3ad26c38f2e17a07ff59a6ca98c4458e110",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/chapter.md",
+      "source_sha256": "4622efb9c9a3c4581b29b18e862d07b226d617ff76e8739d40d0148687344b7f"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "ddb367de2926b6957da6daac144cadc1e3401e4d02e66dcf531b90f53117e449",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/chapter.md",
+      "source_sha256": "4622efb9c9a3c4581b29b18e862d07b226d617ff76e8739d40d0148687344b7f"
+    },
+    {
+      "asset_id": "query-case",
+      "role": "case_query",
+      "path": "query-case.ttl",
+      "sha256": "8b8f190c53396b9ee94a38b57acba9f6ea0727fc5864355f338cc7b81423cc8d",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch03-safety-management/chapter.md",
+      "source_sha256": "4622efb9c9a3c4581b29b18e862d07b226d617ff76e8739d40d0148687344b7f"
+    }
+  ]
+}

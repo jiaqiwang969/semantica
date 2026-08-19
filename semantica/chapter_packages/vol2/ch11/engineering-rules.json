@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "claim",
+  "source_demo": "demos/vol2_claim_gate_corroborate.py",
+  "source_demo_sha256": "6a32448d84b5cf258499e7dc23ddc212975c8e02477001d924bea7ae90b2a114",
+  "enforcement_assets": [
+    "demo_vol2_claim_gate_corroborate_shapes",
+    "demo_vol2_claim_gate_corroborate_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH11-RULE-001",
+      "status": "native",
+      "statement": "ReleaseClaim must carry context and validWindow before review."
+    },
+    {
+      "id": "V2-CH11-RULE-002",
+      "status": "native",
+      "statement": "ClaimAccepted is invalid while its case is unapproved or supporting evidence is not EvidenceAccepted."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

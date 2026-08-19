@@ -9,7 +9,6 @@ from .property_generator import PropertyGenerator
 from .owl_generator import OWLGenerator
 from .ontology_evaluator import OntologyEvaluator
 from .ontology_validator import OntologyValidator
-from .llm_generator import LLMOntologyGenerator
 from ..semantic_extract.triplet_extractor import Triplet
 
 
@@ -25,7 +24,10 @@ class OntologyEngine:
         self.owl = OWLGenerator(**config)
         self.evaluator = OntologyEvaluator(**config)
         self.validator = OntologyValidator(**config)
-        self.llm = LLMOntologyGenerator(**config)
+        # LLM support is optional and must not be initialized for ordinary
+        # RDF/OWL/SHACL workloads.  Keep the public ``llm`` attribute for
+        # compatibility, but materialize it only when ``from_text`` is used.
+        self.llm = config.get("llm_generator")
         self.store = config.get("store")
 
         # Deferred to avoid circular import: change_management → ontology → change_management
@@ -47,9 +49,18 @@ class OntologyEngine:
             raise
 
     def from_text(self, text: str, provider: Optional[str] = None, model: Optional[str] = None, **options) -> Dict[str, Any]:
+        llm = self._get_llm_generator()
         if provider:
-            self.llm.set_provider(provider, model=model)
-        return self.llm.generate_ontology_from_text(text, **options)
+            llm.set_provider(provider, model=model)
+        return llm.generate_ontology_from_text(text, **options)
+
+    def _get_llm_generator(self):
+        """Create the optional LLM generator on first text-generation use."""
+        if self.llm is None:
+            from .llm_generator import LLMOntologyGenerator
+
+            self.llm = LLMOntologyGenerator(**self.config)
+        return self.llm
 
     def infer_classes(self, entities: List[Dict[str, Any]], **options) -> List[Dict[str, Any]]:
         return self.inferrer.infer_classes(entities, **options)

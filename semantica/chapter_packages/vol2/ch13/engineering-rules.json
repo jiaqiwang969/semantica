@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "family": "governance",
+  "source_demo": "demos/vol2_ch13_governance_distance.py",
+  "source_demo_sha256": "e10b81e2745bae073894c760fc4054ce12891e301628200cdc86d05494b02031",
+  "enforcement_assets": [
+    "demo_vol2_ch13_governance_distance_shapes",
+    "demo_vol2_ch13_governance_distance_query"
+  ],
+  "rules": [
+    {
+      "id": "V2-CH13-RULE-001",
+      "status": "native",
+      "statement": "Authorization activation must be recorded by the grantor."
+    },
+    {
+      "id": "V2-CH13-RULE-002",
+      "status": "native",
+      "statement": "Independence is checked as explicit organizational and interest distance, not as a signature label."
+    }
+  ],
+  "additional_source_grounded_data": {},
+  "limitations": [
+    "Only the declared SHACL and SPARQL behavior is executable.",
+    "No package may be treated as a product release verdict."
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch08",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch08#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch08",
+    "title": "本体与大语言模型",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
+      "source_sha256": "b20dba1bb379c03d5d5875d1814517491442153b96359740b2590ee34d5938a3",
+      "guide_anchor": "references/ontology-engineering-book/ch08-ontology-llm/README.md",
+      "guide_sha256": "8388a078cf4b87d068cdf6950e12e747528dc1d2473fdc939125859758b01aa8",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch08.tex",
+      "tex_sha256": "b20dba1bb379c03d5d5875d1814517491442153b96359740b2590ee34d5938a3"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "absent",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "absent",
+    "cases": "native",
+    "engineering_rules": "native",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "absent",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; this chapter has no complete executable binding."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "原书 ontology-guided-agent.py 仅作为来源案例；未绑定的动作路由操作由原生 runner fail closed。",
+    "受 schema/CQ 限定的 Text2SPARQL 与 Unknown 保留门禁缺失。",
+    "本章场景尚未绑定模型、prompt、ontology snapshot 与工具动作的端到端执行合同。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "44d84575097d67015b19ceec6892838e4578827f9837c27fd533c42d29aea46a",
+      "source_anchor": "contracts/vol1/ch08.yaml",
+      "source_sha256": "4d72d688aef3060674bdbcfee49f871e57bcaddba37b816cb9bae5681157e782",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "1d7eccd1c7efeece102e4e9b8c0bf1615a0f040aee3a6666091e0fa96b4295b7",
+      "source_anchor": "contracts/vol1/ch08.yaml",
+      "source_sha256": "4d72d688aef3060674bdbcfee49f871e57bcaddba37b816cb9bae5681157e782",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "graphrag-pattern",
+      "path": "graphrag-pattern.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "1af424a8ad5a839b863a750c728849eb6ec6cb0d98856435b9854e152fc9f04b",
+      "source_anchor": "references/ontology-engineering-book/ch08-ontology-llm/examples/graphrag-pattern.txt",
+      "source_sha256": "1af424a8ad5a839b863a750c728849eb6ec6cb0d98856435b9854e152fc9f04b",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "hallucination-control",
+      "path": "hallucination-control.txt",
+      "format": "text",
+      "role": "engineering_rules",
+      "sha256": "c4440046af16dd4e1229e8fabaab257af137ccdc66a630f100408cbebc2265f1",
+      "source_anchor": "references/ontology-engineering-book/ch08-ontology-llm/examples/hallucination-control.txt",
+      "source_sha256": "c4440046af16dd4e1229e8fabaab257af137ccdc66a630f100408cbebc2265f1",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "ontology-guided-agent",
+      "path": "ontology-guided-agent.py",
+      "role": "legacy_case_reference",
+      "format": "python",
+      "sha256": "0548e1a8462fffa9778935df1e6a16ee8427cf90b7be47cd009d084bb923c671",
+      "source_anchor": "references/ontology-engineering-book/ch08-ontology-llm/examples/ontology-guided-agent.py",
+      "source_sha256": "0548e1a8462fffa9778935df1e6a16ee8427cf90b7be47cd009d084bb923c671",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "9424d239eb6253db739207fa275d10197f0111d6fbf6a16cc79c827787311ccc",
+      "source_anchor": "contracts/vol1/ch08.yaml",
+      "source_sha256": "4d72d688aef3060674bdbcfee49f871e57bcaddba37b816cb9bae5681157e782",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "text2sparql",
+      "path": "text2sparql.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "b474046f8c47f1b0b7273e1032b8adc5b91a76f18b5efe369737de29f3d338e7",
+      "source_anchor": "references/ontology-engineering-book/ch08-ontology-llm/examples/text2sparql.txt",
+      "source_sha256": "b474046f8c47f1b0b7273e1032b8adc5b91a76f18b5efe369737de29f3d338e7",
+      "derivation": "byte_for_byte_copy"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

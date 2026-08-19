@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch06",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH06-CQ-001",
+      "question": "至少一个书中工程案例能否通过 Semantica 唯一 API 完成建模、查询、校验、推理和审计？",
+      "claim_ids": [
+        "OE-V1-CH06-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH06-SCN-END-TO-END-001"
+      ],
+      "status": "absent"
+    }
+  ]
+}
+

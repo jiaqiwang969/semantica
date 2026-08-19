@@ -1,0 +1,4 @@
+IF CNCLathe(?x) THEN CNCMachine(?x)
+IF CNCMachine(?x) THEN ProcessingEquipment(?x)
+IF Equipment(?x) THEN Available(?x)
+IF HasFault(?x) THEN Unavailable(?x)

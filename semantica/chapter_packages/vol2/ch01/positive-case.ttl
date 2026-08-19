@@ -1,0 +1,5 @@
+@prefix claim: <https://product-trustworthiness.local/claim#> .
+claim:Release_RC17 a claim:ReleaseClaim ;
+    claim:claimStatement "RC17 可以发布" ;
+    claim:context claim:Context_EPS_Highway ;
+    claim:validWindow "2027-Q4" .

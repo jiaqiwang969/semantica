@@ -1,0 +1,15 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rel: <https://product-trustworthiness.local/release#> .
+rel:PackageBindingGate a sh:NodeShape ;
+    sh:targetClass rel:EvidencePackage ;
+    sh:sparql [
+        sh:message "装包门禁不通过：成员绑定 != 包声明快照。处置：拒收该成员；生成冲突对象；通知看守角色，处置留痕" ;
+        sh:select """
+            PREFIX rel: <https://product-trustworthiness.local/release#>
+            SELECT $this ?value WHERE {
+                $this rel:hasMember ?value ; rel:declaredSnapshot ?snap .
+                ?value rel:boundTo ?b . FILTER(?b != ?snap)
+            }
+        """ ;
+    ] .

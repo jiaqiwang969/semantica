@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch02",
+  "version": "1.0.0",
+  "namespace": "https://semantica.dev/chapter-packages/ontology-engineering/vol1/ch02#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch02",
+    "title": "本体论基础理论",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
+      "source_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c",
+      "guide_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/README.md",
+      "guide_sha256": "d63dddff4bef232aa70fc8b03054c7db05b184c8dd5420914ba21f47c55dc812",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
+      "tex_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "partial",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "adapter",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "非单调、默认逻辑与 DL profile 仍缺失。",
+    "尚未为此包签发内容绑定的执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "42016b6275868c672d0b9aa004d793e5019814378ec97b4d864a9cf22d6501a2",
+      "source_anchor": "contracts/vol1/ch02.yaml",
+      "source_sha256": "d1f22d0cf0c14ab6790cf891de18756f60a7812f0d5a3591b333550afeca022b",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "core-concepts",
+      "path": "core-concepts.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "b4758062d5c21d76234a3b29b4d5533b386ea9ccfa068e5d24d217db06f22703",
+      "source_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/examples/core-concepts.txt",
+      "source_sha256": "b4758062d5c21d76234a3b29b4d5533b386ea9ccfa068e5d24d217db06f22703",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "cq-cwa-naf",
+      "path": "cq-cwa-naf.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "86cc1fcd812215b7d24c5a7fdc3234393fd253a5b39d49e2a22cba7a9470c682",
+      "source_anchor": "demos/vol1_ch02_reasoning_modes.py",
+      "source_sha256": "bb715609957d7a4f118048da0d1e9bd8658602767cf115c64e411d82d32d2bf2",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch02_reasoning_modes.py"
+    },
+    {
+      "asset_id": "cq-owa-evidence",
+      "path": "cq-owa-evidence.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "ba2531af68ce10828abc1a253f31db799144bf500541379976d24fd29ea80b49",
+      "source_anchor": "demos/vol1_ch02_reasoning_modes.py",
+      "source_sha256": "bb715609957d7a4f118048da0d1e9bd8658602767cf115c64e411d82d32d2bf2",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch02_reasoning_modes.py"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "823eda920067f333640b2a33a9870ed8d1f697652b772e006727fa6c868fee50",
+      "source_anchor": "contracts/vol1/ch02.yaml",
+      "source_sha256": "d1f22d0cf0c14ab6790cf891de18756f60a7812f0d5a3591b333550afeca022b",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "description-logic",
+      "path": "description-logic.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "fb828f8c4689a9a05bd6e1c043753af00bd55802af50ae120f79499973b9543b",
+      "source_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/examples/description-logic.txt",
+      "source_sha256": "fb828f8c4689a9a05bd6e1c043753af00bd55802af50ae120f79499973b9543b",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "first-order-logic",
+      "path": "first-order-logic.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "8fb4539ab034270b10fa8df0c3c6958daba555e7d35b28b3d09b0622e925ee7a",
+      "source_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/examples/first-order-logic.txt",
+      "source_sha256": "8fb4539ab034270b10fa8df0c3c6958daba555e7d35b28b3d09b0622e925ee7a",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "forward-chain-facts",
+      "path": "forward-chain.facts",
+      "role": "case",
+      "format": "semantica-fact",
+      "sha256": "f17805e986fc6b40b23346c9790b503d0506b1af19c24aa950fb3b27163a48b5",
+      "source_anchor": "demos/vol1_ch02_reasoning_modes.py",
+      "source_sha256": "bb715609957d7a4f118048da0d1e9bd8658602767cf115c64e411d82d32d2bf2",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch02_reasoning_modes.py"
+    },
+    {
+      "asset_id": "forward-chain-rules",
+      "path": "forward-chain.rules",
+      "role": "rules",
+      "format": "semantica-rule",
+      "sha256": "6db944a3a5cf0f84716005427894ff8d04900053a3ef16a1e8529b60ef247977",
+      "source_anchor": "demos/vol1_ch02_reasoning_modes.py",
+      "source_sha256": "bb715609957d7a4f118048da0d1e9bd8658602767cf115c64e411d82d32d2bf2",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch02_reasoning_modes.py"
+    },
+    {
+      "asset_id": "owa-data",
+      "path": "owa-data.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "0680491b0f0cb58f66da26b79063d06b3d0c13a02a13f79637d4e1a2a1cf9cd2",
+      "source_anchor": "demos/vol1_ch02_reasoning_modes.py",
+      "source_sha256": "bb715609957d7a4f118048da0d1e9bd8658602767cf115c64e411d82d32d2bf2",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch02_reasoning_modes.py"
+    },
+    {
+      "asset_id": "reasoning-examples",
+      "path": "reasoning-examples.txt",
+      "format": "text",
+      "role": "case",
+      "sha256": "78dcb1d0545bc10505b23e282f3e3098676f95f59e9f2c8079f10464264fda08",
+      "source_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/examples/reasoning-examples.txt",
+      "source_sha256": "78dcb1d0545bc10505b23e282f3e3098676f95f59e9f2c8079f10464264fda08",
+      "derivation": "byte_for_byte_copy"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "1558caf453d85cc3fbec4207af72541781a5534d437fa353a731aa4059c39103",
+      "source_anchor": "contracts/vol1/ch02.yaml",
+      "source_sha256": "d1f22d0cf0c14ab6790cf891de18756f60a7812f0d5a3591b333550afeca022b",
+      "derivation": "bounded_contract_extraction"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

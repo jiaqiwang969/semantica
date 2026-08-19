@@ -2,9 +2,9 @@
 Semantica MCP Server
 
 Exposes Semantica's knowledge graph, decision intelligence, semantic extraction,
-reasoning, and analytics capabilities as an MCP (Model Context Protocol) server
-over stdio — compatible with Claude Desktop, Windsurf, Cline, Continue, VS Code,
-Roo Code, and any other MCP-aware tool.
+reasoning, analytics, and built-in semantic package lifecycle as an MCP (Model
+Context Protocol) server over stdio — compatible with Claude Desktop, Windsurf,
+Cline, Continue, VS Code, Roo Code, and any other MCP-aware tool.
 
 Usage
 -----
@@ -45,7 +45,8 @@ import json
 import logging
 import os
 import sys
-from typing import Any
+from pathlib import Path
+from typing import Any, Mapping
 
 # `semantica.__version__` is the authoritative package version — it is kept in
 # sync with pyproject.toml's static `version` field by the release process and
@@ -290,6 +291,395 @@ def _tool_get_graph_summary(args: dict) -> dict:
         return {"error": str(exc), "graph_ready": False}
 
 
+# ── built-in semantic packages ──────────────────────────────────────────────────
+
+
+_NORMATIVE_PACKAGE_ID = "semantica.chapter_packages.vol2.normative"
+_PACKAGE_RESOURCE_PREFIX = "semantica://packages/manifest/"
+
+
+class _PackageMCPError(RuntimeError):
+    """Controlled package error with a stable public code and message."""
+
+    def __init__(self, code: str, message: str) -> None:
+        super().__init__(message)
+        self.code = code
+        self.message = message
+
+
+def _package_error(code: str, message: str) -> dict:
+    return {
+        "error": {"code": code, "message": message},
+        "ok": False,
+        "schema_version": "1.0",
+    }
+
+
+def _chapter_record(descriptor: Any) -> dict:
+    """Return public registry fields without its local manifest path."""
+
+    return {
+        "chapter": descriptor.chapter,
+        "key": descriptor.key,
+        "kind": "chapter",
+        "package_id": descriptor.package_id,
+        "release_status": descriptor.release_status,
+        "status": descriptor.status,
+        "title": descriptor.title,
+        "version": descriptor.version,
+        "volume": descriptor.volume,
+    }
+
+
+def _normative_package() -> tuple[dict, Mapping[str, Any]]:
+    """Read the fixed normative domain package; no caller path is accepted."""
+
+    import yaml
+    from semantica import chapter_packages as chapter_package_module
+
+    root = Path(chapter_package_module.__file__).resolve().parent
+    manifest_path = root / "vol2" / "normative" / "manifest.yaml"
+    try:
+        manifest = yaml.safe_load(manifest_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        raise _PackageMCPError(
+            "package_metadata_invalid",
+            "The built-in normative package manifest cannot be read.",
+        ) from exc
+    if not isinstance(manifest, Mapping) or manifest.get("package_id") != _NORMATIVE_PACKAGE_ID:
+        raise _PackageMCPError(
+            "package_metadata_invalid",
+            "The built-in normative package manifest has an invalid identity.",
+        )
+    record = {
+        "chapter": None,
+        "key": "vol2.normative",
+        "kind": "domain",
+        "package_id": _NORMATIVE_PACKAGE_ID,
+        "release_status": str(manifest.get("release_status", "blocked")),
+        "status": str(manifest.get("status", "partial")),
+        "title": str(
+            manifest.get("title")
+            or manifest.get("domain")
+            or "ISO 26262 normative derived layer"
+        ),
+        "version": str(manifest.get("version", "")),
+        "volume": "vol2",
+    }
+    return record, manifest
+
+
+def _package_catalog(
+    *, volume: str | None = None, include_domain_packages: bool = True
+) -> tuple[dict, ...]:
+    from semantica.chapter_packages import list_chapter_packages
+
+    if volume not in (None, "vol1", "vol2"):
+        raise _PackageMCPError(
+            "invalid_argument", "volume must be 'vol1' or 'vol2'"
+        )
+    records = tuple(
+        _chapter_record(item) for item in list_chapter_packages(volume)
+    )
+    if include_domain_packages and volume in (None, "vol2"):
+        records += (_normative_package()[0],)
+    return records
+
+
+def _resolve_package(package_id: Any) -> tuple[dict, Mapping[str, Any]]:
+    from semantica.chapter_packages import (
+        list_chapter_packages,
+        read_chapter_manifest,
+    )
+
+    if not isinstance(package_id, str) or not package_id:
+        raise _PackageMCPError(
+            "invalid_argument", "package_id must be a non-empty string"
+        )
+    if package_id == _NORMATIVE_PACKAGE_ID:
+        return _normative_package()
+    for descriptor in list_chapter_packages():
+        if descriptor.package_id == package_id:
+            try:
+                manifest = read_chapter_manifest(
+                    descriptor.volume, descriptor.chapter
+                )
+            except Exception as exc:
+                raise _PackageMCPError(
+                    "package_metadata_invalid",
+                    "The registered package manifest cannot be read.",
+                ) from exc
+            return _chapter_record(descriptor), manifest
+    raise _PackageMCPError(
+        "package_not_found", "Unknown built-in package ID: {}".format(package_id)
+    )
+
+
+def _package_runner() -> Any:
+    try:
+        from semantica.chapter_packages import SemanticPackageRunner
+    except ImportError as exc:
+        raise _PackageMCPError(
+            "execution_blocked",
+            "SemanticPackageRunner is unavailable; package execution is blocked.",
+        ) from exc
+    return SemanticPackageRunner()
+
+
+def _public_json_value(value: Any) -> Any:
+    """Project DTO output into JSON values; reject opaque backend objects."""
+
+    if hasattr(value, "as_dict") and callable(value.as_dict):
+        value = value.as_dict()
+    if value is None or isinstance(value, (str, int, float, bool)):
+        return value
+    if isinstance(value, Mapping):
+        if not all(isinstance(key, str) for key in value):
+            raise _PackageMCPError(
+                "invalid_runner_result", "Runner DTO keys must be strings."
+            )
+        return {key: _public_json_value(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_public_json_value(item) for item in value]
+    raise _PackageMCPError(
+        "invalid_runner_result",
+        "SemanticPackageRunner returned a non-public result; operation is blocked.",
+    )
+
+
+def _public_dto(value: Any) -> dict:
+    projected = _public_json_value(value)
+    if not isinstance(projected, dict):
+        raise _PackageMCPError(
+            "invalid_runner_result",
+            "SemanticPackageRunner returned a non-DTO result; operation is blocked.",
+        )
+    return projected
+
+
+def _package_execution_arguments(args: Mapping[str, Any]) -> dict:
+    allowed = {
+        "package_id",
+        "runtime_artifact_sha256",
+        "runtime_commit",
+        "scenario_id",
+    }
+    extras = set(args) - allowed
+    if extras:
+        raise _PackageMCPError(
+            "invalid_argument", "Unsupported package execution argument."
+        )
+    package_id = args.get("package_id")
+    _resolve_package(package_id)
+    scenario_id = args.get("scenario_id")
+    if scenario_id is not None and not isinstance(scenario_id, str):
+        raise _PackageMCPError(
+            "invalid_argument", "scenario_id must be a string when provided"
+        )
+    runtime_commit = args.get("runtime_commit")
+    if not isinstance(runtime_commit, str) or not runtime_commit.strip():
+        raise _PackageMCPError(
+            "invalid_argument", "runtime_commit must be a non-empty string"
+        )
+    digest = args.get("runtime_artifact_sha256")
+    if not isinstance(digest, str):
+        raise _PackageMCPError(
+            "invalid_argument", "runtime_artifact_sha256 must be a string"
+        )
+    digest = digest.lower()
+    if len(digest) != 64 or any(
+        char not in "0123456789abcdef" for char in digest
+    ):
+        raise _PackageMCPError(
+            "invalid_argument",
+            "runtime_artifact_sha256 must be exactly 64 hexadecimal characters",
+        )
+    return {
+        "package_id": package_id,
+        "runtime_artifact_sha256": digest,
+        "runtime_commit": runtime_commit,
+        "scenario_id": scenario_id,
+    }
+
+
+def _execute_package_tool(operation: str, args: Mapping[str, Any]) -> dict:
+    try:
+        if not isinstance(args, Mapping):
+            raise _PackageMCPError(
+                "invalid_argument", "tool arguments must be an object"
+            )
+        kwargs = _package_execution_arguments(args)
+        runner = _package_runner()
+        run_method = getattr(runner, "run", None)
+        if run_method is None or not callable(run_method):
+            raise _PackageMCPError(
+                "execution_blocked",
+                "SemanticPackageRunner does not provide 'run'; operation is blocked.",
+            )
+        execution = run_method(**kwargs)
+        result = _public_dto(execution)
+        if operation == "verify":
+            verify_method = getattr(runner, "verify", None)
+            if verify_method is None or not callable(verify_method):
+                raise _PackageMCPError(
+                    "execution_blocked",
+                    "SemanticPackageRunner does not provide 'verify'; operation is blocked.",
+                )
+            verdict = _public_dto(verify_method(execution))
+            result = {
+                "execution": result,
+                "release_verdict": verdict,
+            }
+        elif operation != "run":
+            raise _PackageMCPError(
+                "invalid_argument", "Unknown package operation."
+            )
+        payload = {
+            "ok": True,
+            "operation": operation,
+            "package_id": kwargs["package_id"],
+            "result": result,
+            "schema_version": "1.0",
+        }
+        if (
+            operation == "verify"
+            and result["release_verdict"].get("status") != "complete"
+        ):
+            payload["ok"] = False
+            payload["error"] = {
+                "code": "release_blocked",
+                "message": "Package release verification is blocked.",
+            }
+        return payload
+    except _PackageMCPError as exc:
+        return _package_error(exc.code, exc.message)
+    except Exception:
+        log.exception("Built-in package %s failed closed", operation)
+        return _package_error(
+            "package_operation_failed", "Package operation failed closed."
+        )
+
+
+def _tool_list_chapter_packages(args: dict) -> dict:
+    try:
+        if not isinstance(args, Mapping):
+            raise _PackageMCPError(
+                "invalid_argument", "tool arguments must be an object"
+            )
+        if set(args) - {"include_domain_packages", "volume"}:
+            raise _PackageMCPError(
+                "invalid_argument", "Unsupported package-list argument."
+            )
+        include_domains = args.get("include_domain_packages", True)
+        if not isinstance(include_domains, bool):
+            raise _PackageMCPError(
+                "invalid_argument", "include_domain_packages must be boolean"
+            )
+        packages = _package_catalog(
+            volume=args.get("volume"),
+            include_domain_packages=include_domains,
+        )
+        return {
+            "chapter_package_count": sum(
+                item["kind"] == "chapter" for item in packages
+            ),
+            "domain_package_count": sum(
+                item["kind"] == "domain" for item in packages
+            ),
+            "ok": True,
+            "package_count": len(packages),
+            "packages": list(packages),
+            "schema_version": "1.0",
+        }
+    except _PackageMCPError as exc:
+        return _package_error(exc.code, exc.message)
+    except Exception:
+        log.exception("Built-in package discovery failed closed")
+        return _package_error(
+            "package_operation_failed", "Package discovery failed closed."
+        )
+
+
+def _tool_get_chapter_package(args: dict) -> dict:
+    try:
+        if not isinstance(args, Mapping):
+            raise _PackageMCPError(
+                "invalid_argument", "tool arguments must be an object"
+            )
+        if set(args) - {"package_id"}:
+            raise _PackageMCPError(
+                "invalid_argument", "Unsupported package-get argument."
+            )
+        record, manifest = _resolve_package(args.get("package_id"))
+        return {
+            "manifest": _public_json_value(manifest),
+            "ok": True,
+            "package": record,
+            "schema_version": "1.0",
+        }
+    except _PackageMCPError as exc:
+        return _package_error(exc.code, exc.message)
+    except Exception:
+        log.exception("Built-in package lookup failed closed")
+        return _package_error(
+            "package_operation_failed", "Package lookup failed closed."
+        )
+
+
+def _tool_verify_book_sources(args: dict) -> dict:
+    """Verify the external Markdown/TeX stones against all chapter packages."""
+
+    try:
+        if not isinstance(args, Mapping):
+            raise _PackageMCPError(
+                "invalid_argument", "tool arguments must be an object"
+            )
+        if set(args) - {"book_root", "volume"}:
+            raise _PackageMCPError(
+                "invalid_argument", "Unsupported book-verification argument."
+            )
+        book_root = args.get("book_root")
+        if not isinstance(book_root, str) or not book_root.strip():
+            raise _PackageMCPError(
+                "invalid_argument", "book_root must be a non-empty string"
+            )
+        volume = args.get("volume")
+        if volume not in (None, "vol1", "vol2"):
+            raise _PackageMCPError(
+                "invalid_argument", "volume must be 'vol1' or 'vol2'"
+            )
+        from semantica.chapter_packages import verify_book_source_bindings
+
+        result = verify_book_source_bindings(Path(book_root), volume=volume)
+        payload = {
+            "ok": result.passed,
+            "operation": "verify_book_sources",
+            "result": _public_dto(result),
+            "schema_version": "1.0",
+        }
+        if not result.passed:
+            payload["error"] = {
+                "code": "book_source_binding_failed",
+                "message": "Book-to-Semantica source verification is blocked.",
+            }
+        return payload
+    except _PackageMCPError as exc:
+        return _package_error(exc.code, exc.message)
+    except Exception:
+        log.exception("Book-to-Semantica verification failed closed")
+        return _package_error(
+            "package_operation_failed", "Book source verification failed closed."
+        )
+
+
+def _tool_run_chapter_package(args: dict) -> dict:
+    return _execute_package_tool("run", args)
+
+
+def _tool_verify_chapter_package(args: dict) -> dict:
+    return _execute_package_tool("verify", args)
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # MCP protocol tables
 # ══════════════════════════════════════════════════════════════════════════════
@@ -454,6 +844,110 @@ TOOLS = [
         "inputSchema": {"type": "object", "properties": {}},
         "_handler": _tool_get_graph_summary,
     },
+    {
+        "name": "list_chapter_packages",
+        "description": "List Semantica's 29 built-in chapter packages and optional normative domain package.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "volume": {
+                    "type": "string",
+                    "enum": ["vol1", "vol2"],
+                    "description": "Optional book-volume filter.",
+                },
+                "include_domain_packages": {
+                    "type": "boolean",
+                    "default": True,
+                    "description": "Include the fixed ISO 26262 normative domain package.",
+                },
+            },
+            "additionalProperties": False,
+        },
+        "_handler": _tool_list_chapter_packages,
+    },
+    {
+        "name": "get_chapter_package",
+        "description": "Get one allowlisted chapter or normative package manifest by stable package ID.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "package_id": {
+                    "type": "string",
+                    "description": "Exact built-in Semantica package ID.",
+                }
+            },
+            "required": ["package_id"],
+            "additionalProperties": False,
+        },
+        "_handler": _tool_get_chapter_package,
+    },
+    {
+        "name": "verify_book_sources",
+        "description": "Fail closed if any of the 29 book, guide, TeX, contract, or derived-source bindings has drifted.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "book_root": {
+                    "type": "string",
+                    "description": "Root of the ontology-engineering checkout containing both books.",
+                },
+                "volume": {
+                    "type": "string",
+                    "enum": ["vol1", "vol2"],
+                    "description": "Optional book-volume filter.",
+                },
+            },
+            "required": ["book_root"],
+            "additionalProperties": False,
+        },
+        "_handler": _tool_verify_book_sources,
+    },
+    {
+        "name": "run_chapter_package",
+        "description": "Execute a built-in package scenario through SemanticPackageRunner and return only public DTO data.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "package_id": {"type": "string"},
+                "scenario_id": {"type": "string"},
+                "runtime_commit": {"type": "string"},
+                "runtime_artifact_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{64}$",
+                },
+            },
+            "required": [
+                "package_id",
+                "runtime_commit",
+                "runtime_artifact_sha256",
+            ],
+            "additionalProperties": False,
+        },
+        "_handler": _tool_run_chapter_package,
+    },
+    {
+        "name": "verify_chapter_package",
+        "description": "Execute and release-verify a built-in package through SemanticPackageRunner.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "package_id": {"type": "string"},
+                "scenario_id": {"type": "string"},
+                "runtime_commit": {"type": "string"},
+                "runtime_artifact_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-fA-F]{64}$",
+                },
+            },
+            "required": [
+                "package_id",
+                "runtime_commit",
+                "runtime_artifact_sha256",
+            ],
+            "additionalProperties": False,
+        },
+        "_handler": _tool_verify_chapter_package,
+    },
 ]
 
 RESOURCES = [
@@ -475,7 +969,34 @@ RESOURCES = [
         "description": "Semantica server info and available capabilities",
         "mimeType": "application/json",
     },
+    {
+        "uri": "semantica://packages/registry",
+        "name": "Built-in Semantic Package Registry",
+        "description": "The 29 chapter packages and normative domain package exposed by Semantica.",
+        "mimeType": "application/json",
+    },
 ]
+
+
+def _listed_resources() -> list[dict]:
+    """List fixed resources and one manifest URI per allowlisted package."""
+
+    resources = list(RESOURCES)
+    try:
+        for package in _package_catalog():
+            resources.append(
+                {
+                    "uri": _PACKAGE_RESOURCE_PREFIX + package["package_id"],
+                    "name": "Package manifest: {}".format(package["package_id"]),
+                    "description": "Source-grounded built-in semantic package manifest.",
+                    "mimeType": "application/json",
+                }
+            )
+    except Exception:
+        # Discovery errors remain observable through the registry resource/tool;
+        # the MCP server itself must still initialize and list its fixed resources.
+        log.exception("Could not enumerate built-in package manifest resources")
+    return resources
 
 
 def _read_resource(uri: str) -> dict:
@@ -488,9 +1009,71 @@ def _read_resource(uri: str) -> dict:
             "name": "Semantica",
             "version": _SEMANTICA_VERSION,
             "tools": [t["name"] for t in TOOLS],
-            "resources": [r["uri"] for r in RESOURCES],
+            "resources": [r["uri"] for r in _listed_resources()],
         }
-    return {"error": f"Unknown resource URI: {uri}"}
+    if uri == "semantica://packages/registry":
+        return _tool_list_chapter_packages({})
+    if uri.startswith(_PACKAGE_RESOURCE_PREFIX):
+        package_id = uri[len(_PACKAGE_RESOURCE_PREFIX):]
+        # Resolution compares against exact package IDs.  Slashes, percent
+        # escapes, dot segments, and arbitrary filesystem paths never resolve.
+        return _tool_get_chapter_package({"package_id": package_id})
+    return _package_error("resource_not_found", "Unknown resource URI.")
+
+
+class MCPToolNotFoundError(LookupError):
+    """Raised by the canonical adapter for an unknown MCP tool name."""
+
+
+class MCPInvalidArgumentsError(ValueError):
+    """Raised when an MCP tool call does not carry an argument object."""
+
+
+def list_mcp_tools() -> list[dict]:
+    """Return public tool definitions from the one canonical registry."""
+
+    return [
+        {
+            "name": tool["name"],
+            "description": tool["description"],
+            "inputSchema": tool["inputSchema"],
+        }
+        for tool in TOOLS
+    ]
+
+
+def call_mcp_tool(name: str, arguments: Mapping[str, Any] | None = None) -> dict:
+    """Call one canonical tool handler and return its public JSON DTO."""
+
+    handler = next(
+        (tool["_handler"] for tool in TOOLS if tool["name"] == name), None
+    )
+    if handler is None:
+        raise MCPToolNotFoundError("Unknown tool: {}".format(name))
+    if arguments is None:
+        arguments = {}
+    if not isinstance(arguments, Mapping):
+        raise MCPInvalidArgumentsError("tool arguments must be an object")
+    result = handler(dict(arguments))
+    if not isinstance(result, dict):
+        raise TypeError("MCP tool handlers must return a JSON object")
+    return result
+
+
+def list_mcp_resources() -> list[dict]:
+    """Return fixed and allowlisted dynamic resources from one registry."""
+
+    return [dict(resource) for resource in _listed_resources()]
+
+
+def read_mcp_resource(uri: str) -> dict:
+    """Read one canonical MCP resource without accepting filesystem paths."""
+
+    if not isinstance(uri, str):
+        return _package_error(
+            "invalid_argument", "Resource URI must be a string."
+        )
+    return _read_resource(uri)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -538,39 +1121,56 @@ def _handle(req: dict) -> dict | None:
         return ok({})
 
     if method == "tools/list":
-        tools_out = [
-            {"name": t["name"], "description": t["description"], "inputSchema": t["inputSchema"]}
-            for t in TOOLS
-        ]
-        return ok({"tools": tools_out})
+        return ok({"tools": list_mcp_tools()})
 
     if method == "tools/call":
         name = params.get("name", "")
-        arguments = params.get("arguments") or {}
-        handler = next((t["_handler"] for t in TOOLS if t["name"] == name), None)
-        if handler is None:
-            return err(-32601, f"Unknown tool: {name}")
+        arguments = params.get("arguments", {})
+        if arguments is None:
+            arguments = {}
         try:
-            result = handler(arguments)
-            text = json.dumps(result, ensure_ascii=False, indent=2)
-            return ok({"content": [{"type": "text", "text": text}]})
+            result = call_mcp_tool(name, arguments)
+            text = json.dumps(
+                result, ensure_ascii=False, indent=2, sort_keys=True
+            )
+            payload = {"content": [{"type": "text", "text": text}]}
+            if isinstance(result, dict) and (
+                result.get("ok") is False or "error" in result
+            ):
+                payload["isError"] = True
+            return ok(payload)
+        except MCPToolNotFoundError:
+            return err(-32601, f"Unknown tool: {name}")
+        except MCPInvalidArgumentsError:
+            return err(-32602, "Tool arguments must be an object")
         except Exception as exc:
             log.exception("Tool %s raised", name)
-            return err(-32603, str(exc))
+            return err(
+                -32603,
+                "Tool {!r} failed ({}). See server logs for details.".format(
+                    name, type(exc).__name__
+                ),
+            )
 
     if method == "resources/list":
-        return ok({"resources": RESOURCES})
+        return ok({"resources": list_mcp_resources()})
 
     if method == "resources/read":
         uri = params.get("uri", "")
-        data = _read_resource(uri)
-        text = json.dumps(data, ensure_ascii=False, indent=2)
+        data = read_mcp_resource(uri)
+        text = json.dumps(data, ensure_ascii=False, indent=2, sort_keys=True)
         return ok({"contents": [{"uri": uri, "mimeType": "application/json", "text": text}]})
 
     if method == "prompts/list":
         return ok({"prompts": []})
 
     return err(-32601, f"Method not found: {method}")
+
+
+def handle_mcp_request(request: dict) -> dict | None:
+    """Public canonical JSON-RPC adapter used by every Semantica MCP entry."""
+
+    return _handle(request)
 
 
 # ══════════════════════════════════════════════════════════════════════════════

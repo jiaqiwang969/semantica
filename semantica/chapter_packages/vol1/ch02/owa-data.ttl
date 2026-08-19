@@ -1,0 +1,3 @@
+@prefix mfg: <http://example.org/manufacturing#> .
+
+mfg:Product_A mfg:producedBy mfg:Lathe_001 .

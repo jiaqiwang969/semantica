@@ -1,0 +1,124 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch08",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/dependency#",
+  "chapter": "ch08",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/chapter.md",
+    "sha256": "1e1c3a630b9d64f61bff1c95e63de7a287daa224d2b5721f87b6b2f5e9b987fd",
+    "title": "ASIL 分解与依赖失效分析",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/README.md",
+    "guide_sha256": "dfdaf9fb44794db9c33ecedde8f4753f414b37e51ce10cfabab771d824049927",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch08.tex",
+    "tex_sha256": "5023e233063f34a9406d7d932c009f0542106a3cb4f994680b45ff453b16dc4b"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch08.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_ch18_independence_meet.py",
+    "demo_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959",
+    "query_asset_id": "demo_vol2_ch18_independence_meet_query",
+    "shapes_asset_id": "demo_vol2_ch18_independence_meet_shapes",
+    "fixture_asset_ids": [
+      "ch18_dependency"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "87f52f898b1266c4d119a8971a4f43e8c2c647e85cb8d03cdca716b43a64d6d9",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch08.yaml",
+      "source_sha256": "902e24202c5d9a4de4eb336e0c432999e4c26872f650d4b9261360721f884b81"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "2592fc681ae71f332309ed11d7c4113459c3dd798e007aeb1ea8a73e98fa0e79",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch08.yaml",
+      "source_sha256": "902e24202c5d9a4de4eb336e0c432999e4c26872f650d4b9261360721f884b81"
+    },
+    {
+      "asset_id": "demo_vol2_ch18_independence_meet_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "17571f676f181421e30a1342490f4dba9a6187c03883e99b939d988a8a668eab",
+      "source_anchor": "ontology-engineering/demos/vol2_ch18_independence_meet.py",
+      "source_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959"
+    },
+    {
+      "asset_id": "demo_vol2_ch18_independence_meet_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "6179ce8103ca20c7a33a8d9db150dff0c375e0d51a56955b3351a0989892ab11",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_ch18_independence_meet.py",
+      "source_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "458a8e96c4eead54b46e8a81400b50d46e5bd21b839e6fcb9db2b1d61845fb05",
+      "source_anchor": "ontology-engineering/demos/vol2_ch18_independence_meet.py",
+      "source_sha256": "17b2510407f8c5dd6e35efa26f5fe5a4c13af76baa4b53398b528838fa4b6959"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "76bdb07eeec8f7dcad355a33d827f256ecdfe832944a120279a8319097622ed9",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch08.yaml",
+      "source_sha256": "902e24202c5d9a4de4eb336e0c432999e4c26872f650d4b9261360721f884b81"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "ba604abd2e54254ae9837e43f7eafec5f18f1533683cdb551657edf9141789d6",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/chapter.md",
+      "source_sha256": "1e1c3a630b9d64f61bff1c95e63de7a287daa224d2b5721f87b6b2f5e9b987fd"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "d7e40dbffaa25176a7671459a9e0270daf772ef2191d7fdb8e2461576fb8521f",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/chapter.md",
+      "source_sha256": "1e1c3a630b9d64f61bff1c95e63de7a287daa224d2b5721f87b6b2f5e9b987fd"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "6b0622ca9cbb860d37efc793b2306217b961437fa1053304549c14da8eb3a65b",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch08-asil-decomposition-dfa/chapter.md",
+      "source_sha256": "1e1c3a630b9d64f61bff1c95e63de7a287daa224d2b5721f87b6b2f5e9b987fd"
+    }
+  ]
+}

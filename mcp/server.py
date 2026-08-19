@@ -1,9 +1,9 @@
-"""
-Semantica MCP Server — JSON-RPC 2.0 over stdio.
+"""Compatibility stdio loop for Semantica's canonical MCP adapter.
 
 Implements the Model Context Protocol so any MCP-compatible AI tool
 (Claude Code, Cursor, Windsurf, Cline, Continue, VS Code Copilot, etc.)
-can interact with the Semantica knowledge graph.
+can interact with Semantica. Protocol dispatch is owned exclusively by
+``semantica.mcp_server.handle_mcp_request``.
 
 Run:
     python -m mcp                  # via __main__.py
@@ -17,9 +17,7 @@ import logging
 import sys
 from typing import Any
 
-from mcp import __version__
-from mcp.resources import RESOURCE_DEFINITIONS, handle_resource_read
-from mcp.tools import TOOL_DEFINITIONS
+from semantica.mcp_server import handle_mcp_request
 
 log = logging.getLogger("semantica.mcp.server")
 
@@ -40,111 +38,48 @@ def _err(request_id: Any, code: int, message: str, data: Any = None) -> dict:
 
 # JSON-RPC error codes
 _PARSE_ERROR = -32700
-_METHOD_NOT_FOUND = -32601
-_INVALID_PARAMS = -32602
 _INTERNAL_ERROR = -32603
 
 # ---------------------------------------------------------------------------
-# Tool dispatch index
+# Compatibility request handlers, all delegated to the canonical adapter
 # ---------------------------------------------------------------------------
 
-_TOOL_INDEX: dict[str, dict] = {t["name"]: t for t in TOOL_DEFINITIONS}
+def _canonical(req_id: Any, method: str, params: dict) -> dict:
+    response = handle_mcp_request(
+        {
+            "jsonrpc": "2.0",
+            "id": req_id,
+            "method": method,
+            "params": params,
+        }
+    )
+    if response is None:
+        return _ok(req_id, {})
+    return response
 
-
-# ---------------------------------------------------------------------------
-# Request handlers
-# ---------------------------------------------------------------------------
 
 def _handle_initialize(req_id: Any, params: dict) -> dict:
-    return _ok(req_id, {
-        "protocolVersion": "2024-11-05",
-        "capabilities": {
-            "tools": {},
-            "resources": {},
-        },
-        "serverInfo": {
-            "name": "semantica-mcp",
-            "version": __version__,
-        },
-    })
+    return _canonical(req_id, "initialize", params)
 
 
 def _handle_tools_list(req_id: Any, _params: dict) -> dict:
-    tools = [
-        {
-            "name": t["name"],
-            "description": t["description"],
-            "inputSchema": t["inputSchema"],
-        }
-        for t in TOOL_DEFINITIONS
-    ]
-    return _ok(req_id, {"tools": tools})
+    return _canonical(req_id, "tools/list", _params)
 
 
 def _handle_tools_call(req_id: Any, params: dict) -> dict:
-    name = params.get("name", "")
-    args = params.get("arguments", {}) or {}
-
-    tool = _TOOL_INDEX.get(name)
-    if tool is None:
-        return _err(req_id, _METHOD_NOT_FOUND, f"Unknown tool: {name}")
-
-    try:
-        result = tool["_handler"](args)
-    except Exception as exc:
-        log.exception("Tool %s raised an exception", name)
-        # The exception's class name (e.g. "ValidationError", "TimeoutError")
-        # is safe to surface — unlike str(exc), it never carries paths,
-        # connection strings, or other internal detail — and lets the
-        # client distinguish failure kinds without a full message.
-        return _err(
-            req_id, _INTERNAL_ERROR,
-            f"Tool '{name}' failed ({type(exc).__name__}). See server logs for details.",
-        )
-
-    # MCP spec: content must be a list of content items
-    return _ok(req_id, {
-        "content": [{"type": "text", "text": json.dumps(result, ensure_ascii=False)}],
-        "isError": "error" in result,
-    })
+    return _canonical(req_id, "tools/call", params)
 
 
 def _handle_resources_list(req_id: Any, _params: dict) -> dict:
-    return _ok(req_id, {"resources": RESOURCE_DEFINITIONS})
+    return _canonical(req_id, "resources/list", _params)
 
 
 def _handle_resources_read(req_id: Any, params: dict) -> dict:
-    uri = params.get("uri", "").strip()
-    if not uri:
-        return _err(req_id, _INVALID_PARAMS, "uri is required")
-    resource = handle_resource_read(uri)
-    return _ok(req_id, {
-        "contents": [
-            {
-                "uri": resource["uri"],
-                "mimeType": resource.get("mimeType", "application/json"),
-                "text": resource.get("text", ""),
-            }
-        ]
-    })
+    return _canonical(req_id, "resources/read", params)
 
 
 def _handle_ping(req_id: Any, _params: dict) -> dict:
-    return _ok(req_id, {})
-
-
-# ---------------------------------------------------------------------------
-# Dispatch table
-# ---------------------------------------------------------------------------
-
-_DISPATCH = {
-    "initialize": _handle_initialize,
-    "tools/list": _handle_tools_list,
-    "tools/call": _handle_tools_call,
-    "resources/list": _handle_resources_list,
-    "resources/read": _handle_resources_read,
-    "ping": _handle_ping,
-}
+    return _canonical(req_id, "ping", _params)
 
 
 # ---------------------------------------------------------------------------
@@ -162,20 +97,12 @@ class SemanticaMCPServer:
     # ------------------------------------------------------------------
     def dispatch(self, request: dict) -> dict | None:
         """Process one JSON-RPC request and return a response dict (or None for notifications)."""
-        req_id = request.get("id")  # None for notifications
-        method = request.get("method", "")
-        params = request.get("params") or {}
-
-        handler = _DISPATCH.get(method)
-        if handler is None:
-            if req_id is None:
-                return None  # Notification — ignore unknown methods silently
-            return _err(req_id, _METHOD_NOT_FOUND, f"Method not found: {method}")
-
         try:
-            return handler(req_id, params)
+            return handle_mcp_request(request)
         except Exception as exc:
-            log.exception("Unhandled error in method %s", method)
+            method = request.get("method", "")
+            req_id = request.get("id")
+            log.exception("Unhandled error in canonical method %s", method)
             if req_id is None:
                 return None
             return _err(

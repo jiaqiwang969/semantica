@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch10",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH10-CQ-001",
+      "question": "发布决定是否绑定同一配置快照、完整主张论证、有效证据、反证和授权？",
+      "scenario_id": "semantica.vol2.ch10.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch10",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "negative-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_release_binding_gate_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "member",
+            "binding"
+          ],
+          "rows": [
+            {
+              "member": {
+                "value": "https://product-trustworthiness.local/release#SWRegReport_r12",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "binding": {
+                "value": "https://product-trustworthiness.local/release#Snapshot_NextSW_preview",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_release_binding_gate_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_release_binding_gate_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "成员绑定 != 包声明快照",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

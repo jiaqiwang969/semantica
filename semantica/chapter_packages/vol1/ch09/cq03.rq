@@ -1,0 +1,29 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX :     <http://example.org/manufacturing#>
+
+SELECT ?task ?conflictType
+WHERE {
+    {
+        ?task a :CapabilityConflict .
+        BIND("能力冲突：设备无法加工所需材料" AS ?conflictType)
+    }
+    UNION
+    {
+        ?task a :TimeConflict .
+        BIND("时间冲突：设备时间段重叠" AS ?conflictType)
+    }
+    UNION
+    {
+        ?task a :StatusConflict .
+        BIND("状态冲突：设备状态不可用" AS ?conflictType)
+    }
+    UNION
+    {
+        ?task a :ResourceConflict .
+        BIND("资源冲突：资源可用性不足" AS ?conflictType)
+    }
+}
+

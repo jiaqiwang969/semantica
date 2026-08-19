@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch09",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH09-SCN-CQ01-001",
+      "status": "native",
+      "execution": {
+        "provider": "SemanticRuntime",
+        "operation": "select_exact_multiset",
+        "query_asset_id": "cq01",
+        "replacement_for": "QueryService.getEquipmentForMaterial"
+      },
+      "inputs": [
+        "cq01-positive",
+        "cq01-single-fault-negative"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH09-ORC-001",
+        "status": "ready",
+        "positive": {
+          "row_count": 2,
+          "bindings": {
+            "name": [
+              "数控车床一号",
+              "立式铣床二号"
+            ]
+          }
+        },
+        "single_fault_negative": {
+          "row_count": 0
+        }
+      }
+    }
+  ]
+}

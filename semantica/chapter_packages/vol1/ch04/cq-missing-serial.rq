@@ -1,0 +1,8 @@
+PREFIX mfg: <http://example.org/manufacturing#>
+
+SELECT ?equipment
+WHERE {
+  ?equipment a mfg:Equipment .
+  FILTER NOT EXISTS { ?equipment mfg:hasSerialNumber ?serial }
+}
+ORDER BY ?equipment

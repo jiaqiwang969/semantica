@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch02",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH02-SCN-REASONING-MODES-001",
+      "status": "adapter",
+      "execution": {
+        "provider": "semantica.reasoning.Reasoner + SemanticRuntime",
+        "operation": "composite",
+        "runner_status": "native"
+      },
+      "inputs": [
+        "forward-chain-facts",
+        "forward-chain-rules",
+        "owa-data",
+        "cq-owa-evidence",
+        "cq-cwa-naf"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH02-ORC-001",
+        "status": "ready",
+        "expected": {
+          "inferred": [
+            "CNCMachine(Lathe_001)",
+            "ProcessingEquipment(Lathe_001)",
+            "Available(Lathe_001)",
+            "Unavailable(Lathe_001)"
+          ],
+          "ask_owa_evidence": false,
+          "ask_cwa_naf": true
+        }
+      }
+    }
+  ]
+}

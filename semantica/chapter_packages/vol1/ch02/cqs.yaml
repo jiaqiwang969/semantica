@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch02",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH02-CQ-001",
+      "question": "运行时能否区分类、关系、实例并显式报告 OWA/CWA 与推理 profile？",
+      "claim_ids": [
+        "OE-V1-CH02-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH02-SCN-REASONING-MODES-001"
+      ],
+      "status": "partial"
+    }
+  ]
+}
+

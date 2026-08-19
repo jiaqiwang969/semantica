@@ -1,0 +1,5 @@
+PREFIX fld: <https://product-trustworthiness.local/field#>
+SELECT ?verdict WHERE {
+  fld:Assessment_47 fld:coversPremise fld:Premise_LowTempTempco .
+  fld:Premise_LowTempTempco fld:verdict ?verdict .
+}

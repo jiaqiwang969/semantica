@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "sources": [
+    {
+      "path": "references/product-trustworthiness-book/ch11-capstone-three-items/src/capstone.py",
+      "sha256": "c1d0dcecfb24703045f09c101104b300828977e28f53a1bd447c7f505f9a11ec"
+    },
+    {
+      "path": "references/product-trustworthiness-book/ch11-capstone-three-items/src/freeze_bundle.py",
+      "sha256": "8e2acd0e82697b9651bee247c9538afd91b63ac9acc6bf3ad9c5faccee822540"
+    }
+  ],
+  "rules": [
+    "Manifest schema_version is exactly 1 and bundle_id is ch11-capstone-three-items.",
+    "Every input path is normalized, repository-relative, unique, and contains no '..'.",
+    "Every input role is data or shapes and every declared digest is lowercase SHA-256.",
+    "The bundle contains at least one data input and exactly one shapes input.",
+    "The bundle digest is calculated over canonical sorted path/role/sha256 entries.",
+    "Every input hash and the manifest hash are rechecked after validation.",
+    "Draft/Planned/NotRun/NotPerformed/Candidate denotes a registered boundary, not proof.",
+    "Knowledge-model conformance is not ISO verification, confirmation review, engineering sufficiency, or release authorization."
+  ],
+  "status": "native_declarative_boundary; executable bundle check blocked by missing inputs"
+}

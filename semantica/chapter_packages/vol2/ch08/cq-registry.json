@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "chapter_contract": "semantica.vol2.ch08",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH08-CQ-001",
+      "question": "两条通道是否存在多跳共享依赖或未经证据支持的排除，从而推翻独立性结论？",
+      "scenario_id": "semantica.vol2.ch08.scenario.primary",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.ch08",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "load_asset",
+            "asset_id": "negative-case",
+            "format": "turtle"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_ch18_independence_meet_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "node"
+          ],
+          "rows": [
+            {
+              "node": {
+                "value": "https://product-trustworthiness.local/dependency#Batt_KL30",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            },
+            {
+              "node": {
+                "value": "https://product-trustworthiness.local/dependency#Reg5V_U3",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "positive-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch18_independence_meet_shapes"
+            }
+          ],
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "execution": [
+            {
+              "operation": "load_asset",
+              "asset_id": "negative-case",
+              "format": "turtle"
+            },
+            {
+              "operation": "validate",
+              "asset_id": "demo_vol2_ch18_independence_meet_shapes"
+            }
+          ],
+          "conforms": false,
+          "message_contains": "已过期事实",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

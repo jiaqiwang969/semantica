@@ -1,0 +1,15 @@
+PREFIX rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl:  <http://www.w3.org/2002/07/owl#>
+PREFIX xsd:  <http://www.w3.org/2001/XMLSchema#>
+PREFIX :     <http://example.org/manufacturing#>
+
+INSERT DATA {
+    :Lathe_003 a :Lathe ;
+               rdfs:label "3号数控车床"@zh ;
+               :serialNumber "CNC-LATHE-2024-003" ;
+               :power "25.0"^^xsd:decimal ;
+               :hasStatus :Idle ;
+               :locatedIn :WorkCell_C .
+}
+

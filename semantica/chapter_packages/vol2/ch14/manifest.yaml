@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch14",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/hazard#",
+  "chapter": "ch14",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/chapter.md",
+    "sha256": "a5f577ea0120b49eb53284153f0d6faf540d4b99213cedd5fd10d908331a9dbb",
+    "title": "情境与目标本体",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/README.md",
+    "guide_sha256": "a129f9af12bcf1f9b1cf4418c8dd6dcb2b64f5324a80c067d895b97fb1c6e8cf",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch14.tex",
+    "tex_sha256": "aa3392a30f9e2dd5ba861a480eb78d67334102a8e8e444ae11570c65b3641c34"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch14.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_hara_asil_corroborate.py",
+    "demo_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5",
+    "query_asset_id": "demo_vol2_hara_asil_corroborate_query",
+    "shapes_asset_id": "demo_vol2_hara_asil_corroborate_shapes",
+    "fixture_asset_ids": []
+  },
+  "assets": [
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "b183d496c94bd4a8647e154d31cb6565e6d917cc8e714a0f7a71ed8e1d77792f",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch14.yaml",
+      "source_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "d656071c86e145434d20486d5d247f46082b0cadcc5e5354b09d7fd2d5888b8a",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch14.yaml",
+      "source_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c"
+    },
+    {
+      "asset_id": "demo_vol2_hara_asil_corroborate_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "1d65df41cc284fb7af40c03f39c94c704fcd609503baf7d352f587b6c6582013",
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "demo_vol2_hara_asil_corroborate_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "7c0d8600ff11c56339f8a27cfaf7434de031e1aa3dbbc7477cd573b455c3d7c9",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "9aa01dbfcb2298c92fd990184ea91071fe570213cbb9edf5b7a5385c28e1a0a1",
+      "source_anchor": "ontology-engineering/demos/vol2_hara_asil_corroborate.py",
+      "source_sha256": "d804bd8e4702bfba6844d808aa82a7461671a861775cc93d48285f2ff37fa0b5"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "f50604b98fc6f023610e23809e1deac96b6f1b404c54c469d2ff9f6f3b54bf44",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch14.yaml",
+      "source_sha256": "216d66def241d74df69a950666c5f126c225711d1cb5f472cfa60e75d366fe3c"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "8326ccc8b39562166fe592e6d5e6f0ce972e2fd171c216fb6ab6cec7edca5cea",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/chapter.md",
+      "source_sha256": "a5f577ea0120b49eb53284153f0d6faf540d4b99213cedd5fd10d908331a9dbb"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "b6f3c94fd50298b2ae881d6c45a8172a80b1c64ab43e489cf55c2244ebee3b17",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/chapter.md",
+      "source_sha256": "a5f577ea0120b49eb53284153f0d6faf540d4b99213cedd5fd10d908331a9dbb"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "a06c878c32ddd96775fa4ec4fc87a41314bae7378dcc0a3bf049081dd9688a2d",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch14-context-hazard-ontology/chapter.md",
+      "source_sha256": "a5f577ea0120b49eb53284153f0d6faf540d4b99213cedd5fd10d908331a9dbb"
+    }
+  ],
+  "dependencies": [
+    {
+      "package_id": "semantica.chapter_packages.vol2.normative",
+      "version": "0.1.0",
+      "purpose": "source-anchored ISO normative derived layer and teaching-case projection",
+      "load_policy": "explicit_fail_closed"
+    }
+  ]
+}

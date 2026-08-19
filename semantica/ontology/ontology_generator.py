@@ -787,7 +787,11 @@ class SHACLGenerator:
     ):
         self.logger = get_logger("ontology_shacl")
         self.progress_tracker = get_progress_tracker()
-        self.base_uri = base_uri.rstrip("/") + "/"
+        # ``#`` and ``/`` are both valid ontology namespace delimiters.  A
+        # fragment namespace must not be rewritten into an unrelated path.
+        self.base_uri = (
+            base_uri if base_uri.endswith(("/", "#")) else base_uri + "/"
+        )
         self.shapes_uri = shapes_uri or (self.base_uri + "shapes")
         self.include_inherited = include_inherited
         self.severity = severity

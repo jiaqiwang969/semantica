@@ -1,0 +1,6 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix req: <https://product-trustworthiness.local/requirements#> .
+req:TraceReasonGate a sh:NodeShape ;
+    sh:targetSubjectsOf req:toReq ;
+    sh:property [ sh:path req:rationale ; sh:minCount 1 ;
+        sh:message "需求追溯边缺少一等理由对象" ] .

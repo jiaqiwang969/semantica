@@ -77,6 +77,7 @@ Semantica sits underneath your LLM, vector store, and agent framework as a deter
 
 ## What Semantica Gives You
 
+- **Book-grounded engineering ontology packages:** 29 chapter packages plus a normative domain package, with CQ/query/shape/case/rule assets, exact oracles, provenance receipts, governed evolution, maintained TeX-source hash gates, and one Python/CLI/MCP execution boundary ([integration guide](docs/guides/ontology-engineering-books.md))
 - **Context Graphs:** A structured, queryable graph of everything your agent knows, decides, and reasons about
 - **Decision Intelligence:** Every decision is a first-class object: traceable, searchable by precedent, and causally linked
 - **AI Governance & Ontology:** SHACL constraints, conflict detection, compliance rules, OWL generation, and SKOS vocabulary management with a visual editor

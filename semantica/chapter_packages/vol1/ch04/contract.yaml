@@ -1,0 +1,144 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "oe.vol1.ch04",
+  "package_id": "semantica.chapter_packages.vol1.ch04",
+  "package_version": "1.0.0",
+  "volume": "vol1",
+  "chapter": "ch04",
+  "title": "本体描述语言与工具",
+  "external_specification": {
+    "kind": "book",
+    "stone": true,
+    "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
+    "source_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8",
+    "guide_anchor": "references/ontology-engineering-book/ch04-ontology-languages/README.md",
+    "guide_sha256": "c85661755759a46920d0eb8b59375a9bde18359d114605c785589cb07c25c949",
+    "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch04.tex",
+    "tex_sha256": "7118ff4fd05f7f9cbc6e282361d42267dc67c11e513da4d95e77bcf68c7d25a8"
+  },
+  "status": "partial",
+  "claims": [
+    {
+      "id": "OE-V1-CH04-CLM-001",
+      "statement": "RDF、RDFS、OWL、SPARQL 与 SHACL 必须由保真且互操作的语义运行时执行。"
+    }
+  ],
+  "competency_question_ids": [
+    "OE-V1-CH04-CQ-001"
+  ],
+  "payload_status": {
+    "ontology": "native",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "release": {
+    "status": "blocked",
+    "blocking_gaps": [
+      "Manchester Syntax 资产被无损保留，但当前 SemanticRuntime 不解析 Manchester。",
+      "本章依赖 vol1.ch07 的 SHACL 资产，未伪造章内 shapes。",
+      "图同构 round-trip oracle 尚未声明。",
+      "CQ7 SERVICE 需要外部端点，离线执行应 fail closed。",
+      "尚未为此包签发内容绑定的执行收据。"
+    ]
+  },
+  "receipt": {
+    "status": "absent",
+    "required_fields": [
+      "runtime_commit",
+      "runtime_artifact_sha256",
+      "chapter_contract_sha256",
+      "dataset_sha256",
+      "capability_report",
+      "cq_report",
+      "oracle_report",
+      "provenance_bundle"
+    ],
+    "fields": {
+      "runtime_commit": {
+        "status": "absent",
+        "value": null
+      },
+      "runtime_artifact_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "chapter_contract_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "dataset_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "capability_report": {
+        "status": "absent",
+        "value": null
+      },
+      "cq_report": {
+        "status": "absent",
+        "value": null
+      },
+      "oracle_report": {
+        "status": "absent",
+        "value": null
+      },
+      "provenance_bundle": {
+        "status": "absent",
+        "value": null
+      }
+    },
+    "gap": "No release receipt has been issued; blocked release must not be interpreted as green."
+  },
+  "truthfulness": {
+    "no_fallback": true,
+    "missing_assets_are_gaps": true,
+    "book_is_external_authority": true
+  }
+}

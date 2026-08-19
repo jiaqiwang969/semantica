@@ -1,0 +1,259 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch09",
+  "version": "1.0.0",
+  "namespace": "http://example.org/manufacturing#",
+  "chapter": {
+    "corpus": "《工程本体论》",
+    "volume": "vol1",
+    "chapter": "ch09",
+    "title": "综合实战案例：智能制造知识管理系统",
+    "external_specification": {
+      "kind": "book",
+      "stone": true,
+      "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
+      "source_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7",
+      "guide_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/README.md",
+      "guide_sha256": "2869381e2e735d33933fee62d84505797e71c9219293c5519b00d181663cf11e",
+      "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch09.tex",
+      "tex_sha256": "23d79280559564c0d95332853f231f6abe3f190530462b2cc9f283d5bc6a72f7"
+    }
+  },
+  "status": "partial",
+  "release_status": "blocked",
+  "payload_status": {
+    "ontology": "adapter",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "adapter",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "execution": {
+    "contract_asset_id": "contract",
+    "cq_registry_asset_id": "cqs",
+    "scenario_registry_asset_id": "scenarios",
+    "query_entry_point": "semantica.chapter_packages.execute_chapter_query",
+    "package_entry_point": "semantica.chapter_packages.load_chapter_package",
+    "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+    "runner_implementation_status": "native"
+  },
+  "gaps": [
+    "Manchester 本体与五条 SWRL 规则已无损/结构化迁入，但当前 SemanticRuntime 不解析或执行它们。",
+    "Java/Jena QueryService 与 owlready2 runner 不迁入；查询替代入口为 execute_chapter_query。",
+    "CQ2-CQ7 没有书内 ABox exact oracle，不得假绿。",
+    "本章尚缺 SHACL 与端到端 SWRL/DL 推理绑定，且尚未签发执行收据。"
+  ],
+  "assets": [
+    {
+      "asset_id": "contract",
+      "path": "contract.yaml",
+      "role": "chapter_contract",
+      "format": "yaml",
+      "sha256": "f227173563eaea5acbcfb83a4c3e80202ced5a8e560861cd61b61f4015540ec9",
+      "source_anchor": "contracts/vol1/ch09.yaml",
+      "source_sha256": "5e89389eda73d8a07911f2d8304d9286dd3750ed59ef340fceed5e7d161919dc",
+      "derivation": "migrated_authoritative_contract"
+    },
+    {
+      "asset_id": "cq01-positive",
+      "path": "cq01-positive.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "positive_fixture",
+      "load_into_dataset": false,
+      "sha256": "1826174b431ad307d74d14677ebee1153ef46ab2e569868ab0e70d6d21d19361",
+      "source_anchor": "demos/vol1_ch03_cq_acceptance.py",
+      "source_sha256": "00e47ce7383f0af949b3585c9df4519f4d3383ae4e5445e65cf1e0f97865ba86",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch03_cq_acceptance.py"
+    },
+    {
+      "asset_id": "cq01-single-fault-negative",
+      "path": "cq01-single-fault-negative.ttl",
+      "kind": "rdf",
+      "format": "turtle",
+      "role": "negative_fixture",
+      "load_into_dataset": false,
+      "sha256": "9b71ec0c384265912c48357ef7e264cd785eb8a4a9b61d9e5c5be944296b61c0",
+      "source_anchor": "demos/vol1_ch03_cq_acceptance.py",
+      "source_sha256": "00e47ce7383f0af949b3585c9df4519f4d3383ae4e5445e65cf1e0f97865ba86",
+      "derivation": "bounded_executable_fixture_extraction",
+      "legacy_entry": "demos/vol1_ch03_cq_acceptance.py"
+    },
+    {
+      "asset_id": "cq01",
+      "path": "cq01.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "fea881e9e044a0f28dc73be68d7bf098fb100e99e4f6a8773e669b7794ff4c86",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq02",
+      "path": "cq02.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "3e648e9e74adcf6c877c042297092b35bad85be54dbe38f3c05d202f4f0bbe0c",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq03",
+      "path": "cq03.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "5cb9bf904c0828c63f10fd0e6b68655a4b28b20775eb0c752bfdc20ff13640e2",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq04",
+      "path": "cq04.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "7dac5e51751b45d917e92e1e693e56979af853ef8945cd7e640b7ca3e50607f0",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq05",
+      "path": "cq05.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "0155b903c148a601734343be4f516ceffb4ac9fd88562ebb226726e8dd5a1ccd",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq06",
+      "path": "cq06.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "0d74decbeda3527b4f4f1076bba29de7d6cc15b6f499463896221d50659c6f24",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cq07",
+      "path": "cq07.rq",
+      "role": "sparql",
+      "format": "sparql",
+      "sha256": "38f044bfc8e13a5b998019128a1e35f6ad2cf111374c2d3eff6592913d4e2ff5",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "bounded_collection_extraction",
+      "legacy_entry": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql"
+    },
+    {
+      "asset_id": "cqs",
+      "path": "cqs.yaml",
+      "role": "competency_questions",
+      "format": "yaml",
+      "sha256": "1f183525a359c1e82cc3b8f30405c1acdc7d40acaf6f22104ddffbd2dd52969f",
+      "source_anchor": "contracts/vol1/ch09.yaml",
+      "source_sha256": "5e89389eda73d8a07911f2d8304d9286dd3750ed59ef340fceed5e7d161919dc",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "path": "engineering-rules.swrl",
+      "role": "rules",
+      "format": "swrl",
+      "sha256": "a024b2cf2d3853e799401101b932761bbb5cc6b99cc66eb382c91ff788a32d40",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/manufacturing.owl",
+      "source_sha256": "d4f34be29e6f78b71147e57188d449b67a769bc91647c760599f7720748955de",
+      "derivation": "structured_rule_extraction"
+    },
+    {
+      "asset_id": "manufacturing",
+      "path": "manufacturing.owl",
+      "role": "ontology_source",
+      "format": "manchester",
+      "load_into_dataset": false,
+      "sha256": "a3edf3d515153ed90be340eac0dc7b0508c017a209d1d3b664aade4c738aba93",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/manufacturing.owl",
+      "source_sha256": "d4f34be29e6f78b71147e57188d449b67a769bc91647c760599f7720748955de",
+      "derivation": "editorial_correction_after_migration"
+    },
+    {
+      "asset_id": "scenarios",
+      "path": "scenarios.yaml",
+      "role": "scenario_registry",
+      "format": "yaml",
+      "sha256": "bd1f04baf85e753111efb982d9b23b70c97071369f1ee799f99bac965f860639",
+      "source_anchor": "contracts/vol1/ch09.yaml",
+      "source_sha256": "5e89389eda73d8a07911f2d8304d9286dd3750ed59ef340fceed5e7d161919dc",
+      "derivation": "bounded_contract_extraction"
+    },
+    {
+      "asset_id": "sparql-queries",
+      "path": "sparql-queries.sparql",
+      "role": "sparql_collection",
+      "format": "sparql",
+      "sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "source_anchor": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "source_sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "derivation": "byte_for_byte_copy"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "contract_schema": "../../chapter-contract.schema.json"
+}

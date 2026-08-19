@@ -1,0 +1,11 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix dep: <https://product-trustworthiness.local/dependency#> .
+dep:ExclusionFactValidityGate a sh:NodeShape ;
+    sh:targetClass dep:Exclusion ;
+    sh:sparql [
+        sh:message "独立性排除理由押着已过期事实，必须标疑并重开" ;
+        sh:select """
+            PREFIX dep: <https://product-trustworthiness.local/dependency#>
+            SELECT $this WHERE { $this dep:restsOn ?fact . ?fact dep:supersededBy ?new . }
+        """ ;
+    ] .

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch06",
+  "runner_contract": "semantica.chapter_packages.SemanticPackageRunner/v1",
+  "runner_implementation_status": "native",
+  "scenarios": [
+    {
+      "id": "OE-V1-CH06-SCN-END-TO-END-001",
+      "status": "absent",
+      "execution": {
+        "provider": "SemanticRuntime",
+        "operation": "domain_case_end_to_end"
+      },
+      "inputs": [
+        "autonomous-driving",
+        "bim-ontology",
+        "aerospace-fmea",
+        "manufacturing-scheduling"
+      ],
+      "oracle": {
+        "id": "OE-V1-CH06-ORC-001",
+        "status": "absent",
+        "gap": "书中案例仍是文本模式，尚无可执行端到端 oracle。"
+      }
+    }
+  ]
+}

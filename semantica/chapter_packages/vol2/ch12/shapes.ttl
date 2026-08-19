@@ -1,0 +1,15 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix id: <https://product-trustworthiness.local/identity#> .
+id:AliasFamilyGate a sh:NodeShape ;
+    sh:targetSubjectsOf id:aliasOf ;
+    sh:sparql [
+        sh:message "族检查：单件别名不能挂接到型号（设计定义）上——把型号当单件" ;
+        sh:select """
+            PREFIX id: <https://product-trustworthiness.local/identity#>
+            SELECT $this WHERE {
+                $this id:aliasOf ?t .
+                FILTER NOT EXISTS { ?t a id:PhysicalUnit }
+            }
+        """ ;
+    ] .

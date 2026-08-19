@@ -1,0 +1,2 @@
+@prefix req: <https://product-trustworthiness.local/requirements#> .
+req:edge_0 req:toReq req:FSR_TorqueLimit .

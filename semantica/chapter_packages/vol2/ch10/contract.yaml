@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "semantica.vol2.ch10",
+  "legacy_contract_id": "oe.vol2.ch10",
+  "legacy_contract_sha256": "6aa602399a6b9ebbf38e76e75c09ca6413d60fa49113a34fac0c500067190f01",
+  "package_id": "semantica.chapter_packages.vol2.ch10",
+  "version": "0.1.0",
+  "package_version": "0.1.0",
+  "volume": "vol2",
+  "chapter": "ch10",
+  "title": "支持过程与发布保证",
+  "mirror_chapter": "oe.vol2.ch20",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch10-supporting-processes/chapter.md",
+    "sha256": "e32757757a38d9478cf4e53e31218504cda74ede5f7ee16592e68b57c6f71d51",
+    "title": "支持过程与发布保证",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch10-supporting-processes/README.md",
+    "guide_sha256": "696833b3bcd278d7bedb30306812c899ac0b45355824b1329d0f32b304dfc419",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch10.tex",
+    "tex_sha256": "0cab245b6e5d81c44a113e051b8d341297f39e111a2f497df7368d3a1d3266c0"
+  },
+  "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch10-supporting-processes/chapter.md",
+  "external_specification": {
+    "kind": "book",
+    "stone": true,
+    "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch10-supporting-processes/chapter.md",
+    "source_sha256": "e32757757a38d9478cf4e53e31218504cda74ede5f7ee16592e68b57c6f71d51",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch10-supporting-processes/README.md",
+    "guide_sha256": "696833b3bcd278d7bedb30306812c899ac0b45355824b1329d0f32b304dfc419",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch10.tex",
+    "tex_sha256": "0cab245b6e5d81c44a113e051b8d341297f39e111a2f497df7368d3a1d3266c0"
+  },
+  "status": "partial",
+  "claims": [
+    {
+      "id": "OE-V2-CH10-CLM-001",
+      "statement": "档案和多张 PASS 不能替代主张—论证—证据结构、工具可信边界和可问责的发布决定。"
+    }
+  ],
+  "competency_questions": [
+    {
+      "id": "OE-V2-CH10-CQ-001",
+      "question": "发布决定是否绑定同一配置快照、完整主张论证、有效证据、反证和授权？",
+      "claim_ids": [
+        "OE-V2-CH10-CLM-001"
+      ],
+      "oracle_ids": [
+        "OE-V2-CH10-ORC-001",
+        "OE-V2-CH10-ORC-002",
+        "OE-V2-CH10-ORC-003"
+      ]
+    }
+  ],
+  "competency_question_ids": [
+    "OE-V2-CH10-CQ-001"
+  ],
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch10.scenario.primary",
+      "cq_id": "OE-V2-CH10-CQ-001",
+      "registry_asset": "cq-registry",
+      "status": "native_declarative"
+    }
+  ],
+  "policy": "../../policy.yaml",
+  "payload_status": {
+    "ontology": "adapter",
+    "competency_questions": "native",
+    "shapes": "native",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "partial",
+    "chapter_contract": "native"
+  },
+  "payload_bindings": {
+    "ontology": {
+      "status": "adapter",
+      "asset_id": "ontology",
+      "gap": "The practice chapter reuses its mirror ontology family's executable vocabulary; chapter-specific coverage remains partial."
+    },
+    "competency_questions": {
+      "asset_id": "cq-registry"
+    },
+    "shapes": {
+      "asset_id": "demo_vol2_release_binding_gate_shapes"
+    },
+    "sparql": {
+      "asset_id": "demo_vol2_release_binding_gate_query"
+    },
+    "cases": {
+      "assets": [
+        "positive-case",
+        "negative-case"
+      ]
+    },
+    "engineering_rules": {
+      "asset_id": "engineering-rules",
+      "gap": "Source-grounded rules are executable as SHACL/SPARQL, but no complete rule/reasoning profile exists for the chapter."
+    },
+    "chapter_contract": {
+      "asset_id": "chapter-contract"
+    }
+  },
+  "required_capabilities": [
+    {
+      "id": "assurance.claim_argument_evidence",
+      "status": "adapter",
+      "gap": "This practice chapter executes through the source-grounded assets of its ontology mirror; it is not an independent complete semantic model."
+    },
+    {
+      "id": "tool.confidence.boundary",
+      "status": "partial",
+      "gap": "没有工具置信等级与适用范围合同。"
+    },
+    {
+      "id": "release.snapshot.binding",
+      "status": "partial",
+      "gap": "没有多份 PASS 到同一快照的装包门禁。"
+    },
+    {
+      "id": "release.accountable_decision",
+      "status": "partial",
+      "gap": "没有带授权和处置的发布决定包。"
+    }
+  ],
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "api": "SemanticRuntime.load_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial.",
+      "package_binding_status": "partial"
+    },
+    "version": {
+      "status": "native",
+      "binding": "content-bound package identity 0.1.0",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package."
+    },
+    "provenance": {
+      "status": "native",
+      "binding": "book/source and asset SHA-256",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "gap": "No content-bound execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked"
+    }
+  },
+  "receipt": {
+    "status": "absent",
+    "required_fields": [
+      "runtime_commit",
+      "runtime_artifact_sha256",
+      "chapter_contract_sha256",
+      "dataset_sha256",
+      "capability_report",
+      "cq_report",
+      "oracle_report",
+      "provenance_bundle"
+    ],
+    "fields": {
+      "runtime_commit": null,
+      "runtime_artifact_sha256": null,
+      "chapter_contract_sha256": null,
+      "dataset_sha256": null,
+      "capability_report": null,
+      "cq_report": null,
+      "oracle_report": null,
+      "provenance_bundle": null
+    },
+    "gap": "No content-bound execution receipt has yet been issued for this package."
+  },
+  "release": {
+    "status": "blocked",
+    "blocking_gaps": [
+      "Complete chapter reasoning profile is not bound.",
+      "No content-bound execution receipt has yet been issued for this package."
+    ]
+  },
+  "truthfulness": {
+    "no_fallback": true,
+    "missing_assets_are_gaps": true,
+    "book_is_external_authority": true
+  }
+}

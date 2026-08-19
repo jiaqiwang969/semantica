@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "runner_contract": {
+    "requested_api": "SemanticPackageRunner.run_scenario",
+    "runner_status": "native",
+    "fail_closed": true
+  },
+  "competency_questions": [
+    {
+      "id": "SEM-V2-ISO-CQ-001",
+      "scenario_id": "semantica.vol2.normative.scenario.modality-fidelity",
+      "question": "Can the source-anchored unit retain and expose its recorded modality?",
+      "execution": {
+        "runtime_profile": "ontology-runtime",
+        "steps": [
+          {
+            "operation": "load_package",
+            "package_id": "semantica.chapter_packages.vol2.normative",
+            "version": "0.1.0"
+          },
+          {
+            "operation": "select",
+            "asset_id": "demo_vol2_iso_normative_query_query"
+          }
+        ]
+      },
+      "oracles": {
+        "cq_exact": {
+          "kind": "binding_multiset",
+          "variables": [
+            "unit",
+            "modality"
+          ],
+          "rows": [
+            {
+              "unit": {
+                "value": "https://ontology-engineering.local/iso26262/normative#P3_6_4_1_2",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              },
+              "modality": {
+                "value": "https://ontology-engineering.local/iso26262/normative#Shall",
+                "term_type": "iri",
+                "datatype": null,
+                "language": null
+              }
+            }
+          ]
+        },
+        "positive_path": {
+          "dataset": "loaded-package",
+          "shapes_asset": "demo_vol2_iso_normative_query_shapes",
+          "conforms": true
+        },
+        "single_fault_negative": {
+          "dataset_asset": "single-fault-negative",
+          "shapes_asset": "demo_vol2_iso_normative_query_shapes",
+          "conforms": false,
+          "message_contains": "模态",
+          "fault_count": 1
+        }
+      }
+    }
+  ]
+}

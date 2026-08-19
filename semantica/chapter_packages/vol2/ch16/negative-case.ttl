@@ -1,0 +1,4 @@
+@prefix m: <https://product-trustworthiness.local/metric#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+m:SPFM_walkthrough a m:MetricRecord ; m:got "95.48"^^xsd:decimal ; m:need "99.0"^^xsd:decimal .
+m:LFM_walkthrough a m:MetricRecord ; m:got "94.76"^^xsd:decimal ; m:need "90.0"^^xsd:decimal .

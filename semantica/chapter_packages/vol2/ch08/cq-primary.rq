@@ -1,0 +1,6 @@
+PREFIX dep: <https://product-trustworthiness.local/dependency#>
+SELECT DISTINCT ?node WHERE {
+  dep:MainChain dep:feedsFrom+ ?node .
+  dep:MonChain dep:feedsFrom+ ?node .
+}
+ORDER BY ?node

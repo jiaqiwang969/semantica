@@ -1,242 +1,63 @@
-# Semantica MCP Server
+# Semantica MCP compatibility entry
 
-A fully modular [Model Context Protocol](https://modelcontextprotocol.io/) server for the Semantica knowledge graph.  
-Connects Claude Code, Cursor, Windsurf, Cline, Continue, VS Code (GitHub Copilot), and any other MCP-compatible AI tool directly to your Semantica graph.
+`python -m mcp` is the repository compatibility command for Semantica's MCP
+server. It delegates every request to the canonical implementation in
+`semantica.mcp_server`; it does not maintain a second tool or resource registry.
 
----
-
-## Quick start
+For installed use, prefer:
 
 ```bash
-# From the repo root
-pip install -e ".[mcp]"
+python -m semantica.mcp_server
+```
 
-# Test the server (type a JSON-RPC request, press Enter)
+The compatibility command is protocol-equivalent:
+
+```bash
 python -m mcp
 ```
 
-Or point your AI tool at it (see per-tool configs below).
+Both commands use newline-delimited JSON-RPC 2.0 over stdio and expose the same
+server version, tool schemas, handlers, resource definitions, package manifest
+allowlist, and structured errors.
 
----
+## Built-in semantic packages
 
-## Transport
+The canonical MCP registry includes these package operations:
 
-**stdio** — the server reads newline-delimited JSON-RPC 2.0 from `stdin` and writes responses to `stdout`.  
-Log/debug output goes to `stderr` only.
+- `list_chapter_packages`
+- `get_chapter_package`
+- `verify_book_sources`
+- `run_chapter_package`
+- `verify_chapter_package`
 
-```
-python -m mcp [--debug]
-```
+Discovery covers the 29 chapter packages from the two books plus the fixed
+`semantica.chapter_packages.vol2.normative` domain package.
 
----
+`verify_book_sources` accepts an explicit ontology-engineering checkout root
+and hash-checks its authoritative chapter and TeX sources; it is read-only and
+returns a blocked DTO on drift.
 
-## Tools (17 total)
+Package manifests are available through:
 
-### Extraction
+- `semantica://packages/registry`
+- `semantica://packages/manifest/{allowlisted-package-id}`
 
-| Tool | Description |
-|---|---|
-| `extract_entities` | Named entity recognition (NER) — people, places, orgs, concepts |
-| `extract_relations` | Relation extraction + (subject, predicate, object) triplets |
-| `extract_all` | Full pipeline: NER + coreference + relations + events + triplets |
+Manifest resource input is resolved only against built-in package IDs. It is
+never interpreted as a filesystem path.
 
-### Decision Intelligence
-
-| Tool | Description |
-|---|---|
-| `record_decision` | Record a decision with context, confidence, causal links |
-| `query_decisions` | Query decisions by natural language or structured filters |
-| `find_precedents` | Find past decisions similar to a scenario (hybrid similarity) |
-| `get_causal_chain` | Trace upstream/downstream causal chain from a decision |
-| `analyze_decision_impact` | Analyse downstream influence of a decision |
-
-### Knowledge Graph
-
-| Tool | Description |
-|---|---|
-| `add_entity` | Add a node/entity to the graph |
-| `add_relationship` | Add a directed edge between two entities |
-| `search_graph` | Search nodes by label or ID substring |
-| `get_graph_summary` | Node/edge counts, decision count, type breakdown |
-| `get_graph_analytics` | PageRank, betweenness, degree centrality, community detection |
-
-### Reasoning
-
-| Tool | Description |
-|---|---|
-| `run_reasoning` | Forward-chaining IF/THEN rules over facts |
-| `abductive_reasoning` | Generate plausible hypotheses for observations |
-
-### Export & Provenance
-
-| Tool | Description |
-|---|---|
-| `export_graph` | Export graph to JSON, CSV, GraphML, Parquet, Turtle, N-Triples, RDF/XML, JSON-LD |
-| `get_provenance` | Audit history and source lineage for a node |
-
----
-
-## Resources (4 total)
-
-| URI | Description |
-|---|---|
-| `semantica://graph/summary` | Live node/edge counts and type breakdown |
-| `semantica://decisions/list` | Most recent 50 decisions |
-| `semantica://schema/info` | Schema version, node/edge types, tool names |
-| `semantica://ontology/schema` | Full ontology schema |
-
----
-
-## Per-tool configuration
-
-### Claude Code (`~/.claude/settings.json`)
+## Client configuration
 
 ```json
 {
   "mcpServers": {
     "semantica": {
       "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
+      "args": ["-m", "semantica.mcp_server"]
     }
   }
 }
 ```
 
-Or use the plugin bundle:
-```bash
-claude mcp add semantica python -m mcp --cwd /path/to/semantica
-```
-
----
-
-### Cursor (`~/.cursor/mcp.json`)
-
-```json
-{
-  "mcpServers": {
-    "semantica": {
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
-    }
-  }
-}
-```
-
----
-
-### Windsurf (`~/.codeium/windsurf/mcp_config.json`)
-
-```json
-{
-  "mcpServers": {
-    "semantica": {
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
-    }
-  }
-}
-```
-
----
-
-### Cline (VS Code extension settings)
-
-In your VS Code `settings.json`:
-
-```json
-{
-  "cline.mcpServers": {
-    "semantica": {
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
-    }
-  }
-}
-```
-
----
-
-### Continue (`~/.continue/config.json`)
-
-```json
-{
-  "mcpServers": [
-    {
-      "name": "semantica",
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
-    }
-  ]
-}
-```
-
----
-
-### VS Code (GitHub Copilot) — `.vscode/mcp.json`
-
-```json
-{
-  "servers": {
-    "semantica": {
-      "type": "stdio",
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "${workspaceFolder}"
-    }
-  }
-}
-```
-
----
-
-### Amazon Q Developer
-
-Add to your Q Developer MCP config:
-
-```json
-{
-  "mcpServers": {
-    "semantica": {
-      "command": "python",
-      "args": ["-m", "mcp"],
-      "cwd": "/path/to/semantica"
-    }
-  }
-}
-```
-
----
-
-## Environment variables
-
-| Variable | Default | Description |
-|---|---|---|
-| `SEMANTICA_KG_PATH` | *(in-memory)* | Path to persist/load the graph (JSON file) |
-
----
-
-## Package structure
-
-```
-mcp/
-├── __init__.py          # Package entry, re-exports SemanticaMCPServer + main
-├── __main__.py          # python -m mcp entry point
-├── server.py            # SemanticaMCPServer class + stdio event loop
-├── session.py           # Lazy ContextGraph singleton (get_graph / reset_graph)
-├── schemas.py           # JSON Schema definitions for all tool inputs
-├── tools/
-│   ├── __init__.py      # Assembles TOOL_DEFINITIONS list
-│   ├── extraction.py    # NER, relation extraction, full pipeline
-│   ├── decisions.py     # Record, query, precedents, causal chain, impact
-│   ├── graph.py         # Add entity/relationship, search, summary, analytics
-│   ├── reasoning.py     # Forward-chaining rules, abductive hypotheses
-│   └── export.py        # Graph export (multi-format) + provenance
-└── resources/
-    ├── __init__.py      # Re-exports RESOURCE_DEFINITIONS + handle_resource_read
-    └── registry.py      # URI → handler map for the 4 semantica:// resources
-```
+Use `tools/list` and `resources/list` for the authoritative live inventory;
+hard-coded inventories in this compatibility directory are intentionally not
+maintained.

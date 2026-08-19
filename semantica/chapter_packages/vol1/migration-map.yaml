@@ -1,0 +1,364 @@
+{
+  "schema_version": "1.0",
+  "authority": "semantica.chapter_packages",
+  "source_repository_end_state": "books_and_thin_teaching_entry_only",
+  "assets": [
+    {
+      "legacy_path": "references/ontology-engineering-book/ch01-introduction/examples/book-roadmap.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch01",
+      "asset_id": "book-roadmap",
+      "semantica_path": "semantica/chapter_packages/vol1/ch01/book-roadmap.txt",
+      "sha256": "b048561ccc068e006fd69dfa19595065d1c7a12194245d872e50b5fa6151c31a",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch01-introduction/examples/ontology-in-ai-era.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch01",
+      "asset_id": "ontology-in-ai-era",
+      "semantica_path": "semantica/chapter_packages/vol1/ch01/ontology-in-ai-era.txt",
+      "sha256": "d7863d21126281de90c7b8305ae911cbf28c8132e08b3e15f67f360315c5a40a",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch01-introduction/examples/philosophy-to-engineering.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch01",
+      "asset_id": "philosophy-to-engineering",
+      "semantica_path": "semantica/chapter_packages/vol1/ch01/philosophy-to-engineering.txt",
+      "sha256": "a4ef35eec0bb6962049005d7d2946bbcae67486c1c8a5d53fdcccc1906dc90fc",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch02-ontology-foundations/examples/core-concepts.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch02",
+      "asset_id": "core-concepts",
+      "semantica_path": "semantica/chapter_packages/vol1/ch02/core-concepts.txt",
+      "sha256": "b4758062d5c21d76234a3b29b4d5533b386ea9ccfa068e5d24d217db06f22703",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch02-ontology-foundations/examples/description-logic.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch02",
+      "asset_id": "description-logic",
+      "semantica_path": "semantica/chapter_packages/vol1/ch02/description-logic.txt",
+      "sha256": "fb828f8c4689a9a05bd6e1c043753af00bd55802af50ae120f79499973b9543b",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch02-ontology-foundations/examples/first-order-logic.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch02",
+      "asset_id": "first-order-logic",
+      "semantica_path": "semantica/chapter_packages/vol1/ch02/first-order-logic.txt",
+      "sha256": "8fb4539ab034270b10fa8df0c3c6958daba555e7d35b28b3d09b0622e925ee7a",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch02-ontology-foundations/examples/reasoning-examples.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch02",
+      "asset_id": "reasoning-examples",
+      "semantica_path": "semantica/chapter_packages/vol1/ch02/reasoning-examples.txt",
+      "sha256": "78dcb1d0545bc10505b23e282f3e3098676f95f59e9f2c8079f10464264fda08",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch03-ontology-methodology/examples/competency-questions.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch03",
+      "asset_id": "competency-questions",
+      "semantica_path": "semantica/chapter_packages/vol1/ch03/competency-questions.txt",
+      "sha256": "3b53f89674f7528cd03782908a8f62d4eeebcaaeee3eaced1695817580513801",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch03-ontology-methodology/examples/methontology-lifecycle.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch03",
+      "asset_id": "methontology-lifecycle",
+      "semantica_path": "semantica/chapter_packages/vol1/ch03/methontology-lifecycle.txt",
+      "sha256": "bd1e34561ff486e689303212cb95033ec5ec2fda98ea765aba9857771c5fb5db",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch03-ontology-methodology/examples/ontoclean-evaluation.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch03",
+      "asset_id": "ontoclean-evaluation",
+      "semantica_path": "semantica/chapter_packages/vol1/ch03/ontoclean-evaluation.txt",
+      "sha256": "5084fd309be51c79543765dc9fcbfdd6dfca7dfccba29ecd842decb90ce553ed",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch03-ontology-methodology/examples/ontology-101-process.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch03",
+      "asset_id": "ontology-101-process",
+      "semantica_path": "semantica/chapter_packages/vol1/ch03/ontology-101-process.txt",
+      "sha256": "b5cef215093fd8aabaff91f442ce59138cc7028d4e42660c6b4a6de719583ac2",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/manufacturing.owl",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "manufacturing",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/manufacturing.owl",
+      "sha256": "9b2a19fb6a10869218dd97a8cef8dd376ee580287a51195511a5eacae739ebc0",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/owl-classes.owl",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "owl-classes",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/owl-classes.owl",
+      "sha256": "67c740a951e5270f69271bc94f5971113b1037c97515ccdd9a609de01c1fd407",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/owl-properties.owl",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "owl-properties",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/owl-properties.owl",
+      "sha256": "99437caad3268478fa5ee65bdaf248eeb6ccc078ddc16600f676c403170d8c63",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/property-restrictions.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "property-restrictions",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/property-restrictions.txt",
+      "sha256": "80bfe11053404e5ddfc88bf86ce96cf5ed2b62fafb4831af150a0e54d305fc81",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdf-turtle-examples.ttl",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "rdf-turtle-examples",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/rdf-turtle-examples.ttl",
+      "sha256": "8941b3b6ecc06c9a37ce5ae514aa5d17c978abfaebda7d6ad5a951b3844604b9",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdf-xml-examples.rdf",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "rdf-xml-examples",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/rdf-xml-examples.rdf",
+      "sha256": "a329085ff6b52f8e289cb711de25238d869836feeb874720128b594913406580",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/rdfs-examples.ttl",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "rdfs-examples",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/rdfs-examples.ttl",
+      "sha256": "692356f8a256fc41a5e185dd238a929f014ac44d6105ddaf6bae073f22105c96",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch04-ontology-languages/examples/sparql-queries.sparql",
+      "package_id": "semantica.chapter_packages.vol1.ch04",
+      "asset_id": "sparql-queries",
+      "semantica_path": "semantica/chapter_packages/vol1/ch04/sparql-queries.sparql",
+      "sha256": "faee93b80ccc2f88d09decc5570dcfba8a736f695294063e62c2eb1aa41b1753",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch05-reasoning/examples/description-logic-examples.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch05",
+      "asset_id": "description-logic-examples",
+      "semantica_path": "semantica/chapter_packages/vol1/ch05/description-logic-examples.txt",
+      "sha256": "82a86785be3dcbb5c76238cecc55bc5f3a3e486711080d5058feb4df1565c95f",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch05-reasoning/examples/probabilistic-reasoning.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch05",
+      "asset_id": "probabilistic-reasoning",
+      "semantica_path": "semantica/chapter_packages/vol1/ch05/probabilistic-reasoning.txt",
+      "sha256": "432ac16df4cbf89e7108de4cbb01d5c9c2a4b1d8e545385d6dc75c1cf0fba7ce",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch05-reasoning/examples/swrl-rules.swrl",
+      "package_id": "semantica.chapter_packages.vol1.ch05",
+      "asset_id": "swrl-rules",
+      "semantica_path": "semantica/chapter_packages/vol1/ch05/swrl-rules.swrl",
+      "sha256": "62a06bf7a560e2a7e843dd9db02c241dad062241bf22b0fe48f44dc39f1df66b",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch05-reasoning/examples/temporal-reasoning.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch05",
+      "asset_id": "temporal-reasoning",
+      "semantica_path": "semantica/chapter_packages/vol1/ch05/temporal-reasoning.txt",
+      "sha256": "d5fe820ec4ff24e39d9bd2a64c9739eb3a58ecace6fa4e131d78a5751f96aabc",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch06-applications/examples/aerospace-fmea.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch06",
+      "asset_id": "aerospace-fmea",
+      "semantica_path": "semantica/chapter_packages/vol1/ch06/aerospace-fmea.txt",
+      "sha256": "ad9560eef318563dec016275e294e75d90c4e60d21c9e9c6d86a81a9bbd29af3",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch06-applications/examples/autonomous-driving.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch06",
+      "asset_id": "autonomous-driving",
+      "semantica_path": "semantica/chapter_packages/vol1/ch06/autonomous-driving.txt",
+      "sha256": "f8aa43f8bd3b577f573d795b065a662172ea146460dd694a80de9a9746192388",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch06-applications/examples/bim-ontology.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch06",
+      "asset_id": "bim-ontology",
+      "semantica_path": "semantica/chapter_packages/vol1/ch06/bim-ontology.txt",
+      "sha256": "e9b7e35bdfb8dd1107b8010d0cc184015cec5723b06dca7d3e4d95776bbff269",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch06-applications/examples/manufacturing-scheduling.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch06",
+      "asset_id": "manufacturing-scheduling",
+      "semantica_path": "semantica/chapter_packages/vol1/ch06/manufacturing-scheduling.txt",
+      "sha256": "b4f57d3fcc92834d035ddb2fb114b3d11f15f6a2507a91703e667afa31458a05",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch07-knowledge-graph/examples/entity-resolution.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch07",
+      "asset_id": "entity-resolution",
+      "semantica_path": "semantica/chapter_packages/vol1/ch07/entity-resolution.txt",
+      "sha256": "547a45e489e33274be1c32f581dde1541a41a26eed2076ad23113d531f1dc522",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-construction-pipeline.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch07",
+      "asset_id": "kg-construction-pipeline",
+      "semantica_path": "semantica/chapter_packages/vol1/ch07/kg-construction-pipeline.txt",
+      "sha256": "b977f3e00ac3ab426cab1657557d370b299ec92abba557dc36840125fd457fbe",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-quality-shacl.ttl",
+      "package_id": "semantica.chapter_packages.vol1.ch07",
+      "asset_id": "kg-quality-shacl",
+      "semantica_path": "semantica/chapter_packages/vol1/ch07/kg-quality-shacl.ttl",
+      "sha256": "6280f4de4e1e80de75d6c9f228b5f7e8cf48e681fcc43aa95899bc1eb324a752",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch07-knowledge-graph/examples/kg-storage-query.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch07",
+      "asset_id": "kg-storage-query",
+      "semantica_path": "semantica/chapter_packages/vol1/ch07/kg-storage-query.txt",
+      "sha256": "11496ed2728c8208a830d3cd594f7823f719595f6adf1a2e8c1d5155e0ea8a9e",
+      "migration": "semantica_projection_authority_rewrite",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch08-ontology-llm/examples/graphrag-pattern.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch08",
+      "asset_id": "graphrag-pattern",
+      "semantica_path": "semantica/chapter_packages/vol1/ch08/graphrag-pattern.txt",
+      "sha256": "1af424a8ad5a839b863a750c728849eb6ec6cb0d98856435b9854e152fc9f04b",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch08-ontology-llm/examples/hallucination-control.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch08",
+      "asset_id": "hallucination-control",
+      "semantica_path": "semantica/chapter_packages/vol1/ch08/hallucination-control.txt",
+      "sha256": "c4440046af16dd4e1229e8fabaab257af137ccdc66a630f100408cbebc2265f1",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch08-ontology-llm/examples/ontology-guided-agent.py",
+      "package_id": "semantica.chapter_packages.vol1.ch08",
+      "asset_id": "ontology-guided-agent",
+      "semantica_path": "semantica/chapter_packages/vol1/ch08/ontology-guided-agent.py",
+      "sha256": "0548e1a8462fffa9778935df1e6a16ee8427cf90b7be47cd009d084bb923c671",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch08-ontology-llm/examples/text2sparql.txt",
+      "package_id": "semantica.chapter_packages.vol1.ch08",
+      "asset_id": "text2sparql",
+      "semantica_path": "semantica/chapter_packages/vol1/ch08/text2sparql.txt",
+      "sha256": "b474046f8c47f1b0b7273e1032b8adc5b91a76f18b5efe369737de29f3d338e7",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": false
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/manufacturing.owl",
+      "package_id": "semantica.chapter_packages.vol1.ch09",
+      "asset_id": "manufacturing",
+      "semantica_path": "semantica/chapter_packages/vol1/ch09/manufacturing.owl",
+      "sha256": "a3edf3d515153ed90be340eac0dc7b0508c017a209d1d3b664aade4c738aba93",
+      "migration": "editorial_correction_after_migration",
+      "strict_gate_asset": true
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/sparql-queries.sparql",
+      "package_id": "semantica.chapter_packages.vol1.ch09",
+      "asset_id": "sparql-queries",
+      "semantica_path": "semantica/chapter_packages/vol1/ch09/sparql-queries.sparql",
+      "sha256": "3ce8653ccff6c58ab30eae021a02e04d01df189ff89659c31e1f4c0b204d0b55",
+      "migration": "byte_for_byte",
+      "strict_gate_asset": true
+    }
+  ],
+  "retired_runtime_entries": [
+    {
+      "legacy_path": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/OntologyManager.java",
+      "copied_as_runtime": false,
+      "replacement_entry": "semantica.chapter_packages.load_chapter_package(runtime, 'vol1', 'ch09')",
+      "reason": "Jena backend is not retained; SemanticRuntime is the only public RDF load boundary."
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/QueryService.java",
+      "copied_as_runtime": false,
+      "replacement_entry": "semantica.chapter_packages.execute_chapter_query(runtime, 'vol1', 'ch09', 'cq01'..'cq07')",
+      "reason": "Seven business CQs are registered as independently executable SPARQL package assets."
+    },
+    {
+      "legacy_path": "references/ontology-engineering-book/ch09-capstone-manufacturing/src/reasoner.py",
+      "copied_as_runtime": false,
+      "replacement_assets": [
+        "semantica.chapter_packages.vol1.ch09:engineering-rules",
+        "semantica.chapter_packages.vol1.ch09:scenarios"
+      ],
+      "replacement_entry": "SemanticPackageRunner/v1 (declared; implementation gap is fail-closed)",
+      "reason": "owlready2/Pellet is not retained. Manchester/SWRL source is losslessly registered, but unsupported rule execution is not reported as green."
+    }
+  ]
+}

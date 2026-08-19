@@ -1,0 +1,5 @@
+PREFIX isoN: <https://ontology-engineering.local/iso26262/normative#>
+SELECT ?unit ?modality WHERE {
+  VALUES ?unit { isoN:P3_6_4_1_2 }
+  ?unit isoN:modality ?modality .
+}

@@ -1,0 +1,11 @@
+
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix chg: <https://product-trustworthiness.local/change#> .
+chg:RevokeNeedsScope a sh:NodeShape ;
+    sh:targetClass chg:RevokeVerdict ;
+    sh:property [ sh:path chg:revokes ; sh:minCount 1 ;
+        sh:message "作废判决的波及面为空：宣布作废却说不出作废了谁，这不是判断，是挥手" ] .
+chg:RetainNeedsReason a sh:NodeShape ;
+    sh:targetClass chg:RetainVerdict ;
+    sh:property [ sh:path chg:retainReason ; sh:minCount 1 ;
+        sh:message "保留是判断，不是默认：请写明该卡为何不受本次变更波及" ] .

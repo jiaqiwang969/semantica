@@ -1,0 +1,6 @@
+PREFIX m: <https://product-trustworthiness.local/metric#>
+SELECT ?record ?got ?need WHERE {
+  ?record a m:MetricRecord ; m:got ?got ; m:need ?need .
+  FILTER(?got < ?need)
+}
+ORDER BY ?record

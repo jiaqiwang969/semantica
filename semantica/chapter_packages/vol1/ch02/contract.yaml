@@ -1,0 +1,141 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "oe.vol1.ch02",
+  "package_id": "semantica.chapter_packages.vol1.ch02",
+  "package_version": "1.0.0",
+  "volume": "vol1",
+  "chapter": "ch02",
+  "title": "本体论基础理论",
+  "external_specification": {
+    "kind": "book",
+    "stone": true,
+    "source_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
+    "source_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c",
+    "guide_anchor": "references/ontology-engineering-book/ch02-ontology-foundations/README.md",
+    "guide_sha256": "d63dddff4bef232aa70fc8b03054c7db05b184c8dd5420914ba21f47c55dc812",
+    "tex_anchor": "references/ontology-engineering-book/handbook/chapters/ch02.tex",
+    "tex_sha256": "5f458e1c867a5ed0a369cba212647917114621ec4a01ccf017e69f07b138695c"
+  },
+  "status": "partial",
+  "claims": [
+    {
+      "id": "OE-V1-CH02-CLM-001",
+      "statement": "类、关系、实例与推理假设必须保持形式语义，开放世界未知不得被静默改写为假。"
+    }
+  ],
+  "competency_question_ids": [
+    "OE-V1-CH02-CQ-001"
+  ],
+  "payload_status": {
+    "ontology": "partial",
+    "competency_questions": "native",
+    "shapes": "absent",
+    "sparql": "native",
+    "cases": "native",
+    "engineering_rules": "adapter",
+    "chapter_contract": "native"
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "entry_point": "semantica.chapter_packages.load_chapter_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; the chapter-specific reasoning binding remains partial."
+    },
+    "version": {
+      "status": "native",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent"
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked",
+      "gap": "No content-bound execution receipt has yet been issued for this package."
+    }
+  },
+  "release": {
+    "status": "blocked",
+    "blocking_gaps": [
+      "非单调、默认逻辑与 DL profile 仍缺失。",
+      "尚未为此包签发内容绑定的执行收据。"
+    ]
+  },
+  "receipt": {
+    "status": "absent",
+    "required_fields": [
+      "runtime_commit",
+      "runtime_artifact_sha256",
+      "chapter_contract_sha256",
+      "dataset_sha256",
+      "capability_report",
+      "cq_report",
+      "oracle_report",
+      "provenance_bundle"
+    ],
+    "fields": {
+      "runtime_commit": {
+        "status": "absent",
+        "value": null
+      },
+      "runtime_artifact_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "chapter_contract_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "dataset_sha256": {
+        "status": "absent",
+        "value": null
+      },
+      "capability_report": {
+        "status": "absent",
+        "value": null
+      },
+      "cq_report": {
+        "status": "absent",
+        "value": null
+      },
+      "oracle_report": {
+        "status": "absent",
+        "value": null
+      },
+      "provenance_bundle": {
+        "status": "absent",
+        "value": null
+      }
+    },
+    "gap": "No release receipt has been issued; blocked release must not be interpreted as green."
+  },
+  "truthfulness": {
+    "no_fallback": true,
+    "missing_assets_are_gaps": true,
+    "book_is_external_authority": true
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol2.ch15",
+  "version": "0.1.0",
+  "namespace": "https://product-trustworthiness.local/requirements#",
+  "chapter": "ch15",
+  "volume": "vol2",
+  "status": "partial",
+  "book_source": {
+    "logical_anchor": "ontology-engineering/references/product-trustworthiness-book/ch15-requirements-ontology/chapter.md",
+    "sha256": "dabef8fb71e9c49eb3ff45601181ede4987fde58b163c5d34e7dd828e776ce0c",
+    "title": "需求与架构本体",
+    "copy_policy": "external_book_stone_not_embedded",
+    "guide_anchor": "ontology-engineering/references/product-trustworthiness-book/ch15-requirements-ontology/README.md",
+    "guide_sha256": "29426c2a256d847460d564606b628ae4735e36be26ced74e9777def5e7318291",
+    "tex_anchor": "ontology-engineering/references/product-trustworthiness-book/handbook/fragments/readme-ch15.tex",
+    "tex_sha256": "a6c4b1628c5fc12a9e657e02b4f1fcd33a00422c933c650eae9cdbd1c4651b6e"
+  },
+  "release_status": "blocked",
+  "gap_asset": "migration-gaps",
+  "scenarios": [
+    {
+      "scenario_id": "semantica.vol2.ch15.scenario.primary",
+      "cq_registry_asset": "cq-registry",
+      "execution_contract": "cq-registry.json#/competency_questions/0/execution",
+      "oracles_contract": "cq-registry.json#/competency_questions/0/oracles"
+    }
+  ],
+  "legacy_entry": {
+    "demo": "demos/vol2_ch15_reopen_list.py",
+    "demo_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192",
+    "query_asset_id": "demo_vol2_ch15_reopen_list_query",
+    "shapes_asset_id": "demo_vol2_ch15_reopen_list_shapes",
+    "fixture_asset_ids": [
+      "ch15_traceability"
+    ]
+  },
+  "assets": [
+    {
+      "asset_id": "ch15_traceability",
+      "role": "legacy_case",
+      "path": "ch15_traceability.ttl",
+      "sha256": "ff9b8d002f0c1c7cbe6efdb7fcbbf271f92441ea9228844a38ef600f2a497885",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/fixtures/ch15_traceability.ttl",
+      "source_sha256": "ff9b8d002f0c1c7cbe6efdb7fcbbf271f92441ea9228844a38ef600f2a497885"
+    },
+    {
+      "asset_id": "chapter-contract",
+      "role": "chapter_contract",
+      "path": "contract.yaml",
+      "sha256": "8947f183bdd782a99440e4b2a480c5287bc57cef0ba2d41927075796e6314d20",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch15.yaml",
+      "source_sha256": "3f1c7ac033c6bf806218864b214dc08f4538ff742fe5184faf1f6988e191aa74"
+    },
+    {
+      "asset_id": "cq-registry",
+      "role": "competency_questions",
+      "path": "cq-registry.json",
+      "sha256": "8baa465e17787c69514e13e62b2e5f9cfc74ec7ee0a1fc6a2683c0652361ae17",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch15.yaml",
+      "source_sha256": "3f1c7ac033c6bf806218864b214dc08f4538ff742fe5184faf1f6988e191aa74"
+    },
+    {
+      "asset_id": "demo_vol2_ch15_reopen_list_query",
+      "role": "sparql",
+      "path": "cq-primary.rq",
+      "sha256": "e4d499e72e5dda2db9f16b513fff3bae5449dd60e477767b5ddc6588b8e91d11",
+      "source_anchor": "ontology-engineering/demos/vol2_ch15_reopen_list.py",
+      "source_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192"
+    },
+    {
+      "asset_id": "demo_vol2_ch15_reopen_list_shapes",
+      "role": "shapes",
+      "path": "shapes.ttl",
+      "sha256": "2a606978c23ad0a04394919e1837d96a3cb3e18c22c88d0a874012183d292369",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/demos/vol2_ch15_reopen_list.py",
+      "source_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192"
+    },
+    {
+      "asset_id": "engineering-rules",
+      "role": "engineering_rules",
+      "path": "engineering-rules.json",
+      "sha256": "faea513cfeb0167210ebceb548f62671be44556637363974832fae04f00b66b9",
+      "source_anchor": "ontology-engineering/demos/vol2_ch15_reopen_list.py",
+      "source_sha256": "382560af4784ed336b4f0e0be08d461d37692ee3259b7d3692e7bcb63e357192"
+    },
+    {
+      "asset_id": "migration-gaps",
+      "role": "migration_gaps",
+      "path": "gaps.json",
+      "sha256": "7bb97b5dac04277bdb7af3d91e7e1db4fe60f37e22f1504d6bdfa8d503843842",
+      "source_anchor": "ontology-engineering/contracts/vol2/ch15.yaml",
+      "source_sha256": "3f1c7ac033c6bf806218864b214dc08f4538ff742fe5184faf1f6988e191aa74"
+    },
+    {
+      "asset_id": "negative-case",
+      "role": "case_negative",
+      "path": "negative-case.ttl",
+      "sha256": "6f28f137bd6f14d9722f34ff77bca541c58f3db8c76c9c3e8d9ba8c48264ffb8",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch15-requirements-ontology/chapter.md",
+      "source_sha256": "dabef8fb71e9c49eb3ff45601181ede4987fde58b163c5d34e7dd828e776ce0c"
+    },
+    {
+      "asset_id": "ontology",
+      "role": "ontology",
+      "path": "ontology.ttl",
+      "sha256": "6ffa2ad1fa8093518d2678b6f32a95267fa98067ad61eb13ca086844810e152b",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": true,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch15-requirements-ontology/chapter.md",
+      "source_sha256": "dabef8fb71e9c49eb3ff45601181ede4987fde58b163c5d34e7dd828e776ce0c"
+    },
+    {
+      "asset_id": "positive-case",
+      "role": "case_positive",
+      "path": "positive-case.ttl",
+      "sha256": "ff9b8d002f0c1c7cbe6efdb7fcbbf271f92441ea9228844a38ef600f2a497885",
+      "format": "turtle",
+      "kind": "rdf",
+      "load_into_dataset": false,
+      "source_anchor": "ontology-engineering/references/product-trustworthiness-book/ch15-requirements-ontology/chapter.md",
+      "source_sha256": "dabef8fb71e9c49eb3ff45601181ede4987fde58b163c5d34e7dd828e776ce0c"
+    }
+  ]
+}

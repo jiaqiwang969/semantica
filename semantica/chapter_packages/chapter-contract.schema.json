@@ -1,0 +1,335 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://getsemantica.ai/schemas/chapter-package-contract-1.0.json",
+  "title": "Semantica chapter package contract",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "contract_id",
+    "package_id",
+    "package_version",
+    "volume",
+    "chapter",
+    "title",
+    "external_specification",
+    "status",
+    "claims",
+    "competency_question_ids",
+    "payload_status",
+    "lifecycle",
+    "release",
+    "receipt",
+    "truthfulness"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "contract_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "package_id": {
+      "type": "string",
+      "pattern": "^semantica\\.chapter_packages\\.vol[12]\\.ch[0-9]{2}$"
+    },
+    "package_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "volume": {
+      "enum": [
+        "vol1",
+        "vol2"
+      ]
+    },
+    "chapter": {
+      "type": "string",
+      "pattern": "^ch[0-9]{2}$"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "external_specification": {
+      "type": "object",
+      "required": [
+        "kind",
+        "stone",
+        "source_anchor",
+        "source_sha256"
+      ],
+      "properties": {
+        "kind": {
+          "const": "book"
+        },
+        "stone": {
+          "const": true
+        },
+        "source_anchor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "status": {
+      "enum": [
+        "native",
+        "adapter",
+        "partial",
+        "placeholder",
+        "absent"
+      ]
+    },
+    "claims": {
+      "type": "array",
+      "minItems": 1
+    },
+    "competency_question_ids": {
+      "type": "array",
+      "minItems": 1
+    },
+    "payload_status": {
+      "type": "object",
+      "required": [
+        "ontology",
+        "competency_questions",
+        "shapes",
+        "sparql",
+        "cases",
+        "engineering_rules",
+        "chapter_contract"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "ontology": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "competency_questions": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "shapes": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "sparql": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "cases": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "engineering_rules": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "chapter_contract": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "required": [
+        "load",
+        "query_validate_reason",
+        "version",
+        "provenance",
+        "release"
+      ],
+      "properties": {
+        "load": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "native",
+                "adapter",
+                "partial",
+                "placeholder",
+                "absent"
+              ]
+            }
+          }
+        },
+        "query_validate_reason": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "native",
+                "adapter",
+                "partial",
+                "placeholder",
+                "absent"
+              ]
+            }
+          }
+        },
+        "version": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "native",
+                "adapter",
+                "partial",
+                "placeholder",
+                "absent"
+              ]
+            }
+          }
+        },
+        "provenance": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "native",
+                "adapter",
+                "partial",
+                "placeholder",
+                "absent"
+              ]
+            }
+          }
+        },
+        "release": {
+          "type": "object",
+          "required": [
+            "status"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "native",
+                "adapter",
+                "partial",
+                "placeholder",
+                "absent"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "status",
+        "blocking_gaps"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "blocked",
+            "complete"
+          ]
+        },
+        "blocking_gaps": {
+          "type": "array"
+        }
+      }
+    },
+    "receipt": {
+      "type": "object",
+      "required": [
+        "status",
+        "required_fields",
+        "fields"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "native",
+            "adapter",
+            "partial",
+            "placeholder",
+            "absent"
+          ]
+        },
+        "required_fields": {
+          "type": "array",
+          "minItems": 8
+        },
+        "fields": {
+          "type": "object",
+          "required": [
+            "runtime_commit",
+            "runtime_artifact_sha256",
+            "chapter_contract_sha256",
+            "dataset_sha256",
+            "capability_report",
+            "cq_report",
+            "oracle_report",
+            "provenance_bundle"
+          ]
+        }
+      }
+    },
+    "truthfulness": {
+      "type": "object",
+      "required": [
+        "no_fallback",
+        "missing_assets_are_gaps",
+        "book_is_external_authority"
+      ]
+    }
+  }
+}
+

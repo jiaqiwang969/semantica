@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "package_id": "semantica.chapter_packages.vol1.ch01",
+  "competency_questions": [
+    {
+      "id": "OE-V1-CH01-CQ-001",
+      "question": "运行时能否报告本体的目的、范围、共同体和概念化边界？",
+      "claim_ids": [
+        "OE-V1-CH01-CLM-001"
+      ],
+      "scenario_ids": [
+        "OE-V1-CH01-SCN-001"
+      ],
+      "status": "absent"
+    }
+  ]
+}
+

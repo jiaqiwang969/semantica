@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "package_status": "partial",
+  "gaps": [
+    {
+      "id": "controlled-source-external",
+      "status": "intentional_boundary",
+      "blocks_release": true,
+      "description": "Exact normative text is not distributed; cards contain source-anchored Chinese glosses only."
+    },
+    {
+      "id": "execution-receipt-not-issued",
+      "status": "absent",
+      "blocks_release": true,
+      "description": "No content-bound execution receipt has yet been issued for this package.",
+      "stage": "release",
+      "mechanism_status": "native"
+    }
+  ]
+}

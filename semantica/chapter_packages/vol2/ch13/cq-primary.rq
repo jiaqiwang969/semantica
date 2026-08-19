@@ -1,0 +1,10 @@
+PREFIX gov: <https://product-trustworthiness.local/governance#>
+SELECT ?tooClose WHERE {
+  gov:MergeAnalysis_v2 gov:authoredBy ?a .
+  { ?a gov:memberOf ?g . gov:XiaoLin gov:memberOf ?g . BIND("同一队伍" AS ?tooClose) }
+  UNION
+  { ?a gov:reportsTo ?m . gov:XiaoLin gov:reportsTo ?m . BIND("同一上级" AS ?tooClose) }
+  UNION
+  { ?a gov:appraisedBy ?p . gov:XiaoLin gov:appraisedBy ?p . BIND("同一考核线" AS ?tooClose) }
+}
+ORDER BY ?tooClose

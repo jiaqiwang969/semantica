@@ -1,0 +1,5 @@
+@prefix id: <https://product-trustworthiness.local/identity#> .
+id:Unit_SN_000417 a id:PhysicalUnit .
+id:Model_EPS_ASSY a id:DesignModel .
+id:Alias_DUT_P07 id:aliasOf id:Model_EPS_ASSY ; id:evidence id:RigEntryForm .
+id:Alias_SN_000417 id:aliasOf id:Unit_SN_000417 ; id:evidence id:AssemblyRecord .

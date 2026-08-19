@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "policy": "../../policy.yaml",
+  "contract_id": "semantica.vol2.normative",
+  "package_id": "semantica.chapter_packages.vol2.normative",
+  "version": "0.1.0",
+  "title": "ISO 26262 source-anchored normative derived layer",
+  "status": "partial",
+  "source_boundary": "Chinese glosses/cards are derived views, not normative quotations; exact text remains in the separately controlled source ledger.",
+  "payload_status": {
+    "ontology": {
+      "status": "native",
+      "assets": [
+        "normative-tbox",
+        "part1-vocabulary",
+        "part3-concept-phase",
+        "teaching-cases"
+      ]
+    },
+    "competency_questions": {
+      "status": "native",
+      "asset_id": "cq-registry"
+    },
+    "shapes": {
+      "status": "native",
+      "asset_id": "demo_vol2_iso_normative_query_shapes"
+    },
+    "sparql": {
+      "status": "native",
+      "asset_id": "demo_vol2_iso_normative_query_query"
+    },
+    "cases": {
+      "status": "native",
+      "asset_id": "single-fault-negative"
+    },
+    "engineering_rules": {
+      "status": "native",
+      "asset_id": "demo_vol2_iso_normative_query_shapes"
+    },
+    "chapter_contract": {
+      "status": "native",
+      "asset_id": "chapter-contract"
+    }
+  },
+  "lifecycle": {
+    "load": {
+      "status": "native",
+      "api": "SemanticRuntime.load_package"
+    },
+    "query_validate_reason": {
+      "status": "native",
+      "gap": "Runtime query, ASK, SHACL, and limited forward-rule mechanisms are native; no normative inference profile is declared for this package.",
+      "apis": [
+        "SemanticRuntime.select",
+        "SemanticRuntime.ask",
+        "SemanticRuntime.validate",
+        "SemanticRuntime.reason (positive monotonic forward rules only)"
+      ],
+      "package_binding_status": "partial"
+    },
+    "version": {
+      "status": "native",
+      "apis": [
+        "SemanticRuntime.snapshot",
+        "SemanticRuntime.diff"
+      ],
+      "receipt_status": "absent",
+      "evidence": "Content-bound package identity and native dataset snapshot/diff are available; no execution receipt has yet been issued for this package."
+    },
+    "provenance": {
+      "status": "native",
+      "api": "SemanticRuntime.record_provenance",
+      "receipt_status": "absent",
+      "evidence": "Source and asset hashes are bound, and native PROV bundle generation is available; no execution receipt has yet been issued for this package."
+    },
+    "release": {
+      "status": "native",
+      "gap": "No content-bound execution receipt has yet been issued for this package.",
+      "apis": [
+        "SemanticRuntime.create_execution_receipt",
+        "SemanticRuntime.verify_release",
+        "SemanticPackageRunner.verify"
+      ],
+      "receipt_status": "absent",
+      "declared_release_status": "blocked"
+    }
+  },
+  "receipt": {
+    "status": "absent",
+    "required_fields": [
+      "runtime_commit",
+      "runtime_artifact_sha256",
+      "chapter_contract_sha256",
+      "dataset_sha256",
+      "capability_report",
+      "cq_report",
+      "oracle_report",
+      "provenance_bundle"
+    ],
+    "fields": {
+      "runtime_commit": null,
+      "runtime_artifact_sha256": null,
+      "chapter_contract_sha256": null,
+      "dataset_sha256": null,
+      "capability_report": null,
+      "cq_report": null,
+      "oracle_report": null,
+      "provenance_bundle": null
+    },
+    "gap": "No content-bound execution receipt has yet been issued for this package."
+  },
+  "release": {
+    "status": "blocked",
+    "blocking_gaps": [
+      "Controlled normative source extracts are intentionally external and must be consulted for exact wording.",
+      "No content-bound execution receipt has yet been issued for this package."
+    ]
+  }
+}
